@@ -1,0 +1,807 @@
+{
+  "garments": 47522,
+  "source_garments": 47522,
+  "garment_count_matches_source": true,
+  "garment_id_unique": true,
+  "components": {
+    "source_components": 67492,
+    "active": 67486,
+    "anomalous": 6,
+    "active_plus_anomalous_equals_source": true,
+    "anomalous_by_status": {
+      "zero_sum_component": 6
+    },
+    "tolerance": [
+      99.0,
+      101.0
+    ],
+    "max_abs_pct_sum_deviation_active": 1.0,
+    "active_not_exactly_100": 1,
+    "active_per_garment": {
+      "1": 31954,
+      "2": 12283,
+      "3": 2524,
+      "4": 526,
+      "5": 156,
+      "6": 54,
+      "7": 14,
+      "8": 11
+    },
+    "class_active": {
+      "surface_component": 47841,
+      "lining_component": 9580,
+      "panel_component": 1329,
+      "trim_component": 2641,
+      "pocket_component": 4708,
+      "filling_component": 844,
+      "other_component": 369,
+      "decoration_component": 174
+    }
+  },
+  "garments_without_active_component": 0,
+  "garments_with_anomalous_component": 6,
+  "fully_usable_garments": 47516,
+  "garments_with_unmapped_material": 61,
+  "garments_with_other_token": 314,
+  "split": {
+    "garments": {
+      "train": 33265,
+      "test": 7129,
+      "val": 7128
+    },
+    "parents": {
+      "test": 5386,
+      "train": 25126,
+      "val": 5348
+    },
+    "parent_leakage_count": 0
+  },
+  "distributions": {
+    "target_segment": {
+      "women": 25554,
+      "kids": 14655,
+      "men": 7051,
+      "baby": 262
+    },
+    "detail_category": {
+      "tshirt_polo": 5461,
+      "dresses": 4854,
+      "sweater_cardigan": 4378,
+      "shirt_blouse": 4125,
+      "trousers": 4116,
+      "outerwear_jacket": 2978,
+      "jeans": 2351,
+      "sweatshirt_hoodie": 2008,
+      "underwear_bottoms": 1926,
+      "shorts": 1805,
+      "skirts": 1765,
+      "socks_hosiery": 1678,
+      "set": 1345,
+      "swimwear": 1292,
+      "sleepwear_homewear": 1098,
+      "joggers": 1054,
+      "tank_camisole_vest": 1011,
+      "leggings": 985,
+      "top_generic": 890,
+      "bras_lingerie": 835,
+      "outerwear_coat": 638,
+      "outerwear_gilet": 562,
+      "jumpsuits_overalls": 367
+    }
+  },
+  "vocabulary": {
+    "fit_split": "train",
+    "min_count": 30,
+    "vocabulary_size": 24,
+    "n_train_garments": 33265,
+    "n_train_material_occurrences": 82876,
+    "train_unmapped_occurrences": 82,
+    "threshold_sweep": {
+      "1": 40,
+      "5": 34,
+      "10": 28,
+      "20": 24,
+      "30": 22,
+      "50": 20,
+      "100": 15,
+      "200": 12,
+      "500": 9
+    },
+    "tokens": [
+      "PAD",
+      "OTHER",
+      "polyester",
+      "cotton",
+      "elastane",
+      "nylon",
+      "viscose",
+      "wool",
+      "acrylic",
+      "linen",
+      "lyocell",
+      "elastomultiester",
+      "modal",
+      "cashmere",
+      "metallised_fibre",
+      "polyurethane",
+      "mohair",
+      "alpaca",
+      "cupro",
+      "silk",
+      "leather",
+      "acetate",
+      "down",
+      "feather"
+    ]
+  },
+  "vocabulary_counts_consistent_with_train_only_recount": true,
+  "other_token_rate_by_split": {
+    "test": {
+      "material_occurrences": 18019,
+      "other": 53,
+      "rate_pct": 0.2941,
+      "reasons": {
+        "unspecified_source_label": 9,
+        "unmapped_source_material": 21,
+        "rare_in_train": 21,
+        "unseen_in_train": 2
+      }
+    },
+    "train": {
+      "material_occurrences": 82876,
+      "other": 289,
+      "rate_pct": 0.3487,
+      "reasons": {
+        "unspecified_source_label": 48,
+        "unmapped_source_material": 82,
+        "rare_in_train": 159
+      }
+    },
+    "val": {
+      "material_occurrences": 17932,
+      "other": 40,
+      "rate_pct": 0.2231,
+      "reasons": {
+        "unspecified_source_label": 16,
+        "rare_in_train": 19,
+        "unmapped_source_material": 5
+      }
+    }
+  },
+  "vocab_count_table": [
+    {
+      "material_canonical": "polyester",
+      "material_family": "synthetic",
+      "train_occurrences": 23716,
+      "train_garments": 17907,
+      "ml_token": "polyester",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "cotton",
+      "material_family": "natural_plant",
+      "train_occurrences": 23530,
+      "train_garments": 19303,
+      "ml_token": "cotton",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "elastane",
+      "material_family": "synthetic",
+      "train_occurrences": 15362,
+      "train_garments": 13188,
+      "ml_token": "elastane",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "nylon",
+      "material_family": "synthetic",
+      "train_occurrences": 6675,
+      "train_garments": 5938,
+      "ml_token": "nylon",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "viscose",
+      "material_family": "regenerated_cellulosic",
+      "train_occurrences": 5555,
+      "train_garments": 5374,
+      "ml_token": "viscose",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "wool",
+      "material_family": "natural_animal",
+      "train_occurrences": 2235,
+      "train_garments": 2214,
+      "ml_token": "wool",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "acrylic",
+      "material_family": "synthetic",
+      "train_occurrences": 1771,
+      "train_garments": 1753,
+      "ml_token": "acrylic",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "linen",
+      "material_family": "natural_plant",
+      "train_occurrences": 1330,
+      "train_garments": 1320,
+      "ml_token": "linen",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "lyocell",
+      "material_family": "regenerated_cellulosic",
+      "train_occurrences": 661,
+      "train_garments": 650,
+      "ml_token": "lyocell",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "elastomultiester",
+      "material_family": "synthetic",
+      "train_occurrences": 361,
+      "train_garments": 311,
+      "ml_token": "elastomultiester",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "modal",
+      "material_family": "regenerated_cellulosic",
+      "train_occurrences": 280,
+      "train_garments": 280,
+      "ml_token": "modal",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "cashmere",
+      "material_family": "natural_animal",
+      "train_occurrences": 208,
+      "train_garments": 208,
+      "ml_token": "cashmere",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "metallised_fibre",
+      "material_family": "metal",
+      "train_occurrences": 181,
+      "train_garments": 176,
+      "ml_token": "metallised_fibre",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "polyurethane",
+      "material_family": "synthetic",
+      "train_occurrences": 174,
+      "train_garments": 167,
+      "ml_token": "polyurethane",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "mohair",
+      "material_family": "natural_animal",
+      "train_occurrences": 134,
+      "train_garments": 134,
+      "ml_token": "mohair",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "alpaca",
+      "material_family": "natural_animal",
+      "train_occurrences": 93,
+      "train_garments": 93,
+      "ml_token": "alpaca",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "cupro",
+      "material_family": "regenerated_cellulosic",
+      "train_occurrences": 84,
+      "train_garments": 76,
+      "ml_token": "cupro",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "silk",
+      "material_family": "natural_animal",
+      "train_occurrences": 68,
+      "train_garments": 68,
+      "ml_token": "silk",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "leather",
+      "material_family": "leather",
+      "train_occurrences": 58,
+      "train_garments": 58,
+      "ml_token": "leather",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "acetate",
+      "material_family": "regenerated_cellulosic",
+      "train_occurrences": 51,
+      "train_garments": 48,
+      "ml_token": "acetate",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "unspecified_material",
+      "material_family": "unknown",
+      "train_occurrences": 48,
+      "train_garments": 47,
+      "ml_token": "OTHER",
+      "token_reason": "unspecified_source_label"
+    },
+    {
+      "material_canonical": "down",
+      "material_family": "natural_animal",
+      "train_occurrences": 30,
+      "train_garments": 30,
+      "ml_token": "down",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "feather",
+      "material_family": "natural_animal",
+      "train_occurrences": 30,
+      "train_garments": 30,
+      "ml_token": "feather",
+      "token_reason": "in_vocab"
+    },
+    {
+      "material_canonical": "rubber",
+      "material_family": "other",
+      "train_occurrences": 22,
+      "train_garments": 22,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "tpu",
+      "material_family": "synthetic",
+      "train_occurrences": 22,
+      "train_garments": 22,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "elastodiene",
+      "material_family": "synthetic",
+      "train_occurrences": 19,
+      "train_garments": 19,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "modacrylic",
+      "material_family": "synthetic",
+      "train_occurrences": 19,
+      "train_garments": 19,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "pbt",
+      "material_family": "synthetic",
+      "train_occurrences": 14,
+      "train_garments": 14,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "suede",
+      "material_family": "leather",
+      "train_occurrences": 13,
+      "train_garments": 13,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "paper",
+      "material_family": "other",
+      "train_occurrences": 9,
+      "train_garments": 9,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "pctg",
+      "material_family": "synthetic",
+      "train_occurrences": 7,
+      "train_garments": 7,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "ramie",
+      "material_family": "natural_plant",
+      "train_occurrences": 7,
+      "train_garments": 7,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "polyethylene",
+      "material_family": "synthetic",
+      "train_occurrences": 6,
+      "train_garments": 6,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "polypropylene",
+      "material_family": "synthetic",
+      "train_occurrences": 6,
+      "train_garments": 5,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "polystyrene",
+      "material_family": "synthetic",
+      "train_occurrences": 5,
+      "train_garments": 5,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "brass",
+      "material_family": "metal",
+      "train_occurrences": 3,
+      "train_garments": 2,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "eva",
+      "material_family": "synthetic",
+      "train_occurrences": 2,
+      "train_garments": 2,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "resin",
+      "material_family": "other",
+      "train_occurrences": 2,
+      "train_garments": 2,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "abs",
+      "material_family": "synthetic",
+      "train_occurrences": 1,
+      "train_garments": 1,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "cellulose",
+      "material_family": "regenerated_cellulosic",
+      "train_occurrences": 1,
+      "train_garments": 1,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "wax",
+      "material_family": "other",
+      "train_occurrences": 1,
+      "train_garments": 1,
+      "ml_token": "OTHER",
+      "token_reason": "rare_in_train"
+    },
+    {
+      "material_canonical": "copper",
+      "material_family": "metal",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "glass",
+      "material_family": "other",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "hemp",
+      "material_family": "natural_plant",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "iron",
+      "material_family": "metal",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "jute",
+      "material_family": "natural_plant",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "latex",
+      "material_family": "other",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "mabs",
+      "material_family": "synthetic",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "metal",
+      "material_family": "metal",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "pearl",
+      "material_family": "other",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "pmma",
+      "material_family": "synthetic",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "polycarbonate",
+      "material_family": "synthetic",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "pom",
+      "material_family": "synthetic",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "ptfe",
+      "material_family": "synthetic",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "silicone",
+      "material_family": "other",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "steel",
+      "material_family": "metal",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "textile",
+      "material_family": "other",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "tpe",
+      "material_family": "synthetic",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "triacetate",
+      "material_family": "regenerated_cellulosic",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    },
+    {
+      "material_canonical": "zinc",
+      "material_family": "metal",
+      "train_occurrences": 0,
+      "train_garments": 0,
+      "ml_token": "OTHER",
+      "token_reason": "unseen_in_train"
+    }
+  ],
+  "text_evidence_tag_counts": {
+    "brushed": 3053,
+    "double_layer": 556,
+    "durable": 327,
+    "fleece": 496,
+    "heavyweight": 486,
+    "lamination": 12,
+    "moisture_wicking": 967,
+    "padded": 1764,
+    "quick_dry": 1812,
+    "reinforced": 391,
+    "ripstop": 46,
+    "thermal": 381,
+    "water_resistant": 697
+  },
+  "proxy_sanity": {
+    "stretch_bucket_counts_default_limits": {
+      "low": 4205,
+      "none": 30016,
+      "high": 13301
+    },
+    "garments_with_coating_component": 234
+  },
+  "capabilities": {
+    "dataset_categories": 23,
+    "capability_categories": 23,
+    "missing_in_capabilities": [],
+    "extra_in_capabilities": [],
+    "needs_review": [
+      "jumpsuits_overalls",
+      "set",
+      "sleepwear_homewear",
+      "swimwear",
+      "top_generic"
+    ],
+    "disabled_controls_per_category": {
+      "bras_lingerie": [
+        "durability_wear",
+        "fit",
+        "length_cut",
+        "moisture_wicking",
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "dresses": [
+        "durability_wear",
+        "moisture_wicking",
+        "water_repellent"
+      ],
+      "jeans": [
+        "moisture_wicking",
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "joggers": [
+        "water_repellent"
+      ],
+      "jumpsuits_overalls": [
+        "moisture_wicking",
+        "water_repellent"
+      ],
+      "leggings": [
+        "durability_wear",
+        "water_repellent"
+      ],
+      "outerwear_coat": [
+        "moisture_wicking",
+        "stretch"
+      ],
+      "outerwear_gilet": [
+        "length_cut",
+        "moisture_wicking",
+        "stretch"
+      ],
+      "outerwear_jacket": [
+        "moisture_wicking"
+      ],
+      "set": [
+        "durability_wear",
+        "length_cut",
+        "moisture_wicking",
+        "water_repellent"
+      ],
+      "shirt_blouse": [
+        "durability_wear",
+        "moisture_wicking",
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "shorts": [
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "skirts": [
+        "durability_wear",
+        "moisture_wicking",
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "sleepwear_homewear": [
+        "durability_wear",
+        "moisture_wicking",
+        "water_repellent"
+      ],
+      "socks_hosiery": [
+        "fit",
+        "length_cut",
+        "water_repellent"
+      ],
+      "sweater_cardigan": [
+        "durability_wear",
+        "moisture_wicking",
+        "water_repellent"
+      ],
+      "sweatshirt_hoodie": [
+        "durability_wear",
+        "moisture_wicking",
+        "water_repellent"
+      ],
+      "swimwear": [
+        "breathability",
+        "durability_wear",
+        "fit",
+        "length_cut",
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "tank_camisole_vest": [
+        "durability_wear",
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "top_generic": [
+        "durability_wear",
+        "water_repellent"
+      ],
+      "trousers": [
+        "moisture_wicking"
+      ],
+      "tshirt_polo": [
+        "durability_wear",
+        "thermal_warmth",
+        "water_repellent"
+      ],
+      "underwear_bottoms": [
+        "durability_wear",
+        "fit",
+        "length_cut",
+        "thermal_warmth",
+        "water_repellent"
+      ]
+    }
+  },
+  "representation_sha256": "238226c16350bbf66aeb9fa08648f7dce8b244fbb166071edc89fce89b45d5ef"
+}

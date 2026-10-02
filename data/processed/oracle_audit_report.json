@@ -1,0 +1,81 @@
+{
+  "n_garments": 47522,
+  "published_n": 47522,
+  "n_matches_published": true,
+  "all_counts_match": true,
+  "counts": {
+    "SR1": {
+      "computed": 17303,
+      "computed_share_pct": 36.41,
+      "published": 17303,
+      "published_share_pct": 36.41,
+      "diff": 0,
+      "match": true
+    },
+    "SR2": {
+      "computed": 9504,
+      "computed_share_pct": 20.0,
+      "published": 9504,
+      "published_share_pct": 20.0,
+      "diff": 0,
+      "match": true
+    },
+    "SR3": {
+      "computed": 8228,
+      "computed_share_pct": 17.31,
+      "published": 8228,
+      "published_share_pct": 17.31,
+      "diff": 0,
+      "match": true
+    },
+    "SR4": {
+      "computed": 6515,
+      "computed_share_pct": 13.71,
+      "published": 6515,
+      "published_share_pct": 13.71,
+      "diff": 0,
+      "match": true
+    },
+    "SR5": {
+      "computed": 3878,
+      "computed_share_pct": 8.16,
+      "published": 3878,
+      "published_share_pct": 8.16,
+      "diff": 0,
+      "match": true
+    },
+    "ANY": {
+      "computed": 23908,
+      "computed_share_pct": 50.31,
+      "published": 23908,
+      "published_share_pct": 50.31,
+      "diff": 0,
+      "match": true
+    }
+  },
+  "violation_count_distribution": {
+    "0": 23614,
+    "1": 10540,
+    "2": 6210,
+    "3": 6191,
+    "4": 940,
+    "5": 27
+  },
+  "sr1_reason_counts": {
+    "supported_mono": 17503,
+    "supported_binary": 12716,
+    "more_than_two_fibres": 9504,
+    "unsupported_binary": 7080,
+    "unsupported_mono": 719
+  },
+  "readable_component_source": {
+    "surface_component": 47048,
+    "first_component_fallback": 474
+  },
+  "sr5_surface_source": {
+    "surface_component": 46808,
+    "first_component_fallback": 474,
+    "surface_coating": 240
+  },
+  "note": "violation_count = number of triggered baseline rule indicators; not a circularity or recyclability score."
+}

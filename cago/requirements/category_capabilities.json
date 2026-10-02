@@ -1,0 +1,334 @@
+{
+  "version": 1,
+  "source": "derived from garments.parquet detail_category",
+  "always_available": [
+    "forbidden_materials",
+    "preferred_dominant_material",
+    "colour"
+  ],
+  "note": "Draft derived from dataset categories + design judgement; edit controls freely. A disabled control makes the request field ignored with a 'control_not_available' warning.",
+  "categories": {
+    "bras_lingerie": {
+      "parent_category": "underwear",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": false,
+        "length_cut": false
+      },
+      "needs_review": false
+    },
+    "dresses": {
+      "parent_category": "overall",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "jeans": {
+      "parent_category": "bottoms",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "joggers": {
+      "parent_category": "bottoms",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "jumpsuits_overalls": {
+      "parent_category": "overall",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": true
+    },
+    "leggings": {
+      "parent_category": "bottoms",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "outerwear_coat": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": false,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": false,
+        "water_repellent": true,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "outerwear_gilet": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": false,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": false,
+        "water_repellent": true,
+        "fit": true,
+        "length_cut": false
+      },
+      "needs_review": false
+    },
+    "outerwear_jacket": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": false,
+        "water_repellent": true,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "set": {
+      "parent_category": "overall",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": false
+      },
+      "needs_review": true
+    },
+    "shirt_blouse": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "shorts": {
+      "parent_category": "bottoms",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "skirts": {
+      "parent_category": "bottoms",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "sleepwear_homewear": {
+      "parent_category": "overall",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": true
+    },
+    "socks_hosiery": {
+      "parent_category": "underwear",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": false,
+        "length_cut": false
+      },
+      "needs_review": false
+    },
+    "sweater_cardigan": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "sweatshirt_hoodie": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": false,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "swimwear": {
+      "parent_category": "underwear",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": false,
+        "durability_wear": false,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": false,
+        "length_cut": false
+      },
+      "needs_review": true
+    },
+    "tank_camisole_vest": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "top_generic": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": true
+    },
+    "trousers": {
+      "parent_category": "bottoms",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": true,
+        "breathability": true,
+        "durability_wear": true,
+        "moisture_wicking": false,
+        "water_repellent": true,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "tshirt_polo": {
+      "parent_category": "tops",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": true,
+        "length_cut": true
+      },
+      "needs_review": false
+    },
+    "underwear_bottoms": {
+      "parent_category": "underwear",
+      "controls": {
+        "stretch": true,
+        "thermal_warmth": false,
+        "breathability": true,
+        "durability_wear": false,
+        "moisture_wicking": true,
+        "water_repellent": false,
+        "fit": false,
+        "length_cut": false
+      },
+      "needs_review": false
+    }
+  }
+}

@@ -1,0 +1,911 @@
+{
+  "input_file": "/home/claude/data/raw/6_JSONL_component_normalized_public.jsonl",
+  "counts": {
+    "garments": 47522,
+    "valid_json_records": 47522,
+    "malformed_json_lines": 0,
+    "blank_lines": 0,
+    "unique_parent_products": 35860,
+    "components": 67492,
+    "material_occurrences": 118833,
+    "duplicate_key_groups": 75,
+    "rows_in_duplicate_key_groups": 150,
+    "duplicate_extra_rows": 75
+  },
+  "malformed_json_examples": [],
+  "reference_comparison": {
+    "garments": {
+      "computed": 47522,
+      "previous_audit": 47522,
+      "abs_tolerance": 0,
+      "diff": 0,
+      "within_tolerance": true
+    },
+    "unique_parent_products": {
+      "computed": 35860,
+      "previous_audit": 35860,
+      "abs_tolerance": 0,
+      "diff": 0,
+      "within_tolerance": true
+    },
+    "exact_black_variants": {
+      "computed": 6515,
+      "previous_audit": 6515,
+      "abs_tolerance": 0,
+      "diff": 0,
+      "within_tolerance": true
+    },
+    "components": {
+      "computed": 67492,
+      "previous_audit": 67500,
+      "abs_tolerance": 50,
+      "diff": -8,
+      "within_tolerance": true
+    },
+    "material_occurrences": {
+      "computed": 118833,
+      "previous_audit": 118800,
+      "abs_tolerance": 50,
+      "diff": 33,
+      "within_tolerance": true
+    }
+  },
+  "parent_product_id": {
+    "ids_with_multiple_variants": 8367,
+    "max_variants_per_parent": 35,
+    "ids_spanning_multiple_urls": 7524,
+    "ids_spanning_multiple_brand_region": 7502
+  },
+  "missing_values": {
+    "garments": {
+      "raw_description_text": {
+        "null": 93,
+        "empty_string": 0
+      },
+      "raw_function_text": {
+        "null": 2577,
+        "empty_string": 0
+      }
+    },
+    "components": {},
+    "component_materials": {
+      "material_canonical": {
+        "null": 108,
+        "empty_string": 0
+      },
+      "recycled_pct": {
+        "null": 116785,
+        "empty_string": 0
+      }
+    }
+  },
+  "garments_with_missing_required_fields": 0,
+  "distributions": {
+    "brand": {
+      "hm": 41077,
+      "uniqlo": 6445
+    },
+    "region": {
+      "gb": 26839,
+      "au": 17063,
+      "uk": 3620
+    },
+    "gender_section": {
+      "women": 25554,
+      "kids": 14655,
+      "men": 7051,
+      "baby": 262
+    },
+    "parent_category": {
+      "tops": 22051,
+      "bottoms": 12076,
+      "overall": 7664,
+      "underwear": 5731
+    },
+    "detail_category": {
+      "tshirt_polo": 5461,
+      "dresses": 4854,
+      "sweater_cardigan": 4378,
+      "shirt_blouse": 4125,
+      "trousers": 4116,
+      "outerwear_jacket": 2978,
+      "jeans": 2351,
+      "sweatshirt_hoodie": 2008,
+      "underwear_bottoms": 1926,
+      "shorts": 1805,
+      "skirts": 1765,
+      "socks_hosiery": 1678,
+      "set": 1345,
+      "swimwear": 1292,
+      "sleepwear_homewear": 1098,
+      "joggers": 1054,
+      "tank_camisole_vest": 1011,
+      "leggings": 985,
+      "top_generic": 890,
+      "bras_lingerie": 835,
+      "outerwear_coat": 638,
+      "outerwear_gilet": 562,
+      "jumpsuits_overalls": 367
+    },
+    "composition_assignment_type": {
+      "native_variant_hm": 41077,
+      "shared_no_variants": 5688,
+      "mapped_by_colour_only": 280,
+      "mapped_by_id_only": 270,
+      "mapped_by_other_colours_default": 158,
+      "mapped_by_id_then_colour": 49
+    },
+    "components_per_garment": {
+      "1": 31954,
+      "2": 12277,
+      "3": 2530,
+      "4": 526,
+      "5": 156,
+      "6": 54,
+      "7": 14,
+      "8": 11
+    },
+    "component_class": {
+      "surface_component": 47847,
+      "lining_component": 9580,
+      "pocket_component": 4708,
+      "trim_component": 2641,
+      "panel_component": 1329,
+      "filling_component": 844,
+      "other_component": 369,
+      "decoration_component": 174
+    },
+    "component_name_normalized_top30": {
+      "main": 28787,
+      "shell": 16367,
+      "lining": 8337,
+      "pocket_lining": 4385,
+      "body": 2194,
+      "rib": 1064,
+      "padding": 643,
+      "lace": 518,
+      "cup_lining": 404,
+      "waist": 354,
+      "bottom_panel": 320,
+      "hood_lining": 267,
+      "coating": 240,
+      "top_panel": 222,
+      "back_panel": 205,
+      "sleeve_lining": 202,
+      "inner_layer": 190,
+      "mesh": 190,
+      "pocket": 189,
+      "collar": 176,
+      "crotch": 170,
+      "filling": 152,
+      "face": 139,
+      "front_panel": 120,
+      "body_lining": 118,
+      "base_fabric": 108,
+      "pocket_fabric": 106,
+      "binder_part": 100,
+      "cuff": 90,
+      "elastic_part": 87
+    },
+    "component_normalization_source": {
+      "exact_rule": 67492
+    },
+    "materials_per_component": {
+      "1": 29833,
+      "2": 27420,
+      "3": 7348,
+      "4": 2424,
+      "5": 384,
+      "6": 81,
+      "7": 2
+    }
+  },
+  "component_support_table_check": {
+    "available": true,
+    "distinct_pairs_in_data": 86,
+    "pairs_not_in_support_table": {}
+  },
+  "materials": {
+    "unique_material_raw": 64,
+    "unique_material_canonical": 42,
+    "mapping_status_counts": {
+      "mapped_source_canonical": 118456,
+      "mapped_manual_override": 269,
+      "unmapped": 108
+    },
+    "family_counts": {
+      "synthetic": 69202,
+      "natural_plant": 35586,
+      "regenerated_cellulosic": 9430,
+      "natural_animal": 4000,
+      "metal": 287,
+      "unknown": 181,
+      "leather": 102,
+      "other": 45
+    },
+    "manual_overrides_configured": {
+      "lyocell™ modal": "modal",
+      "lyocell™ lyocell": "lyocell",
+      "european linen™": "linen",
+      "european linen ™": "linen",
+      "australian wool": "wool",
+      "sheep leather": "leather",
+      "lamb leather": "leather",
+      "cow leather": "leather",
+      "goat leather": "leather",
+      "goat suede": "suede",
+      "polyethylene terephthalate": "polyester"
+    },
+    "manual_overrides_used": {
+      "lyocell™ modal": 119,
+      "australian wool": 59,
+      "sheep leather": 31,
+      "lamb leather": 20,
+      "cow leather": 10,
+      "goat suede": 9,
+      "european linen™": 7,
+      "polyethylene terephthalate": 5,
+      "lyocell™ lyocell": 3,
+      "european linen ™": 3,
+      "goat leather": 3
+    },
+    "all_materials": [
+      {
+        "material_raw": "polyester",
+        "material_canonical": "polyester",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 34011
+      },
+      {
+        "material_raw": "cotton",
+        "material_canonical": "cotton",
+        "material_family": "natural_plant",
+        "status": "mapped_source_canonical",
+        "count": 33690
+      },
+      {
+        "material_raw": "elastane",
+        "material_canonical": "elastane",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 22041
+      },
+      {
+        "material_raw": "nylon",
+        "material_canonical": "nylon",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 9712
+      },
+      {
+        "material_raw": "viscose",
+        "material_canonical": "viscose",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_source_canonical",
+        "count": 7902
+      },
+      {
+        "material_raw": "wool",
+        "material_canonical": "wool",
+        "material_family": "natural_animal",
+        "status": "mapped_source_canonical",
+        "count": 3164
+      },
+      {
+        "material_raw": "acrylic",
+        "material_canonical": "acrylic",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 2549
+      },
+      {
+        "material_raw": "linen",
+        "material_canonical": "linen",
+        "material_family": "natural_plant",
+        "status": "mapped_source_canonical",
+        "count": 1876
+      },
+      {
+        "material_raw": "lyocell",
+        "material_canonical": "lyocell",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_source_canonical",
+        "count": 945
+      },
+      {
+        "material_raw": "elastomultiester",
+        "material_canonical": "elastomultiester",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 500
+      },
+      {
+        "material_raw": "modal",
+        "material_canonical": "modal",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_source_canonical",
+        "count": 293
+      },
+      {
+        "material_raw": "metallised_fibre",
+        "material_canonical": "metallised_fibre",
+        "material_family": "metal",
+        "status": "mapped_source_canonical",
+        "count": 284
+      },
+      {
+        "material_raw": "cashmere",
+        "material_canonical": "cashmere",
+        "material_family": "natural_animal",
+        "status": "mapped_source_canonical",
+        "count": 274
+      },
+      {
+        "material_raw": "polyurethane",
+        "material_canonical": "polyurethane",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 259
+      },
+      {
+        "material_raw": "mohair",
+        "material_canonical": "mohair",
+        "material_family": "natural_animal",
+        "status": "mapped_source_canonical",
+        "count": 194
+      },
+      {
+        "material_raw": "alpaca",
+        "material_canonical": "alpaca",
+        "material_family": "natural_animal",
+        "status": "mapped_source_canonical",
+        "count": 129
+      },
+      {
+        "material_raw": "lyocell™ modal",
+        "material_canonical": "modal",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_manual_override",
+        "count": 119
+      },
+      {
+        "material_raw": "silk",
+        "material_canonical": "silk",
+        "material_family": "natural_animal",
+        "status": "mapped_source_canonical",
+        "count": 94
+      },
+      {
+        "material_raw": "cupro",
+        "material_canonical": "cupro",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_source_canonical",
+        "count": 87
+      },
+      {
+        "material_raw": "acetate",
+        "material_canonical": "acetate",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_source_canonical",
+        "count": 80
+      },
+      {
+        "material_raw": "unspecified_material",
+        "material_canonical": "unspecified_material",
+        "material_family": "unknown",
+        "status": "mapped_source_canonical",
+        "count": 73
+      },
+      {
+        "material_raw": "australian wool",
+        "material_canonical": "wool",
+        "material_family": "natural_animal",
+        "status": "mapped_manual_override",
+        "count": 59
+      },
+      {
+        "material_raw": "feather",
+        "material_canonical": "feather",
+        "material_family": "natural_animal",
+        "status": "mapped_source_canonical",
+        "count": 43
+      },
+      {
+        "material_raw": "down",
+        "material_canonical": "down",
+        "material_family": "natural_animal",
+        "status": "mapped_source_canonical",
+        "count": 43
+      },
+      {
+        "material_raw": "reprocessed feather",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 39
+      },
+      {
+        "material_raw": "reprocessed down",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 39
+      },
+      {
+        "material_raw": "sheep leather",
+        "material_canonical": "leather",
+        "material_family": "leather",
+        "status": "mapped_manual_override",
+        "count": 31
+      },
+      {
+        "material_raw": "elastodiene",
+        "material_canonical": "elastodiene",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 28
+      },
+      {
+        "material_raw": "rubber",
+        "material_canonical": "rubber",
+        "material_family": "other",
+        "status": "mapped_source_canonical",
+        "count": 27
+      },
+      {
+        "material_raw": "modacrylic",
+        "material_canonical": "modacrylic",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 24
+      },
+      {
+        "material_raw": "tpu",
+        "material_canonical": "tpu",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 23
+      },
+      {
+        "material_raw": "leather",
+        "material_canonical": "leather",
+        "material_family": "leather",
+        "status": "mapped_source_canonical",
+        "count": 21
+      },
+      {
+        "material_raw": "lamb leather",
+        "material_canonical": "leather",
+        "material_family": "leather",
+        "status": "mapped_manual_override",
+        "count": 20
+      },
+      {
+        "material_raw": "pbt",
+        "material_canonical": "pbt",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 17
+      },
+      {
+        "material_raw": "paper",
+        "material_canonical": "paper",
+        "material_family": "other",
+        "status": "mapped_source_canonical",
+        "count": 12
+      },
+      {
+        "material_raw": "ramie",
+        "material_canonical": "ramie",
+        "material_family": "natural_plant",
+        "status": "mapped_source_canonical",
+        "count": 10
+      },
+      {
+        "material_raw": "cow leather",
+        "material_canonical": "leather",
+        "material_family": "leather",
+        "status": "mapped_manual_override",
+        "count": 10
+      },
+      {
+        "material_raw": "pctg",
+        "material_canonical": "pctg",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 9
+      },
+      {
+        "material_raw": "goat suede",
+        "material_canonical": "suede",
+        "material_family": "leather",
+        "status": "mapped_manual_override",
+        "count": 9
+      },
+      {
+        "material_raw": "suede",
+        "material_canonical": "suede",
+        "material_family": "leather",
+        "status": "mapped_source_canonical",
+        "count": 8
+      },
+      {
+        "material_raw": "yak wool",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 8
+      },
+      {
+        "material_raw": "down - recycled down",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 7
+      },
+      {
+        "material_raw": "european linen™",
+        "material_canonical": "linen",
+        "material_family": "natural_plant",
+        "status": "mapped_manual_override",
+        "count": 7
+      },
+      {
+        "material_raw": "feather - recycled feather",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 7
+      },
+      {
+        "material_raw": "polyethylene",
+        "material_canonical": "polyethylene",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 7
+      },
+      {
+        "material_raw": "polypropylene",
+        "material_canonical": "polypropylene",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 7
+      },
+      {
+        "material_raw": "polyethylene terephthalate",
+        "material_canonical": "polyester",
+        "material_family": "synthetic",
+        "status": "mapped_manual_override",
+        "count": 5
+      },
+      {
+        "material_raw": "polystyrene",
+        "material_canonical": "polystyrene",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 5
+      },
+      {
+        "material_raw": "eva",
+        "material_canonical": "eva",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 4
+      },
+      {
+        "material_raw": "resin",
+        "material_canonical": "resin",
+        "material_family": "other",
+        "status": "mapped_source_canonical",
+        "count": 3
+      },
+      {
+        "material_raw": "goat leather",
+        "material_canonical": "leather",
+        "material_family": "leather",
+        "status": "mapped_manual_override",
+        "count": 3
+      },
+      {
+        "material_raw": "brass",
+        "material_canonical": "brass",
+        "material_family": "metal",
+        "status": "mapped_source_canonical",
+        "count": 3
+      },
+      {
+        "material_raw": "european linen ™",
+        "material_canonical": "linen",
+        "material_family": "natural_plant",
+        "status": "mapped_manual_override",
+        "count": 3
+      },
+      {
+        "material_raw": "lyocell™ lyocell",
+        "material_canonical": "lyocell",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_manual_override",
+        "count": 3
+      },
+      {
+        "material_raw": "polyester resin",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 2
+      },
+      {
+        "material_raw": "silicone",
+        "material_canonical": "silicone",
+        "material_family": "other",
+        "status": "mapped_source_canonical",
+        "count": 2
+      },
+      {
+        "material_raw": "polyester - metallised",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 2
+      },
+      {
+        "material_raw": "mdf",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 1
+      },
+      {
+        "material_raw": "cellulose",
+        "material_canonical": "cellulose",
+        "material_family": "regenerated_cellulosic",
+        "status": "mapped_source_canonical",
+        "count": 1
+      },
+      {
+        "material_raw": "abs",
+        "material_canonical": "abs",
+        "material_family": "synthetic",
+        "status": "mapped_source_canonical",
+        "count": 1
+      },
+      {
+        "material_raw": "polystyrene foam",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 1
+      },
+      {
+        "material_raw": "pine",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 1
+      },
+      {
+        "material_raw": "wax",
+        "material_canonical": "wax",
+        "material_family": "other",
+        "status": "mapped_source_canonical",
+        "count": 1
+      },
+      {
+        "material_raw": "zinc alloy",
+        "material_canonical": NaN,
+        "material_family": "unknown",
+        "status": "unmapped",
+        "count": 1
+      }
+    ],
+    "unmapped": [
+      {
+        "material_raw": "reprocessed down",
+        "status": "unmapped",
+        "n_occurrences": 39,
+        "n_garments": 39
+      },
+      {
+        "material_raw": "reprocessed feather",
+        "status": "unmapped",
+        "n_occurrences": 39,
+        "n_garments": 39
+      },
+      {
+        "material_raw": "yak wool",
+        "status": "unmapped",
+        "n_occurrences": 8,
+        "n_garments": 8
+      },
+      {
+        "material_raw": "down - recycled down",
+        "status": "unmapped",
+        "n_occurrences": 7,
+        "n_garments": 7
+      },
+      {
+        "material_raw": "feather - recycled feather",
+        "status": "unmapped",
+        "n_occurrences": 7,
+        "n_garments": 7
+      },
+      {
+        "material_raw": "polyester - metallised",
+        "status": "unmapped",
+        "n_occurrences": 2,
+        "n_garments": 2
+      },
+      {
+        "material_raw": "polyester resin",
+        "status": "unmapped",
+        "n_occurrences": 2,
+        "n_garments": 2
+      },
+      {
+        "material_raw": "mdf",
+        "status": "unmapped",
+        "n_occurrences": 1,
+        "n_garments": 1
+      },
+      {
+        "material_raw": "pine",
+        "status": "unmapped",
+        "n_occurrences": 1,
+        "n_garments": 1
+      },
+      {
+        "material_raw": "polystyrene foam",
+        "status": "unmapped",
+        "n_occurrences": 1,
+        "n_garments": 1
+      },
+      {
+        "material_raw": "zinc alloy",
+        "status": "unmapped",
+        "n_occurrences": 1,
+        "n_garments": 1
+      }
+    ]
+  },
+  "percentage_validation": {
+    "tolerance": [
+      99.0,
+      101.0
+    ],
+    "validation_status_counts": {
+      "valid": 67486,
+      "zero_sum_component": 6
+    },
+    "components_pct_valid": 67486,
+    "components_pct_invalid": 6,
+    "zero_sum_components": 6,
+    "source_flag_vs_calculated_pct_valid": {
+      "ok": {
+        "False": 6,
+        "True": 67486
+      }
+    },
+    "pct_sum_source_vs_calculated_mismatch_gt_0.01": 0,
+    "garments_with_any_invalid_component": 6,
+    "material_pct_status_counts": {
+      "ok": 118833
+    },
+    "pct_sum_calculated_min": 0.0,
+    "pct_sum_calculated_max": 100.0,
+    "out_of_tolerance_examples": [
+      {
+        "component_id": "c_adc5a6515d10178d",
+        "garment_id": "g_aac5b0f78e5b309a",
+        "component_name_raw": "Coating",
+        "pct_sum_calculated": 0.0,
+        "validation_status": "zero_sum_component"
+      },
+      {
+        "component_id": "c_40bf91f9d97fa2d6",
+        "garment_id": "g_0a74083e9c8f3bff",
+        "component_name_raw": "Coating",
+        "pct_sum_calculated": 0.0,
+        "validation_status": "zero_sum_component"
+      },
+      {
+        "component_id": "c_1d213958f51cc8d9",
+        "garment_id": "g_c0f05979e157b833",
+        "component_name_raw": "Coating",
+        "pct_sum_calculated": 0.0,
+        "validation_status": "zero_sum_component"
+      },
+      {
+        "component_id": "c_b584df2667624be2",
+        "garment_id": "g_aadb829c8479e33a",
+        "component_name_raw": "Coating",
+        "pct_sum_calculated": 0.0,
+        "validation_status": "zero_sum_component"
+      },
+      {
+        "component_id": "c_1577991e0f8545fb",
+        "garment_id": "g_ce60bef366f82497",
+        "component_name_raw": "Coating",
+        "pct_sum_calculated": 0.0,
+        "validation_status": "zero_sum_component"
+      },
+      {
+        "component_id": "c_6d79f02df0b3fc4f",
+        "garment_id": "g_4c5a37be95ce3289",
+        "component_name_raw": "Coating",
+        "pct_sum_calculated": 0.0,
+        "validation_status": "zero_sum_component"
+      }
+    ]
+  },
+  "recycled_content": {
+    "material_rows_with_recycled_pct": 2048,
+    "material_rows_recycled_pct_null": 116785,
+    "garments_with_recycled_info": 1666,
+    "garments_with_recycled_info_pct": 3.506,
+    "recycled_pct_zero_rows": 0,
+    "recycled_pct_greater_than_pct_rows": 1072,
+    "recycled_pct_status_counts": {
+      "missing": 116785,
+      "ok": 2048
+    }
+  },
+  "colours": {
+    "raw_cardinality": 5486,
+    "normalized_cardinality": 5332,
+    "exact_black_count": 6515,
+    "exact_black_percentage": 13.7094,
+    "exact_black_raw_spellings": {
+      "Black": 5360,
+      "BLACK": 1154,
+      "black": 1
+    },
+    "top_normalized_colours": {
+      "black": 6515,
+      "white": 2958,
+      "dark brown": 1676,
+      "cream": 1408,
+      "beige": 1342,
+      "light beige": 1155,
+      "navy blue": 948,
+      "blue": 925,
+      "dark grey": 923,
+      "brown": 835,
+      "denim blue": 736,
+      "navy": 698,
+      "pink": 617,
+      "grey": 586,
+      "light blue": 575,
+      "red": 562,
+      "off white": 522,
+      "light denim blue": 520,
+      "dark denim blue": 506,
+      "light pink": 490
+    }
+  },
+  "split": {
+    "seed": 42,
+    "ratios": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "method": "sha256-ordered parent groups, cut by cumulative garment-row share",
+    "rows": {
+      "train": 33265,
+      "test": 7129,
+      "val": 7128
+    },
+    "row_share": {
+      "train": 0.7,
+      "test": 0.15,
+      "val": 0.15
+    },
+    "parents": {
+      "test": 5386,
+      "train": 25126,
+      "val": 5348
+    },
+    "parent_leakage_count": 0
+  }
+}
