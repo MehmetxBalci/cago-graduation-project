@@ -77,16 +77,17 @@ def test_material_preference_validation():
 
 
 def test_soft_preferences_never_hard_fail():
-    r = ok(fit="skinny", stretch="none", breathability="high", water_repellent=True, colour="Black")
+    r = ok(fit="slim", stretch="none", breathability="high", water_repellent=True, colour="Black")
     assert r.ok and r.request["soft_preferences"]["colour"] == "black"
 
 
 # ---------------- conflicts
 def test_fit_stretch_conflict_warning():
-    r = ok(fit="skinny", stretch="none")
+    r = ok(fit="slim", stretch="none")                 # V1: slim also covers former skinny
     w = [x for x in r.warnings if x["code"] == "preference_conflict"]
-    assert w and set(w[0]["fields"]) == {"fit", "stretch"} and w[0]["severity"] == "strong"
-    assert not [x for x in ok(fit="skinny", stretch="high").warnings if x["code"] == "preference_conflict"]
+    assert w and set(w[0]["fields"]) == {"fit", "stretch"} and w[0]["severity"] == "mild"
+    assert not [x for x in ok(fit="slim", stretch="high").warnings if x["code"] == "preference_conflict"]
+    assert [x for x in ok(fit="oversized", stretch="high").warnings if x["code"] == "preference_conflict"]
     assert not [x for x in ok(fit="regular", stretch="none").warnings]
     assert any(x["code"] == "preference_conflict" for x in ok(stretch="high", forbidden_materials=["elastane"]).warnings)
 

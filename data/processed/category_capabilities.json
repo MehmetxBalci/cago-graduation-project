@@ -20,7 +20,45 @@
         "fit": false,
         "length_cut": false
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 20,
+            "parents": 17
+          },
+          "regular": {
+            "garments": 0,
+            "parents": 0
+          },
+          "relaxed": {
+            "garments": 2,
+            "parents": 1
+          },
+          "oversized": {
+            "garments": 0,
+            "parents": 0
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 15,
+            "parents": 8
+          },
+          "long": {
+            "garments": 0,
+            "parents": 0
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "disabled_by_design",
+        "length_cut": "disabled_by_design"
+      },
+      "fit_length_supported_labels": {
+        "fit": [],
+        "length_cut": []
+      }
     },
     "dresses": {
       "parent_category": "overall",
@@ -34,7 +72,51 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 1052,
+            "parents": 835
+          },
+          "regular": {
+            "garments": 1585,
+            "parents": 1278
+          },
+          "relaxed": {
+            "garments": 454,
+            "parents": 351
+          },
+          "oversized": {
+            "garments": 85,
+            "parents": 70
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 13,
+            "parents": 10
+          },
+          "long": {
+            "garments": 365,
+            "parents": 302
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "jeans": {
       "parent_category": "bottoms",
@@ -48,7 +130,51 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 489,
+            "parents": 391
+          },
+          "regular": {
+            "garments": 567,
+            "parents": 448
+          },
+          "relaxed": {
+            "garments": 611,
+            "parents": 492
+          },
+          "oversized": {
+            "garments": 32,
+            "parents": 27
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 23,
+            "parents": 18
+          },
+          "long": {
+            "garments": 1327,
+            "parents": 1080
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "joggers": {
       "parent_category": "bottoms",
@@ -62,7 +188,50 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 41,
+            "parents": 28
+          },
+          "regular": {
+            "garments": 448,
+            "parents": 354
+          },
+          "relaxed": {
+            "garments": 239,
+            "parents": 206
+          },
+          "oversized": {
+            "garments": 1,
+            "parents": 1
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 0,
+            "parents": 0
+          },
+          "long": {
+            "garments": 711,
+            "parents": 588
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "regular",
+          "relaxed"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "jumpsuits_overalls": {
       "parent_category": "overall",
@@ -76,7 +245,49 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": true
+      "needs_review": true,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 31,
+            "parents": 26
+          },
+          "regular": {
+            "garments": 120,
+            "parents": 103
+          },
+          "relaxed": {
+            "garments": 27,
+            "parents": 23
+          },
+          "oversized": {
+            "garments": 1,
+            "parents": 1
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 0,
+            "parents": 0
+          },
+          "long": {
+            "garments": 126,
+            "parents": 114
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "regular"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "leggings": {
       "parent_category": "bottoms",
@@ -90,7 +301,49 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 133,
+            "parents": 111
+          },
+          "regular": {
+            "garments": 36,
+            "parents": 33
+          },
+          "relaxed": {
+            "garments": 0,
+            "parents": 0
+          },
+          "oversized": {
+            "garments": 0,
+            "parents": 0
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 3,
+            "parents": 2
+          },
+          "long": {
+            "garments": 529,
+            "parents": 453
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "outerwear_coat": {
       "parent_category": "tops",
@@ -102,9 +355,50 @@
         "moisture_wicking": false,
         "water_repellent": true,
         "fit": true,
-        "length_cut": true
+        "length_cut": false
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 7,
+            "parents": 7
+          },
+          "regular": {
+            "garments": 186,
+            "parents": 145
+          },
+          "relaxed": {
+            "garments": 145,
+            "parents": 78
+          },
+          "oversized": {
+            "garments": 73,
+            "parents": 37
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 72,
+            "parents": 65
+          },
+          "long": {
+            "garments": 67,
+            "parents": 62
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "disabled_insufficient_train_support"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "regular",
+          "relaxed"
+        ],
+        "length_cut": []
+      }
     },
     "outerwear_gilet": {
       "parent_category": "tops",
@@ -118,7 +412,50 @@
         "fit": true,
         "length_cut": false
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 169,
+            "parents": 130
+          },
+          "regular": {
+            "garments": 196,
+            "parents": 157
+          },
+          "relaxed": {
+            "garments": 22,
+            "parents": 11
+          },
+          "oversized": {
+            "garments": 3,
+            "parents": 3
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 225,
+            "parents": 186
+          },
+          "long": {
+            "garments": 53,
+            "parents": 40
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "disabled_by_design"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular"
+        ],
+        "length_cut": [
+          "standard"
+        ]
+      }
     },
     "outerwear_jacket": {
       "parent_category": "tops",
@@ -132,7 +469,52 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 222,
+            "parents": 183
+          },
+          "regular": {
+            "garments": 1068,
+            "parents": 884
+          },
+          "relaxed": {
+            "garments": 404,
+            "parents": 306
+          },
+          "oversized": {
+            "garments": 243,
+            "parents": 191
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 1435,
+            "parents": 1218
+          },
+          "long": {
+            "garments": 90,
+            "parents": 76
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed",
+          "oversized"
+        ],
+        "length_cut": [
+          "standard"
+        ]
+      }
     },
     "set": {
       "parent_category": "overall",
@@ -143,10 +525,50 @@
         "durability_wear": false,
         "moisture_wicking": false,
         "water_repellent": false,
-        "fit": true,
+        "fit": false,
         "length_cut": false
       },
-      "needs_review": true
+      "needs_review": true,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 19,
+            "parents": 17
+          },
+          "regular": {
+            "garments": 84,
+            "parents": 78
+          },
+          "relaxed": {
+            "garments": 33,
+            "parents": 30
+          },
+          "oversized": {
+            "garments": 1,
+            "parents": 1
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 42,
+            "parents": 38
+          },
+          "long": {
+            "garments": 110,
+            "parents": 98
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "disabled_insufficient_train_support",
+        "length_cut": "disabled_by_design"
+      },
+      "fit_length_supported_labels": {
+        "fit": [],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "shirt_blouse": {
       "parent_category": "tops",
@@ -160,7 +582,53 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 466,
+            "parents": 354
+          },
+          "regular": {
+            "garments": 1333,
+            "parents": 1058
+          },
+          "relaxed": {
+            "garments": 678,
+            "parents": 509
+          },
+          "oversized": {
+            "garments": 323,
+            "parents": 234
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 2014,
+            "parents": 1690
+          },
+          "long": {
+            "garments": 216,
+            "parents": 182
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed",
+          "oversized"
+        ],
+        "length_cut": [
+          "standard",
+          "long"
+        ]
+      }
     },
     "shorts": {
       "parent_category": "bottoms",
@@ -172,9 +640,51 @@
         "moisture_wicking": true,
         "water_repellent": false,
         "fit": true,
-        "length_cut": true
+        "length_cut": false
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 140,
+            "parents": 116
+          },
+          "regular": {
+            "garments": 533,
+            "parents": 399
+          },
+          "relaxed": {
+            "garments": 449,
+            "parents": 338
+          },
+          "oversized": {
+            "garments": 2,
+            "parents": 1
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 0,
+            "parents": 0
+          },
+          "long": {
+            "garments": 3,
+            "parents": 2
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "disabled_insufficient_train_support"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed"
+        ],
+        "length_cut": []
+      }
     },
     "skirts": {
       "parent_category": "bottoms",
@@ -188,7 +698,51 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 242,
+            "parents": 200
+          },
+          "regular": {
+            "garments": 715,
+            "parents": 587
+          },
+          "relaxed": {
+            "garments": 159,
+            "parents": 125
+          },
+          "oversized": {
+            "garments": 0,
+            "parents": 0
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 0,
+            "parents": 0
+          },
+          "long": {
+            "garments": 123,
+            "parents": 103
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "sleepwear_homewear": {
       "parent_category": "overall",
@@ -202,7 +756,49 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": true
+      "needs_review": true,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 2,
+            "parents": 2
+          },
+          "regular": {
+            "garments": 158,
+            "parents": 144
+          },
+          "relaxed": {
+            "garments": 36,
+            "parents": 31
+          },
+          "oversized": {
+            "garments": 0,
+            "parents": 0
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 17,
+            "parents": 15
+          },
+          "long": {
+            "garments": 202,
+            "parents": 180
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "regular"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "socks_hosiery": {
       "parent_category": "underwear",
@@ -216,7 +812,45 @@
         "fit": false,
         "length_cut": false
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 14,
+            "parents": 13
+          },
+          "regular": {
+            "garments": 139,
+            "parents": 29
+          },
+          "relaxed": {
+            "garments": 44,
+            "parents": 8
+          },
+          "oversized": {
+            "garments": 0,
+            "parents": 0
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 4,
+            "parents": 3
+          },
+          "long": {
+            "garments": 62,
+            "parents": 57
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "disabled_by_design",
+        "length_cut": "disabled_by_design"
+      },
+      "fit_length_supported_labels": {
+        "fit": [],
+        "length_cut": []
+      }
     },
     "sweater_cardigan": {
       "parent_category": "tops",
@@ -230,7 +864,53 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 445,
+            "parents": 382
+          },
+          "regular": {
+            "garments": 1527,
+            "parents": 1234
+          },
+          "relaxed": {
+            "garments": 584,
+            "parents": 485
+          },
+          "oversized": {
+            "garments": 348,
+            "parents": 245
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 1939,
+            "parents": 1743
+          },
+          "long": {
+            "garments": 175,
+            "parents": 147
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed",
+          "oversized"
+        ],
+        "length_cut": [
+          "standard",
+          "long"
+        ]
+      }
     },
     "sweatshirt_hoodie": {
       "parent_category": "tops",
@@ -244,7 +924,51 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 9,
+            "parents": 8
+          },
+          "regular": {
+            "garments": 601,
+            "parents": 520
+          },
+          "relaxed": {
+            "garments": 463,
+            "parents": 403
+          },
+          "oversized": {
+            "garments": 261,
+            "parents": 234
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 1116,
+            "parents": 1034
+          },
+          "long": {
+            "garments": 43,
+            "parents": 41
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "regular",
+          "relaxed",
+          "oversized"
+        ],
+        "length_cut": [
+          "standard"
+        ]
+      }
     },
     "swimwear": {
       "parent_category": "underwear",
@@ -258,7 +982,45 @@
         "fit": false,
         "length_cut": false
       },
-      "needs_review": true
+      "needs_review": true,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 1,
+            "parents": 1
+          },
+          "regular": {
+            "garments": 9,
+            "parents": 9
+          },
+          "relaxed": {
+            "garments": 2,
+            "parents": 2
+          },
+          "oversized": {
+            "garments": 0,
+            "parents": 0
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 43,
+            "parents": 32
+          },
+          "long": {
+            "garments": 6,
+            "parents": 6
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "disabled_by_design",
+        "length_cut": "disabled_by_design"
+      },
+      "fit_length_supported_labels": {
+        "fit": [],
+        "length_cut": []
+      }
     },
     "tank_camisole_vest": {
       "parent_category": "tops",
@@ -272,7 +1034,50 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 322,
+            "parents": 266
+          },
+          "regular": {
+            "garments": 220,
+            "parents": 177
+          },
+          "relaxed": {
+            "garments": 38,
+            "parents": 29
+          },
+          "oversized": {
+            "garments": 1,
+            "parents": 1
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 406,
+            "parents": 338
+          },
+          "long": {
+            "garments": 13,
+            "parents": 13
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular"
+        ],
+        "length_cut": [
+          "standard"
+        ]
+      }
     },
     "top_generic": {
       "parent_category": "tops",
@@ -286,7 +1091,50 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": true
+      "needs_review": true,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 341,
+            "parents": 296
+          },
+          "regular": {
+            "garments": 208,
+            "parents": 173
+          },
+          "relaxed": {
+            "garments": 37,
+            "parents": 35
+          },
+          "oversized": {
+            "garments": 13,
+            "parents": 13
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 364,
+            "parents": 312
+          },
+          "long": {
+            "garments": 21,
+            "parents": 19
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular"
+        ],
+        "length_cut": [
+          "standard"
+        ]
+      }
     },
     "trousers": {
       "parent_category": "bottoms",
@@ -300,7 +1148,51 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 551,
+            "parents": 388
+          },
+          "regular": {
+            "garments": 960,
+            "parents": 709
+          },
+          "relaxed": {
+            "garments": 1264,
+            "parents": 948
+          },
+          "oversized": {
+            "garments": 11,
+            "parents": 11
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 14,
+            "parents": 12
+          },
+          "long": {
+            "garments": 2164,
+            "parents": 1789
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed"
+        ],
+        "length_cut": [
+          "long"
+        ]
+      }
     },
     "tshirt_polo": {
       "parent_category": "tops",
@@ -314,7 +1206,52 @@
         "fit": true,
         "length_cut": true
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 781,
+            "parents": 663
+          },
+          "regular": {
+            "garments": 1452,
+            "parents": 1168
+          },
+          "relaxed": {
+            "garments": 651,
+            "parents": 496
+          },
+          "oversized": {
+            "garments": 312,
+            "parents": 240
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 2608,
+            "parents": 2186
+          },
+          "long": {
+            "garments": 85,
+            "parents": 70
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "enabled",
+        "length_cut": "enabled"
+      },
+      "fit_length_supported_labels": {
+        "fit": [
+          "slim",
+          "regular",
+          "relaxed",
+          "oversized"
+        ],
+        "length_cut": [
+          "standard"
+        ]
+      }
     },
     "underwear_bottoms": {
       "parent_category": "underwear",
@@ -328,7 +1265,153 @@
         "fit": false,
         "length_cut": false
       },
-      "needs_review": false
+      "needs_review": false,
+      "fit_length_support_train": {
+        "fit": {
+          "slim": {
+            "garments": 31,
+            "parents": 25
+          },
+          "regular": {
+            "garments": 16,
+            "parents": 13
+          },
+          "relaxed": {
+            "garments": 3,
+            "parents": 1
+          },
+          "oversized": {
+            "garments": 0,
+            "parents": 0
+          }
+        },
+        "length_cut": {
+          "standard": {
+            "garments": 14,
+            "parents": 13
+          },
+          "long": {
+            "garments": 24,
+            "parents": 21
+          }
+        }
+      },
+      "control_decisions": {
+        "fit": "disabled_by_design",
+        "length_cut": "disabled_by_design"
+      },
+      "fit_length_supported_labels": {
+        "fit": [],
+        "length_cut": []
+      }
     }
+  },
+  "fit_length_v1": {
+    "basis": "TRAIN split only (val/test never used)",
+    "rule": "a control stays enabled only if previously enabled AND >=1 V1 label has >= min_garments train garments and >= min_parents distinct train parent products; disable-only; supported-but-disabled controls are listed for human review",
+    "thresholds": {
+      "min_garments": 100,
+      "min_parents": 50
+    },
+    "labels": {
+      "fit": [
+        "slim",
+        "regular",
+        "relaxed",
+        "oversized"
+      ],
+      "length_cut": [
+        "standard",
+        "long"
+      ]
+    },
+    "changes": [
+      {
+        "category": "outerwear_coat",
+        "control": "length_cut",
+        "from": true,
+        "to": false,
+        "train_support": {
+          "standard": {
+            "garments": 72,
+            "parents": 65
+          },
+          "long": {
+            "garments": 67,
+            "parents": 62
+          }
+        }
+      },
+      {
+        "category": "set",
+        "control": "fit",
+        "from": true,
+        "to": false,
+        "train_support": {
+          "slim": {
+            "garments": 19,
+            "parents": 17
+          },
+          "regular": {
+            "garments": 84,
+            "parents": 78
+          },
+          "relaxed": {
+            "garments": 33,
+            "parents": 30
+          },
+          "oversized": {
+            "garments": 1,
+            "parents": 1
+          }
+        }
+      },
+      {
+        "category": "shorts",
+        "control": "length_cut",
+        "from": true,
+        "to": false,
+        "train_support": {
+          "standard": {
+            "garments": 0,
+            "parents": 0
+          },
+          "long": {
+            "garments": 3,
+            "parents": 2
+          }
+        }
+      }
+    ],
+    "supported_but_disabled_by_design": [
+      {
+        "category": "outerwear_gilet",
+        "control": "length_cut",
+        "train_support": {
+          "standard": {
+            "garments": 225,
+            "parents": 186
+          },
+          "long": {
+            "garments": 53,
+            "parents": 40
+          }
+        }
+      },
+      {
+        "category": "set",
+        "control": "length_cut",
+        "train_support": {
+          "standard": {
+            "garments": 42,
+            "parents": 38
+          },
+          "long": {
+            "garments": 110,
+            "parents": 98
+          }
+        }
+      }
+    ]
   }
 }

@@ -9,6 +9,7 @@ from typing import Any
 import pandas as pd
 
 from cago.config.settings import PCT_TOLERANCE_HIGH, PCT_TOLERANCE_LOW
+from cago.representation.fit_length import evaluate_fit_length_v1
 from cago.representation.vocabulary import OTHER, token_for
 from cago.requirements.properties import extract_text_tags
 
@@ -79,8 +80,17 @@ def build_representation(garments: pd.DataFrame, components: pd.DataFrame, compo
             "has_unmapped_material": bool(has_unmapped), "has_other_token": bool(has_other),
             "text_evidence_tags": extract_text_tags(g.product_name, g.raw_description_text, g.raw_function_text),
             "components": active, "anomalous_components": anomalous,
+            **evaluate_fit_length_v1(g.product_name, g.raw_description_text, g.raw_function_text),
         })
     return pd.DataFrame(out)
+
+
+def fit_length_hash(rep: pd.DataFrame) -> str:
+    """sha256 over (garment_id, fit_label, length_label) for determinism checks of the V1 labels."""
+    h = hashlib.sha256()
+    for row in zip(rep["garment_id"], rep["fit_label"], rep["length_label"]):
+        h.update(json.dumps(list(row), ensure_ascii=False).encode("utf-8"))
+    return h.hexdigest()
 
 
 def representation_hash(rep: pd.DataFrame) -> str:

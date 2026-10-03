@@ -184,6 +184,103 @@ Counts consistent with independent train-only recount: True
 {"stretch_bucket_counts_default_limits": {"low": 4205, "none": 30016, "high": 13301}, "garments_with_coating_component": 234}
 ```
 
+## Fit / Length V1
+
+Vocabulary: {"fit": ["slim", "regular", "relaxed", "oversized"], "length": ["standard", "long"]}; capability basis: TRAIN split only (val/test never used)
+
+### fit
+
+| split | labeled | % of split | labeled parents | conflict | cross-source conflict | unlabeled w/ evidence (conflict/unmapped/unsupported) |
+|---|---|---|---|---|---|---|
+| train | 25744 | 77.391 | 20164 | 1 | 471 | 449 |
+| val | 5443 | 76.361 | 4226 | 1 | 101 | 68 |
+| test | 5395 | 75.677 | 4283 | 3 | 106 | 102 |
+
+| label | train | val | test |
+|---|---|---|---|
+| slim | 5528 (21.473%) | 1133 (20.816%) | 1119 (20.741%) |
+| regular | 12161 (47.238%) | 2620 (48.135%) | 2581 (47.841%) |
+| relaxed | 6345 (24.647%) | 1314 (24.141%) | 1296 (24.022%) |
+| oversized | 1710 (6.642%) | 376 (6.908%) | 399 (7.396%) |
+
+status counts: {"train": {"labeled_structured": 25605, "none": 7072, "structured_unmapped": 448, "labeled_phrase": 139, "structured_conflict": 1}, "val": {"labeled_structured": 5404, "none": 1617, "structured_unmapped": 67, "labeled_phrase": 39, "structured_conflict": 1}, "test": {"labeled_structured": 5354, "none": 1632, "structured_unmapped": 99, "labeled_phrase": 41, "structured_conflict": 3}}
+
+confidence: {"train": {"high": 25605, "<NULL>": 7521, "medium": 139}, "val": {"high": 5404, "<NULL>": 1685, "medium": 39}, "test": {"high": 5354, "<NULL>": 1734, "medium": 41}}
+
+merged: {"skinny->slim": {"train": {"labeled_with_merge_source": 175, "labeled_only_via_merge": 175}, "val": {"labeled_with_merge_source": 43, "labeled_only_via_merge": 43}, "test": {"labeled_with_merge_source": 35, "labeled_only_via_merge": 35}}, "loose->relaxed": {"train": {"labeled_with_merge_source": 4483, "labeled_only_via_merge": 4483}, "val": {"labeled_with_merge_source": 910, "labeled_only_via_merge": 910}, "test": {"labeled_with_merge_source": 901, "labeled_only_via_merge": 901}}}
+
+enabled-control coverage (labeled / garments, train | val | test):
+
+| category | train | val | test |
+|---|---|---|---|
+| dresses | 3176/3384 (93.853%) | 679/726 (93.526%) | 714/744 (95.968%) |
+| jeans | 1699/1723 (98.607%) | 305/305 (100.0%) | 318/323 (98.452%) |
+| joggers | 729/749 (97.33%) | 144/157 (91.72%) | 136/148 (91.892%) |
+| jumpsuits_overalls | 179/269 (66.543%) | 34/53 (64.151%) | 19/45 (42.222%) |
+| leggings | 169/645 (26.202%) | 38/167 (22.754%) | 37/173 (21.387%) |
+| outerwear_coat | 411/446 (92.152%) | 89/94 (94.681%) | 86/98 (87.755%) |
+| outerwear_gilet | 390/398 (97.99%) | 95/105 (90.476%) | 51/59 (86.441%) |
+| outerwear_jacket | 1937/2005 (96.608%) | 461/478 (96.444%) | 463/495 (93.535%) |
+| shirt_blouse | 2800/2922 (95.825%) | 579/608 (95.23%) | 588/595 (98.824%) |
+| shorts | 1124/1292 (86.997%) | 218/251 (86.853%) | 237/262 (90.458%) |
+| skirts | 1116/1231 (90.658%) | 243/263 (92.395%) | 253/271 (93.358%) |
+| sleepwear_homewear | 196/761 (25.756%) | 48/158 (30.38%) | 59/179 (32.961%) |
+| sweater_cardigan | 2904/3104 (93.557%) | 547/603 (90.713%) | 590/671 (87.928%) |
+| sweatshirt_hoodie | 1334/1383 (96.457%) | 295/308 (95.779%) | 309/317 (97.476%) |
+| tank_camisole_vest | 581/692 (83.96%) | 157/176 (89.205%) | 132/143 (92.308%) |
+| top_generic | 599/617 (97.083%) | 134/137 (97.81%) | 130/136 (95.588%) |
+| trousers | 2786/2916 (95.542%) | 588/606 (97.03%) | 562/594 (94.613%) |
+| tshirt_polo | 3196/3856 (82.884%) | 717/816 (87.868%) | 636/789 (80.608%) |
+
+disabled controls: {"bras_lingerie": "disabled_by_design", "set": "disabled_insufficient_train_support", "socks_hosiery": "disabled_by_design", "swimwear": "disabled_by_design", "underwear_bottoms": "disabled_by_design"}
+
+### length
+
+| split | labeled | % of split | labeled parents | conflict | cross-source conflict | unlabeled w/ evidence (conflict/unmapped/unsupported) |
+|---|---|---|---|---|---|---|
+| train | 16882 | 50.75 | 14191 | 1061 | 323 | 8914 |
+| val | 3523 | 49.425 | 2960 | 210 | 64 | 1932 |
+| test | 3585 | 50.288 | 3015 | 249 | 48 | 2001 |
+
+| label | train | val | test |
+|---|---|---|---|
+| standard | 10367 (61.409%) | 2209 (62.702%) | 2182 (60.865%) |
+| long | 6515 (38.591%) | 1314 (37.298%) | 1403 (39.135%) |
+
+status counts: {"train": {"labeled_structured": 16872, "structured_unmapped": 7585, "none": 7469, "structured_conflict": 1061, "structured_unsupported_v1": 233, "phrase_unsupported_v1": 35, "labeled_phrase": 10}, "val": {"labeled_structured": 3523, "none": 1673, "structured_unmapped": 1661, "structured_conflict": 210, "structured_unsupported_v1": 59, "phrase_unsupported_v1": 2}, "test": {"labeled_structured": 3585, "structured_unmapped": 1660, "none": 1543, "structured_conflict": 249, "structured_unsupported_v1": 58, "phrase_unsupported_v1": 34}}
+
+confidence: {"train": {"high": 16872, "<NULL>": 16383, "medium": 10}, "val": {"<NULL>": 3605, "high": 3523}, "test": {"high": 3585, "<NULL>": 3544}}
+
+merged: {}
+
+excluded from V1: {"cropped": {"train": 316, "val": 83, "test": 105}}
+
+enabled-control coverage (labeled / garments, train | val | test):
+
+| category | train | val | test |
+|---|---|---|---|
+| dresses | 378/3384 (11.17%) | 86/726 (11.846%) | 69/744 (9.274%) |
+| jeans | 1350/1723 (78.352%) | 225/305 (73.77%) | 257/323 (79.567%) |
+| joggers | 711/749 (94.927%) | 144/157 (91.72%) | 132/148 (89.189%) |
+| jumpsuits_overalls | 126/269 (46.84%) | 37/53 (69.811%) | 22/45 (48.889%) |
+| leggings | 532/645 (82.481%) | 120/167 (71.856%) | 144/173 (83.237%) |
+| outerwear_jacket | 1525/2005 (76.06%) | 326/478 (68.201%) | 359/495 (72.525%) |
+| shirt_blouse | 2230/2922 (76.318%) | 459/608 (75.493%) | 464/595 (77.983%) |
+| skirts | 123/1231 (9.992%) | 28/263 (10.646%) | 23/271 (8.487%) |
+| sleepwear_homewear | 219/761 (28.778%) | 38/158 (24.051%) | 70/179 (39.106%) |
+| sweater_cardigan | 2114/3104 (68.106%) | 414/603 (68.657%) | 431/671 (64.232%) |
+| sweatshirt_hoodie | 1159/1383 (83.803%) | 244/308 (79.221%) | 259/317 (81.703%) |
+| tank_camisole_vest | 419/692 (60.549%) | 118/176 (67.045%) | 100/143 (69.93%) |
+| top_generic | 385/617 (62.399%) | 96/137 (70.073%) | 93/136 (68.382%) |
+| trousers | 2178/2916 (74.691%) | 447/606 (73.762%) | 470/594 (79.125%) |
+| tshirt_polo | 2693/3856 (69.839%) | 573/816 (70.221%) | 552/789 (69.962%) |
+
+disabled controls: {"bras_lingerie": "disabled_by_design", "outerwear_coat": "disabled_insufficient_train_support", "outerwear_gilet": "disabled_by_design", "set": "disabled_by_design", "shorts": "disabled_insufficient_train_support", "socks_hosiery": "disabled_by_design", "swimwear": "disabled_by_design", "underwear_bottoms": "disabled_by_design"}
+
+capability changes: [["outerwear_coat", "length_cut"], ["set", "fit"], ["shorts", "length_cut"]]
+
+supported but disabled by design (review): [["outerwear_gilet", "length_cut"], ["set", "length_cut"]]
+
 ## Capabilities
 
 ```json

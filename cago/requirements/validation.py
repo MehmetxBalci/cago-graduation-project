@@ -14,8 +14,8 @@ from cago.preprocessing.colours import normalize_colour
 from cago.preprocessing.materials import material_key
 from cago.requirements.capabilities import controls_for, load_capabilities
 from cago.requirements.conflicts import detect_conflicts
-from cago.requirements.schema import (ALL_FIELDS, CAPABILITY_FIELDS, ENUMS, REQUIRED_FIELDS, SOFT_FIELDS,
-                                      TRUE_ONLY_FIELDS, Issue, RequirementResult)
+from cago.requirements.schema import (ALL_FIELDS, CAPABILITY_FIELDS, ENUMS, REMOVED_V1_VALUES, REQUIRED_FIELDS,
+                                      SOFT_FIELDS, TRUE_ONLY_FIELDS, Issue, RequirementResult)
 
 
 @dataclass
@@ -82,7 +82,12 @@ def validate_request(raw: Any, ctx: RequirementContext) -> RequirementResult:
         v = raw.get(f_)
         if v is None:
             continue
-        if not isinstance(v, str) or v.strip().casefold() not in allowed:
+        removed = REMOVED_V1_VALUES.get(f_, {})
+        if isinstance(v, str) and v.strip().casefold() in removed:
+            hint = removed[v.strip().casefold()]
+            _err(errors, "removed_in_v1", f_, f"{v!r} was removed in V1" + (f"; use {hint!r}" if hint else "")
+                 + f" (allowed: {list(allowed)})")
+        elif not isinstance(v, str) or v.strip().casefold() not in allowed:
             _err(errors, "invalid_value", f_, f"{v!r} is not one of {list(allowed)} (use null for no preference)")
         else:
             soft[f_] = v.strip().casefold()

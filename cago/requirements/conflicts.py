@@ -5,8 +5,7 @@ from typing import Any
 
 # fit -> stretch -> compatibility in [-1, 1]. <0 triggers a 'preference_conflict' warning.
 FIT_STRETCH_COMPAT: dict[str, dict[str, float]] = {
-    "skinny":    {"high": 1.0, "low": 0.3, "none": -1.0},
-    "slim":      {"high": 1.0, "low": 1.0, "none": -0.3},
+    "slim":      {"high": 1.0, "low": 1.0, "none": -0.3},   # V1 slim also covers former skinny
     "regular":   {"high": 0.0, "low": 0.0, "none": 0.0},
     "relaxed":   {"none": 1.0, "low": 0.5, "high": -0.5},
     "oversized": {"none": 1.0, "low": 0.5, "high": -0.5},

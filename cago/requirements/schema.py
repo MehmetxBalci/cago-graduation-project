@@ -4,6 +4,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from cago.config.fit_length_v1 import FIT_LABELS_V1, LENGTH_LABELS_V1, REMOVED_V1_VALUES  # noqa: F401
+
 REQUIRED_FIELDS = ("target_segment", "detail_category")  # values: source gender_section (women/men/kids/baby)
 HARD_FIELDS = ("forbidden_materials",)
 FUNCTIONAL_FIELDS = ("stretch", "thermal_warmth", "breathability", "durability_wear",
@@ -19,8 +21,8 @@ ENUMS: dict[str, tuple[str, ...]] = {
     "thermal_warmth": ("light", "standard", "heavy"),
     "breathability": ("standard", "high"),
     "durability_wear": ("standard", "reinforced"),
-    "fit": ("skinny", "slim", "regular", "relaxed", "oversized"),
-    "length_cut": ("cropped", "standard", "long"),
+    "fit": FIT_LABELS_V1,              # V1: skinny -> slim, loose -> relaxed (merged upstream; rejected here)
+    "length_cut": LENGTH_LABELS_V1,    # V1: cropped removed
 }
 TRUE_ONLY_FIELDS = ("moisture_wicking", "water_repellent")   # allowed values: True or None
 

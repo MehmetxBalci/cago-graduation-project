@@ -82,3 +82,85 @@ def coverage_report(caps: dict[str, Any], dataset_categories: Iterable[str]) -> 
     ds, cp = set(dataset_categories), set(caps.get("categories", {}))
     return {"dataset_categories": len(ds), "capability_categories": len(cp),
             "missing_in_capabilities": sorted(ds - cp), "extra_in_capabilities": sorted(cp - ds)}
+
+
+# ---------------------------------------------------------------- TRAIN-evidence revision (Fit/Length V1)
+def fit_length_support(rep) -> dict[str, dict[str, dict[str, dict[str, int]]]]:
+    """TRAIN-only support: {detail_category: {control: {label: {garments, parents}}}} for the V1 labels.
+
+    `rep` needs columns split, detail_category, parent_product_id, fit_label, length_label. VAL/TEST rows are ignored.
+    """
+    from cago.config.fit_length_v1 import CONTROL_LABEL_COLUMN, CONTROL_LABELS
+    tr = rep[rep["split"] == "train"]
+    out: dict[str, dict[str, dict[str, dict[str, int]]]] = {}
+    for cat in sorted(rep["detail_category"].dropna().unique()):
+        sub = tr[tr["detail_category"] == cat]
+        out[cat] = {}
+        for ctrl, labels in CONTROL_LABELS.items():
+            col = CONTROL_LABEL_COLUMN[ctrl]
+            out[cat][ctrl] = {lab: {"garments": int((sub[col] == lab).sum()),
+                                    "parents": int(sub.loc[sub[col] == lab, "parent_product_id"].nunique())}
+                              for lab in labels}
+    return out
+
+
+def is_supported(label_support: dict[str, dict[str, int]], min_garments: int | None = None,
+                 min_parents: int | None = None) -> bool:
+    from cago.config.fit_length_v1 import MIN_CATEGORY_TRAIN_GARMENTS, MIN_CATEGORY_TRAIN_PARENTS
+    mg = MIN_CATEGORY_TRAIN_GARMENTS if min_garments is None else min_garments
+    mp = MIN_CATEGORY_TRAIN_PARENTS if min_parents is None else min_parents
+    return any(v["garments"] >= mg and v["parents"] >= mp for v in label_support.values())
+
+
+def revise_capabilities(caps: dict[str, Any], support: dict[str, Any], min_garments: int | None = None,
+                        min_parents: int | None = None) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Disable `fit` / `length_cut` where TRAIN support is insufficient (disable-only, idempotent).
+
+    A control stays enabled only if it was enabled AND >=1 V1 label has the minimum TRAIN support. Controls that
+    are disabled by design but have support are listed for human review and are NOT auto-enabled.
+    """
+    import copy
+    from cago.config.fit_length_v1 import (CONTROL_LABELS, FIT_LABELS_V1, LENGTH_LABELS_V1, MIN_CATEGORY_TRAIN_GARMENTS,
+                                           MIN_CATEGORY_TRAIN_PARENTS)
+    mg = MIN_CATEGORY_TRAIN_GARMENTS if min_garments is None else min_garments
+    mp = MIN_CATEGORY_TRAIN_PARENTS if min_parents is None else min_parents
+    new = copy.deepcopy(caps)
+    changes: list[dict[str, Any]] = []
+    review: list[dict[str, Any]] = []
+    for cat, entry in new["categories"].items():
+        sup = support.get(cat, {})
+        entry["fit_length_support_train"] = {c: sup.get(c, {l: {"garments": 0, "parents": 0} for l in CONTROL_LABELS[c]})
+                                             for c in CONTROL_LABELS}
+        entry["fit_length_supported_labels"] = {      # informational (not enforced): labels meeting the TRAIN thresholds
+            ctrl: [l for l, v in entry["fit_length_support_train"][ctrl].items()
+                   if v["garments"] >= mg and v["parents"] >= mp] for ctrl in CONTROL_LABELS}
+        decisions = entry.setdefault("control_decisions", {})
+        for ctrl in CONTROL_LABELS:
+            supported = is_supported(entry["fit_length_support_train"][ctrl], mg, mp)
+            on = entry["controls"].get(ctrl, False)
+            if on and supported:
+                decisions[ctrl] = "enabled"
+            elif on:
+                entry["controls"][ctrl] = False
+                decisions[ctrl] = "disabled_insufficient_train_support"
+                changes.append({"category": cat, "control": ctrl, "from": True, "to": False,
+                                "train_support": entry["fit_length_support_train"][ctrl]})
+            else:
+                decisions[ctrl] = decisions.get(ctrl) if decisions.get(ctrl) == "disabled_insufficient_train_support" \
+                    else "disabled_by_design"
+                if supported and decisions[ctrl] == "disabled_by_design":
+                    review.append({"category": cat, "control": ctrl, "train_support": entry["fit_length_support_train"][ctrl]})
+    prev = {(c["category"], c["control"]): c for c in caps.get("fit_length_v1", {}).get("changes", [])}
+    for c in changes:
+        prev[(c["category"], c["control"])] = c
+    new["fit_length_v1"] = {
+        "basis": "TRAIN split only (val/test never used)",
+        "rule": "a control stays enabled only if previously enabled AND >=1 V1 label has >= min_garments train garments "
+                "and >= min_parents distinct train parent products; disable-only; supported-but-disabled controls are "
+                "listed for human review",
+        "thresholds": {"min_garments": mg, "min_parents": mp},
+        "labels": {"fit": list(FIT_LABELS_V1), "length_cut": list(LENGTH_LABELS_V1)},
+        "changes": sorted(prev.values(), key=lambda c: (c["category"], c["control"])),
+        "supported_but_disabled_by_design": review,
+    }
+    return new, changes
