@@ -1,0 +1,3114 @@
+{
+  "garments": 47522,
+  "split_garments": {
+    "train": 33265,
+    "val": 7128,
+    "test": 7129
+  },
+  "split_parents": {
+    "train": 25126,
+    "val": 5348,
+    "test": 5386
+  },
+  "statistics_basis": "TRAIN (patterns, support decisions); VAL/TEST reported separately",
+  "thresholds": {
+    "min_train_garments": 500,
+    "min_train_parents": 200,
+    "min_val_test_garments_each": 50,
+    "min_category_train_garments": 100
+  },
+  "leakage": {
+    "parents_in_multiple_splits": 0,
+    "parent_leakage": false,
+    "train_parents_with_inconsistent_labels_across_variants": {
+      "fit": 0,
+      "length": 0
+    }
+  },
+  "dimensions": {
+    "fit": {
+      "any_strong_evidence": {
+        "train": {
+          "garments": 26191,
+          "parents": 20290,
+          "share_of_split_pct": 78.734
+        },
+        "val": {
+          "garments": 5511,
+          "parents": 4249,
+          "share_of_split_pct": 77.315
+        },
+        "test": {
+          "garments": 5497,
+          "parents": 4318,
+          "share_of_split_pct": 77.108
+        }
+      },
+      "labeled": {
+        "train": {
+          "garments": 21261,
+          "parents": 16552,
+          "share_of_split_pct": 63.914
+        },
+        "val": {
+          "garments": 4533,
+          "parents": 3489,
+          "share_of_split_pct": 63.594
+        },
+        "test": {
+          "garments": 4494,
+          "parents": 3536,
+          "share_of_split_pct": 63.038
+        }
+      },
+      "any_weak_term_only": {
+        "train": {
+          "garments": 2531,
+          "parents": 1918,
+          "share_of_split_pct": 7.609
+        },
+        "val": {
+          "garments": 567,
+          "parents": 428,
+          "share_of_split_pct": 7.955
+        },
+        "test": {
+          "garments": 617,
+          "parents": 429,
+          "share_of_split_pct": 8.655
+        }
+      },
+      "status_counts": {
+        "train": {
+          "labeled_structured": 21124,
+          "none": 7074,
+          "structured_unmapped": 4929,
+          "labeled_phrase": 137,
+          "structured_conflict": 1
+        },
+        "val": {
+          "labeled_structured": 4494,
+          "none": 1617,
+          "structured_unmapped": 977,
+          "labeled_phrase": 39,
+          "structured_conflict": 1
+        },
+        "test": {
+          "labeled_structured": 4453,
+          "none": 1632,
+          "structured_unmapped": 1000,
+          "labeled_phrase": 41,
+          "structured_conflict": 3
+        }
+      },
+      "cross_source_conflicts": {
+        "train": {
+          "garments": 339,
+          "parents": 288,
+          "share_of_split_pct": 1.019
+        },
+        "val": {
+          "garments": 74,
+          "parents": 62,
+          "share_of_split_pct": 1.038
+        },
+        "test": {
+          "garments": 77,
+          "parents": 58,
+          "share_of_split_pct": 1.08
+        }
+      },
+      "conflict_label_combinations_train": {
+        "skinny+unmapped:loose fit": 1
+      },
+      "unmapped_structured_values_train": {
+        "loose fit": 4346,
+        "very fitted": 231,
+        "fitted": 150,
+        "loose": 136,
+        "muscle fit": 36,
+        "fit-and-flare": 11,
+        "very relaxed": 11,
+        "compression fit": 5,
+        "tight": 4
+      },
+      "top_raw_matches_train": {
+        "structured:fit:regular fit": 11216,
+        "structured:fit:slim fit": 5190,
+        "structured:fit:loose fit": 4346,
+        "phrase:description:regular": 2269,
+        "structured:fit:oversized": 1693,
+        "phrase:description:slim": 1259,
+        "structured:fit:relaxed fit": 1205,
+        "phrase:description:relaxed": 1055,
+        "name_term:name:oversized": 995,
+        "phrase:name:regular": 941,
+        "structured:fit:regular": 899,
+        "structured:fit:relaxed": 656,
+        "phrase:name:slim": 539,
+        "phrase:name:relaxed": 368,
+        "structured:fit:very fitted": 231,
+        "phrase:description:oversized": 210,
+        "structured:fit:skinny fit": 158,
+        "phrase:name:oversized": 152,
+        "structured:fit:fitted": 150,
+        "structured:fit:loose": 136,
+        "structured:fit:slim": 96,
+        "phrase:description:skinny": 73,
+        "structured:fit:muscle fit": 36,
+        "phrase:name:skinny": 20,
+        "structured:fit:skinny": 14
+      },
+      "labels": {
+        "skinny": {
+          "per_split": {
+            "train": {
+              "garments": 175,
+              "parents": 144,
+              "share_of_split_pct": 0.526
+            },
+            "val": {
+              "garments": 43,
+              "parents": 33,
+              "share_of_split_pct": 0.603
+            },
+            "test": {
+              "garments": 35,
+              "parents": 33,
+              "share_of_split_pct": 0.491
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 172,
+              "val": 43,
+              "test": 33
+            },
+            "phrase": {
+              "train": 3,
+              "val": 0,
+              "test": 2
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 0.823,
+            "val": 0.949,
+            "test": 0.779
+          },
+          "weak_term_only_train_garments": 3
+        },
+        "slim": {
+          "per_split": {
+            "train": {
+              "garments": 5353,
+              "parents": 4286,
+              "share_of_split_pct": 16.092
+            },
+            "val": {
+              "garments": 1090,
+              "parents": 865,
+              "share_of_split_pct": 15.292
+            },
+            "test": {
+              "garments": 1084,
+              "parents": 880,
+              "share_of_split_pct": 15.205
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 5286,
+              "val": 1078,
+              "test": 1070
+            },
+            "phrase": {
+              "train": 67,
+              "val": 12,
+              "test": 14
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 25.178,
+            "val": 24.046,
+            "test": 24.121
+          },
+          "weak_term_only_train_garments": 215
+        },
+        "regular": {
+          "per_split": {
+            "train": {
+              "garments": 12161,
+              "parents": 9588,
+              "share_of_split_pct": 36.558
+            },
+            "val": {
+              "garments": 2620,
+              "parents": 2024,
+              "share_of_split_pct": 36.756
+            },
+            "test": {
+              "garments": 2581,
+              "parents": 2055,
+              "share_of_split_pct": 36.204
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 12115,
+              "val": 2595,
+              "test": 2566
+            },
+            "phrase": {
+              "train": 46,
+              "val": 25,
+              "test": 15
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 57.199,
+            "val": 57.798,
+            "test": 57.432
+          },
+          "weak_term_only_train_garments": 5152
+        },
+        "relaxed": {
+          "per_split": {
+            "train": {
+              "garments": 1862,
+              "parents": 1263,
+              "share_of_split_pct": 5.597
+            },
+            "val": {
+              "garments": 404,
+              "parents": 284,
+              "share_of_split_pct": 5.668
+            },
+            "test": {
+              "garments": 395,
+              "parents": 274,
+              "share_of_split_pct": 5.541
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 1858,
+              "val": 403,
+              "test": 389
+            },
+            "phrase": {
+              "train": 4,
+              "val": 1,
+              "test": 6
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 8.758,
+            "val": 8.912,
+            "test": 8.789
+          },
+          "weak_term_only_train_garments": 752
+        },
+        "oversized": {
+          "per_split": {
+            "train": {
+              "garments": 1710,
+              "parents": 1271,
+              "share_of_split_pct": 5.141
+            },
+            "val": {
+              "garments": 376,
+              "parents": 283,
+              "share_of_split_pct": 5.275
+            },
+            "test": {
+              "garments": 399,
+              "parents": 294,
+              "share_of_split_pct": 5.597
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 1693,
+              "val": 375,
+              "test": 395
+            },
+            "phrase": {
+              "train": 17,
+              "val": 1,
+              "test": 4
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 8.043,
+            "val": 8.295,
+            "test": 8.879
+          },
+          "weak_term_only_train_garments": 914
+        }
+      },
+      "by_detail_category": {
+        "bras_lingerie": {
+          "train": {
+            "garments": 531,
+            "any_strong_evidence": 22,
+            "labeled": 22,
+            "labels": {
+              "skinny": 0,
+              "slim": 20,
+              "regular": 0,
+              "relaxed": 2,
+              "oversized": 0
+            }
+          },
+          "val": {
+            "garments": 132,
+            "any_strong_evidence": 9,
+            "labeled": 9,
+            "labels": {
+              "skinny": 0,
+              "slim": 9,
+              "regular": 0,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 172,
+            "any_strong_evidence": 5,
+            "labeled": 5,
+            "labels": {
+              "skinny": 0,
+              "slim": 4,
+              "regular": 1,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          }
+        },
+        "dresses": {
+          "train": {
+            "garments": 3384,
+            "any_strong_evidence": 3209,
+            "labeled": 2759,
+            "labels": {
+              "skinny": 0,
+              "slim": 1052,
+              "regular": 1585,
+              "relaxed": 37,
+              "oversized": 85
+            }
+          },
+          "val": {
+            "garments": 726,
+            "any_strong_evidence": 682,
+            "labeled": 583,
+            "labels": {
+              "skinny": 0,
+              "slim": 225,
+              "regular": 339,
+              "relaxed": 4,
+              "oversized": 15
+            }
+          },
+          "test": {
+            "garments": 744,
+            "any_strong_evidence": 716,
+            "labeled": 633,
+            "labels": {
+              "skinny": 0,
+              "slim": 248,
+              "regular": 365,
+              "relaxed": 4,
+              "oversized": 16
+            }
+          }
+        },
+        "jeans": {
+          "train": {
+            "garments": 1723,
+            "any_strong_evidence": 1699,
+            "labeled": 1216,
+            "labels": {
+              "skinny": 99,
+              "slim": 390,
+              "regular": 567,
+              "relaxed": 128,
+              "oversized": 32
+            }
+          },
+          "val": {
+            "garments": 305,
+            "any_strong_evidence": 305,
+            "labeled": 232,
+            "labels": {
+              "skinny": 17,
+              "slim": 79,
+              "regular": 105,
+              "relaxed": 30,
+              "oversized": 1
+            }
+          },
+          "test": {
+            "garments": 323,
+            "any_strong_evidence": 318,
+            "labeled": 222,
+            "labels": {
+              "skinny": 19,
+              "slim": 48,
+              "regular": 123,
+              "relaxed": 32,
+              "oversized": 0
+            }
+          }
+        },
+        "joggers": {
+          "train": {
+            "garments": 749,
+            "any_strong_evidence": 729,
+            "labeled": 602,
+            "labels": {
+              "skinny": 0,
+              "slim": 41,
+              "regular": 448,
+              "relaxed": 112,
+              "oversized": 1
+            }
+          },
+          "val": {
+            "garments": 157,
+            "any_strong_evidence": 144,
+            "labeled": 121,
+            "labels": {
+              "skinny": 0,
+              "slim": 2,
+              "regular": 96,
+              "relaxed": 23,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 148,
+            "any_strong_evidence": 136,
+            "labeled": 112,
+            "labels": {
+              "skinny": 0,
+              "slim": 8,
+              "regular": 91,
+              "relaxed": 13,
+              "oversized": 0
+            }
+          }
+        },
+        "jumpsuits_overalls": {
+          "train": {
+            "garments": 269,
+            "any_strong_evidence": 179,
+            "labeled": 158,
+            "labels": {
+              "skinny": 0,
+              "slim": 31,
+              "regular": 120,
+              "relaxed": 6,
+              "oversized": 1
+            }
+          },
+          "val": {
+            "garments": 53,
+            "any_strong_evidence": 34,
+            "labeled": 30,
+            "labels": {
+              "skinny": 0,
+              "slim": 2,
+              "regular": 28,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 45,
+            "any_strong_evidence": 19,
+            "labeled": 18,
+            "labels": {
+              "skinny": 0,
+              "slim": 3,
+              "regular": 14,
+              "relaxed": 1,
+              "oversized": 0
+            }
+          }
+        },
+        "leggings": {
+          "train": {
+            "garments": 645,
+            "any_strong_evidence": 169,
+            "labeled": 169,
+            "labels": {
+              "skinny": 29,
+              "slim": 104,
+              "regular": 36,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "val": {
+            "garments": 167,
+            "any_strong_evidence": 38,
+            "labeled": 38,
+            "labels": {
+              "skinny": 14,
+              "slim": 16,
+              "regular": 8,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 173,
+            "any_strong_evidence": 37,
+            "labeled": 37,
+            "labels": {
+              "skinny": 7,
+              "slim": 25,
+              "regular": 5,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          }
+        },
+        "outerwear_coat": {
+          "train": {
+            "garments": 446,
+            "any_strong_evidence": 411,
+            "labeled": 342,
+            "labels": {
+              "skinny": 0,
+              "slim": 7,
+              "regular": 186,
+              "relaxed": 76,
+              "oversized": 73
+            }
+          },
+          "val": {
+            "garments": 94,
+            "any_strong_evidence": 89,
+            "labeled": 73,
+            "labels": {
+              "skinny": 0,
+              "slim": 2,
+              "regular": 44,
+              "relaxed": 10,
+              "oversized": 17
+            }
+          },
+          "test": {
+            "garments": 98,
+            "any_strong_evidence": 86,
+            "labeled": 78,
+            "labels": {
+              "skinny": 0,
+              "slim": 0,
+              "regular": 35,
+              "relaxed": 15,
+              "oversized": 28
+            }
+          }
+        },
+        "outerwear_gilet": {
+          "train": {
+            "garments": 398,
+            "any_strong_evidence": 394,
+            "labeled": 377,
+            "labels": {
+              "skinny": 0,
+              "slim": 169,
+              "regular": 196,
+              "relaxed": 9,
+              "oversized": 3
+            }
+          },
+          "val": {
+            "garments": 105,
+            "any_strong_evidence": 95,
+            "labeled": 91,
+            "labels": {
+              "skinny": 0,
+              "slim": 45,
+              "regular": 46,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 59,
+            "any_strong_evidence": 51,
+            "labeled": 47,
+            "labels": {
+              "skinny": 0,
+              "slim": 27,
+              "regular": 19,
+              "relaxed": 0,
+              "oversized": 1
+            }
+          }
+        },
+        "outerwear_jacket": {
+          "train": {
+            "garments": 2005,
+            "any_strong_evidence": 1941,
+            "labeled": 1669,
+            "labels": {
+              "skinny": 1,
+              "slim": 221,
+              "regular": 1068,
+              "relaxed": 136,
+              "oversized": 243
+            }
+          },
+          "val": {
+            "garments": 478,
+            "any_strong_evidence": 461,
+            "labeled": 379,
+            "labels": {
+              "skinny": 0,
+              "slim": 42,
+              "regular": 250,
+              "relaxed": 27,
+              "oversized": 60
+            }
+          },
+          "test": {
+            "garments": 495,
+            "any_strong_evidence": 463,
+            "labeled": 395,
+            "labels": {
+              "skinny": 0,
+              "slim": 36,
+              "regular": 268,
+              "relaxed": 24,
+              "oversized": 67
+            }
+          }
+        },
+        "set": {
+          "train": {
+            "garments": 922,
+            "any_strong_evidence": 138,
+            "labeled": 129,
+            "labels": {
+              "skinny": 0,
+              "slim": 19,
+              "regular": 84,
+              "relaxed": 25,
+              "oversized": 1
+            }
+          },
+          "val": {
+            "garments": 199,
+            "any_strong_evidence": 22,
+            "labeled": 19,
+            "labels": {
+              "skinny": 0,
+              "slim": 5,
+              "regular": 13,
+              "relaxed": 1,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 224,
+            "any_strong_evidence": 28,
+            "labeled": 24,
+            "labels": {
+              "skinny": 0,
+              "slim": 1,
+              "regular": 21,
+              "relaxed": 2,
+              "oversized": 0
+            }
+          }
+        },
+        "shirt_blouse": {
+          "train": {
+            "garments": 2922,
+            "any_strong_evidence": 2828,
+            "labeled": 2389,
+            "labels": {
+              "skinny": 0,
+              "slim": 466,
+              "regular": 1333,
+              "relaxed": 267,
+              "oversized": 323
+            }
+          },
+          "val": {
+            "garments": 608,
+            "any_strong_evidence": 589,
+            "labeled": 499,
+            "labels": {
+              "skinny": 0,
+              "slim": 82,
+              "regular": 299,
+              "relaxed": 52,
+              "oversized": 66
+            }
+          },
+          "test": {
+            "garments": 595,
+            "any_strong_evidence": 588,
+            "labeled": 501,
+            "labels": {
+              "skinny": 0,
+              "slim": 94,
+              "regular": 284,
+              "relaxed": 59,
+              "oversized": 64
+            }
+          }
+        },
+        "shorts": {
+          "train": {
+            "garments": 1292,
+            "any_strong_evidence": 1124,
+            "labeled": 805,
+            "labels": {
+              "skinny": 14,
+              "slim": 126,
+              "regular": 533,
+              "relaxed": 130,
+              "oversized": 2
+            }
+          },
+          "val": {
+            "garments": 251,
+            "any_strong_evidence": 218,
+            "labeled": 170,
+            "labels": {
+              "skinny": 2,
+              "slim": 30,
+              "regular": 104,
+              "relaxed": 34,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 262,
+            "any_strong_evidence": 238,
+            "labeled": 185,
+            "labels": {
+              "skinny": 3,
+              "slim": 21,
+              "regular": 137,
+              "relaxed": 22,
+              "oversized": 2
+            }
+          }
+        },
+        "skirts": {
+          "train": {
+            "garments": 1231,
+            "any_strong_evidence": 1116,
+            "labeled": 962,
+            "labels": {
+              "skinny": 3,
+              "slim": 239,
+              "regular": 715,
+              "relaxed": 5,
+              "oversized": 0
+            }
+          },
+          "val": {
+            "garments": 263,
+            "any_strong_evidence": 243,
+            "labeled": 206,
+            "labels": {
+              "skinny": 1,
+              "slim": 49,
+              "regular": 154,
+              "relaxed": 2,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 271,
+            "any_strong_evidence": 253,
+            "labeled": 227,
+            "labels": {
+              "skinny": 0,
+              "slim": 65,
+              "regular": 162,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          }
+        },
+        "sleepwear_homewear": {
+          "train": {
+            "garments": 761,
+            "any_strong_evidence": 196,
+            "labeled": 171,
+            "labels": {
+              "skinny": 0,
+              "slim": 2,
+              "regular": 158,
+              "relaxed": 11,
+              "oversized": 0
+            }
+          },
+          "val": {
+            "garments": 158,
+            "any_strong_evidence": 48,
+            "labeled": 43,
+            "labels": {
+              "skinny": 0,
+              "slim": 0,
+              "regular": 40,
+              "relaxed": 3,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 179,
+            "any_strong_evidence": 59,
+            "labeled": 52,
+            "labels": {
+              "skinny": 0,
+              "slim": 2,
+              "regular": 43,
+              "relaxed": 7,
+              "oversized": 0
+            }
+          }
+        },
+        "socks_hosiery": {
+          "train": {
+            "garments": 1170,
+            "any_strong_evidence": 337,
+            "labeled": 197,
+            "labels": {
+              "skinny": 2,
+              "slim": 12,
+              "regular": 139,
+              "relaxed": 44,
+              "oversized": 0
+            }
+          },
+          "val": {
+            "garments": 277,
+            "any_strong_evidence": 57,
+            "labeled": 27,
+            "labels": {
+              "skinny": 1,
+              "slim": 4,
+              "regular": 10,
+              "relaxed": 12,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 231,
+            "any_strong_evidence": 52,
+            "labeled": 34,
+            "labels": {
+              "skinny": 1,
+              "slim": 6,
+              "regular": 11,
+              "relaxed": 16,
+              "oversized": 0
+            }
+          }
+        },
+        "sweater_cardigan": {
+          "train": {
+            "garments": 3104,
+            "any_strong_evidence": 2922,
+            "labeled": 2421,
+            "labels": {
+              "skinny": 0,
+              "slim": 445,
+              "regular": 1527,
+              "relaxed": 101,
+              "oversized": 348
+            }
+          },
+          "val": {
+            "garments": 603,
+            "any_strong_evidence": 547,
+            "labeled": 467,
+            "labels": {
+              "skinny": 0,
+              "slim": 93,
+              "regular": 279,
+              "relaxed": 36,
+              "oversized": 59
+            }
+          },
+          "test": {
+            "garments": 671,
+            "any_strong_evidence": 616,
+            "labeled": 494,
+            "labels": {
+              "skinny": 0,
+              "slim": 104,
+              "regular": 279,
+              "relaxed": 33,
+              "oversized": 78
+            }
+          }
+        },
+        "sweatshirt_hoodie": {
+          "train": {
+            "garments": 1383,
+            "any_strong_evidence": 1348,
+            "labeled": 965,
+            "labels": {
+              "skinny": 0,
+              "slim": 9,
+              "regular": 601,
+              "relaxed": 94,
+              "oversized": 261
+            }
+          },
+          "val": {
+            "garments": 308,
+            "any_strong_evidence": 295,
+            "labeled": 223,
+            "labels": {
+              "skinny": 0,
+              "slim": 1,
+              "regular": 137,
+              "relaxed": 14,
+              "oversized": 71
+            }
+          },
+          "test": {
+            "garments": 317,
+            "any_strong_evidence": 309,
+            "labeled": 236,
+            "labels": {
+              "skinny": 0,
+              "slim": 2,
+              "regular": 135,
+              "relaxed": 30,
+              "oversized": 69
+            }
+          }
+        },
+        "swimwear": {
+          "train": {
+            "garments": 916,
+            "any_strong_evidence": 14,
+            "labeled": 10,
+            "labels": {
+              "skinny": 0,
+              "slim": 1,
+              "regular": 9,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "val": {
+            "garments": 205,
+            "any_strong_evidence": 5,
+            "labeled": 3,
+            "labels": {
+              "skinny": 0,
+              "slim": 0,
+              "regular": 3,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 171,
+            "any_strong_evidence": 4,
+            "labeled": 2,
+            "labels": {
+              "skinny": 0,
+              "slim": 1,
+              "regular": 0,
+              "relaxed": 1,
+              "oversized": 0
+            }
+          }
+        },
+        "tank_camisole_vest": {
+          "train": {
+            "garments": 692,
+            "any_strong_evidence": 621,
+            "labeled": 547,
+            "labels": {
+              "skinny": 0,
+              "slim": 322,
+              "regular": 220,
+              "relaxed": 4,
+              "oversized": 1
+            }
+          },
+          "val": {
+            "garments": 176,
+            "any_strong_evidence": 165,
+            "labeled": 152,
+            "labels": {
+              "skinny": 0,
+              "slim": 97,
+              "regular": 52,
+              "relaxed": 2,
+              "oversized": 1
+            }
+          },
+          "test": {
+            "garments": 143,
+            "any_strong_evidence": 134,
+            "labeled": 128,
+            "labels": {
+              "skinny": 0,
+              "slim": 79,
+              "regular": 47,
+              "relaxed": 2,
+              "oversized": 0
+            }
+          }
+        },
+        "top_generic": {
+          "train": {
+            "garments": 617,
+            "any_strong_evidence": 599,
+            "labeled": 563,
+            "labels": {
+              "skinny": 0,
+              "slim": 341,
+              "regular": 208,
+              "relaxed": 1,
+              "oversized": 13
+            }
+          },
+          "val": {
+            "garments": 137,
+            "any_strong_evidence": 134,
+            "labeled": 125,
+            "labels": {
+              "skinny": 0,
+              "slim": 71,
+              "regular": 51,
+              "relaxed": 1,
+              "oversized": 2
+            }
+          },
+          "test": {
+            "garments": 136,
+            "any_strong_evidence": 130,
+            "labeled": 118,
+            "labels": {
+              "skinny": 0,
+              "slim": 69,
+              "regular": 44,
+              "relaxed": 1,
+              "oversized": 4
+            }
+          }
+        },
+        "trousers": {
+          "train": {
+            "garments": 2916,
+            "any_strong_evidence": 2786,
+            "labeled": 1970,
+            "labels": {
+              "skinny": 25,
+              "slim": 526,
+              "regular": 960,
+              "relaxed": 448,
+              "oversized": 11
+            }
+          },
+          "val": {
+            "garments": 606,
+            "any_strong_evidence": 588,
+            "labeled": 415,
+            "labels": {
+              "skinny": 6,
+              "slim": 90,
+              "regular": 225,
+              "relaxed": 92,
+              "oversized": 2
+            }
+          },
+          "test": {
+            "garments": 594,
+            "any_strong_evidence": 562,
+            "labeled": 392,
+            "labels": {
+              "skinny": 5,
+              "slim": 96,
+              "regular": 189,
+              "relaxed": 101,
+              "oversized": 1
+            }
+          }
+        },
+        "tshirt_polo": {
+          "train": {
+            "garments": 3856,
+            "any_strong_evidence": 3346,
+            "labeled": 2768,
+            "labels": {
+              "skinny": 0,
+              "slim": 781,
+              "regular": 1452,
+              "relaxed": 223,
+              "oversized": 312
+            }
+          },
+          "val": {
+            "garments": 816,
+            "any_strong_evidence": 732,
+            "labeled": 617,
+            "labels": {
+              "skinny": 0,
+              "slim": 140,
+              "regular": 334,
+              "relaxed": 61,
+              "oversized": 82
+            }
+          },
+          "test": {
+            "garments": 789,
+            "any_strong_evidence": 685,
+            "labeled": 546,
+            "labels": {
+              "skinny": 0,
+              "slim": 141,
+              "regular": 304,
+              "relaxed": 32,
+              "oversized": 69
+            }
+          }
+        },
+        "underwear_bottoms": {
+          "train": {
+            "garments": 1333,
+            "any_strong_evidence": 63,
+            "labeled": 50,
+            "labels": {
+              "skinny": 2,
+              "slim": 29,
+              "regular": 16,
+              "relaxed": 3,
+              "oversized": 0
+            }
+          },
+          "val": {
+            "garments": 304,
+            "any_strong_evidence": 11,
+            "labeled": 11,
+            "labels": {
+              "skinny": 2,
+              "slim": 6,
+              "regular": 3,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          },
+          "test": {
+            "garments": 289,
+            "any_strong_evidence": 8,
+            "labeled": 8,
+            "labels": {
+              "skinny": 0,
+              "slim": 4,
+              "regular": 4,
+              "relaxed": 0,
+              "oversized": 0
+            }
+          }
+        }
+      },
+      "usable_categories_per_label": {
+        "skinny": [],
+        "slim": [
+          "dresses",
+          "jeans",
+          "leggings",
+          "outerwear_gilet",
+          "outerwear_jacket",
+          "shirt_blouse",
+          "shorts",
+          "skirts",
+          "sweater_cardigan",
+          "tank_camisole_vest",
+          "top_generic",
+          "trousers",
+          "tshirt_polo"
+        ],
+        "regular": [
+          "dresses",
+          "jeans",
+          "joggers",
+          "jumpsuits_overalls",
+          "outerwear_coat",
+          "outerwear_gilet",
+          "outerwear_jacket",
+          "shirt_blouse",
+          "shorts",
+          "skirts",
+          "sleepwear_homewear",
+          "socks_hosiery",
+          "sweater_cardigan",
+          "sweatshirt_hoodie",
+          "tank_camisole_vest",
+          "top_generic",
+          "trousers",
+          "tshirt_polo"
+        ],
+        "relaxed": [
+          "jeans",
+          "joggers",
+          "outerwear_jacket",
+          "shirt_blouse",
+          "shorts",
+          "sweater_cardigan",
+          "trousers",
+          "tshirt_polo"
+        ],
+        "oversized": [
+          "outerwear_jacket",
+          "shirt_blouse",
+          "sweater_cardigan",
+          "sweatshirt_hoodie",
+          "tshirt_polo"
+        ]
+      },
+      "control_enabled_categories": [
+        "dresses",
+        "jeans",
+        "joggers",
+        "jumpsuits_overalls",
+        "leggings",
+        "outerwear_coat",
+        "outerwear_gilet",
+        "outerwear_jacket",
+        "set",
+        "shirt_blouse",
+        "shorts",
+        "skirts",
+        "sleepwear_homewear",
+        "sweater_cardigan",
+        "sweatshirt_hoodie",
+        "tank_camisole_vest",
+        "top_generic",
+        "trousers",
+        "tshirt_polo"
+      ],
+      "train_coverage_in_control_enabled_categories": {
+        "garments": 29315,
+        "labeled": 20982,
+        "labeled_pct": 71.574
+      },
+      "enabled_but_no_supported_label": [
+        "set"
+      ],
+      "examples_train": {
+        "skinny": [
+          {
+            "garment_id": "g_02cd3c60b5d22a4a",
+            "detail_category": "skirts",
+            "product_name": "Rib-knit skirt",
+            "source": "structured",
+            "matches": [
+              "structured:fit:skinny fit"
+            ]
+          },
+          {
+            "garment_id": "g_0381e07977f8690f",
+            "detail_category": "leggings",
+            "product_name": "Flared Leggings",
+            "source": "structured",
+            "matches": [
+              "structured:fit:skinny fit"
+            ]
+          },
+          {
+            "garment_id": "g_049210e515eb51a1",
+            "detail_category": "leggings",
+            "product_name": "Leather leggings",
+            "source": "structured",
+            "matches": [
+              "structured:fit:skinny fit"
+            ]
+          }
+        ],
+        "slim": [
+          {
+            "garment_id": "g_0004f228c23e31d9",
+            "detail_category": "dresses",
+            "product_name": "Square-neck twill dress",
+            "source": "structured",
+            "matches": [
+              "structured:fit:slim fit"
+            ]
+          },
+          {
+            "garment_id": "g_000ca2a2cbbfa9cc",
+            "detail_category": "shirt_blouse",
+            "product_name": "CHECKED COTTON-JACQUARD SHIRT",
+            "source": "structured",
+            "matches": [
+              "structured:fit:slim fit",
+              "phrase:description:slim"
+            ]
+          },
+          {
+            "garment_id": "g_0018a5193f864a88",
+            "detail_category": "trousers",
+            "product_name": "Knitted crease-front trousers",
+            "source": "structured",
+            "matches": [
+              "structured:fit:slim fit"
+            ]
+          }
+        ],
+        "regular": [
+          {
+            "garment_id": "g_0004d7dd8e01e6bf",
+            "detail_category": "shorts",
+            "product_name": "Poplin shorts",
+            "source": "structured",
+            "matches": [
+              "structured:fit:regular fit"
+            ]
+          },
+          {
+            "garment_id": "g_00069ee19137b72d",
+            "detail_category": "tank_camisole_vest",
+            "product_name": "Satin bandeau top",
+            "source": "structured",
+            "matches": [
+              "structured:fit:regular fit"
+            ]
+          },
+          {
+            "garment_id": "g_00074a5757907ed2",
+            "detail_category": "shorts",
+            "product_name": "Lace-trimmed satin shorts",
+            "source": "structured",
+            "matches": [
+              "structured:fit:regular fit"
+            ]
+          }
+        ],
+        "relaxed": [
+          {
+            "garment_id": "g_00215acf16108ebb",
+            "detail_category": "joggers",
+            "product_name": "Track pants with DryMove™",
+            "source": "structured",
+            "matches": [
+              "structured:fit:relaxed fit",
+              "phrase:description:relaxed"
+            ]
+          },
+          {
+            "garment_id": "g_0026796e6e5d460e",
+            "detail_category": "shirt_blouse",
+            "product_name": "Relaxed Overshirt",
+            "source": "structured",
+            "matches": [
+              "structured:fit:relaxed fit",
+              "phrase:description:relaxed"
+            ]
+          },
+          {
+            "garment_id": "g_002b632be31e45c9",
+            "detail_category": "jeans",
+            "product_name": "Relaxed Fit Jeans",
+            "source": "structured",
+            "matches": [
+              "structured:fit:relaxed fit",
+              "phrase:name:relaxed",
+              "phrase:description:relaxed"
+            ]
+          }
+        ],
+        "oversized": [
+          {
+            "garment_id": "g_0023515ad66028d0",
+            "detail_category": "outerwear_jacket",
+            "product_name": "Reversible bomber jacket",
+            "source": "structured",
+            "matches": [
+              "structured:fit:oversized",
+              "phrase:description:oversized"
+            ]
+          },
+          {
+            "garment_id": "g_007322572cf57617",
+            "detail_category": "shirt_blouse",
+            "product_name": "Off-the-shoulder poplin blouse",
+            "source": "structured",
+            "matches": [
+              "structured:fit:oversized"
+            ]
+          },
+          {
+            "garment_id": "g_00b83b00fc72636e",
+            "detail_category": "jeans",
+            "product_name": "Baggy darted jeans",
+            "source": "structured",
+            "matches": [
+              "structured:fit:oversized"
+            ]
+          }
+        ]
+      }
+    },
+    "length": {
+      "any_strong_evidence": {
+        "train": {
+          "garments": 25796,
+          "parents": 21539,
+          "share_of_split_pct": 77.547
+        },
+        "val": {
+          "garments": 5455,
+          "parents": 4522,
+          "share_of_split_pct": 76.529
+        },
+        "test": {
+          "garments": 5586,
+          "parents": 4633,
+          "share_of_split_pct": 78.356
+        }
+      },
+      "labeled": {
+        "train": {
+          "garments": 17150,
+          "parents": 14404,
+          "share_of_split_pct": 51.556
+        },
+        "val": {
+          "garments": 3584,
+          "parents": 3009,
+          "share_of_split_pct": 50.281
+        },
+        "test": {
+          "garments": 3677,
+          "parents": 3070,
+          "share_of_split_pct": 51.578
+        }
+      },
+      "any_weak_term_only": {
+        "train": {
+          "garments": 881,
+          "parents": 399,
+          "share_of_split_pct": 2.648
+        },
+        "val": {
+          "garments": 221,
+          "parents": 103,
+          "share_of_split_pct": 3.1
+        },
+        "test": {
+          "garments": 178,
+          "parents": 78,
+          "share_of_split_pct": 2.497
+        }
+      },
+      "status_counts": {
+        "train": {
+          "labeled_structured": 17105,
+          "structured_unmapped": 7582,
+          "none": 7469,
+          "structured_conflict": 1064,
+          "labeled_phrase": 45
+        },
+        "val": {
+          "labeled_structured": 3582,
+          "none": 1673,
+          "structured_unmapped": 1659,
+          "structured_conflict": 212,
+          "labeled_phrase": 2
+        },
+        "test": {
+          "labeled_structured": 3643,
+          "structured_unmapped": 1657,
+          "none": 1543,
+          "structured_conflict": 252,
+          "labeled_phrase": 34
+        }
+      },
+      "cross_source_conflicts": {
+        "train": {
+          "garments": 323,
+          "parents": 284,
+          "share_of_split_pct": 0.971
+        },
+        "val": {
+          "garments": 64,
+          "parents": 55,
+          "share_of_split_pct": 0.898
+        },
+        "test": {
+          "garments": 48,
+          "parents": 42,
+          "share_of_split_pct": 0.673
+        }
+      },
+      "conflict_label_combinations_train": {
+        "long+standard": 580,
+        "standard+unmapped:short": 338,
+        "standard+unmapped:knee length": 95,
+        "long+unmapped:short": 39,
+        "standard+unmapped:ankle length": 3,
+        "long+unmapped:knee length": 3,
+        "cropped+unmapped:ankle length": 2,
+        "long+unmapped:maxi": 1,
+        "long+unmapped:midi": 1,
+        "cropped+unmapped:short": 1,
+        "standard+unmapped:three-quarter length": 1
+      },
+      "unmapped_structured_values_train": {
+        "short": 4648,
+        "knee length": 1419,
+        "midi": 926,
+        "mini": 388,
+        "ankle length": 320,
+        "maxi": 206,
+        "extra-long legs": 96,
+        "extra long legs": 42,
+        "three-quarter length": 40
+      },
+      "top_raw_matches_train": {
+        "structured:length:regular length": 11374,
+        "structured:length:long": 7139,
+        "structured:length:short": 4648,
+        "structured:length:knee length": 1419,
+        "structured:length:midi": 926,
+        "structured:length:mini": 388,
+        "phrase:description:standard": 330,
+        "structured:length:ankle length": 320,
+        "structured:length:cropped": 236,
+        "structured:length:maxi": 206,
+        "name_term:name:cropped": 167,
+        "structured:length:extra-long legs": 96,
+        "structured:length:extra long legs": 42,
+        "phrase:description:cropped": 40,
+        "structured:length:three-quarter length": 40,
+        "phrase:name:standard": 8,
+        "phrase:name:cropped": 1
+      },
+      "labels": {
+        "cropped": {
+          "per_split": {
+            "train": {
+              "garments": 268,
+              "parents": 213,
+              "share_of_split_pct": 0.806
+            },
+            "val": {
+              "garments": 61,
+              "parents": 49,
+              "share_of_split_pct": 0.856
+            },
+            "test": {
+              "garments": 92,
+              "parents": 55,
+              "share_of_split_pct": 1.291
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 233,
+              "val": 59,
+              "test": 58
+            },
+            "phrase": {
+              "train": 35,
+              "val": 2,
+              "test": 34
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 1.563,
+            "val": 1.702,
+            "test": 2.502
+          },
+          "weak_term_only_train_garments": 189
+        },
+        "standard": {
+          "per_split": {
+            "train": {
+              "garments": 10367,
+              "parents": 8760,
+              "share_of_split_pct": 31.165
+            },
+            "val": {
+              "garments": 2209,
+              "parents": 1861,
+              "share_of_split_pct": 30.99
+            },
+            "test": {
+              "garments": 2182,
+              "parents": 1846,
+              "share_of_split_pct": 30.607
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 10357,
+              "val": 2209,
+              "test": 2182
+            },
+            "phrase": {
+              "train": 10,
+              "val": 0,
+              "test": 0
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 60.449,
+            "val": 61.635,
+            "test": 59.342
+          },
+          "weak_term_only_train_garments": 0
+        },
+        "long": {
+          "per_split": {
+            "train": {
+              "garments": 6515,
+              "parents": 5431,
+              "share_of_split_pct": 19.585
+            },
+            "val": {
+              "garments": 1314,
+              "parents": 1099,
+              "share_of_split_pct": 18.434
+            },
+            "test": {
+              "garments": 1403,
+              "parents": 1169,
+              "share_of_split_pct": 19.68
+            }
+          },
+          "by_source": {
+            "structured": {
+              "train": 6515,
+              "val": 1314,
+              "test": 1403
+            },
+            "phrase": {
+              "train": 0,
+              "val": 0,
+              "test": 0
+            }
+          },
+          "share_of_labeled_pct": {
+            "train": 37.988,
+            "val": 36.663,
+            "test": 38.156
+          },
+          "weak_term_only_train_garments": 7341
+        }
+      },
+      "by_detail_category": {
+        "bras_lingerie": {
+          "train": {
+            "garments": 531,
+            "any_strong_evidence": 57,
+            "labeled": 34,
+            "labels": {
+              "cropped": 19,
+              "standard": 15,
+              "long": 0
+            }
+          },
+          "val": {
+            "garments": 132,
+            "any_strong_evidence": 12,
+            "labeled": 4,
+            "labels": {
+              "cropped": 2,
+              "standard": 2,
+              "long": 0
+            }
+          },
+          "test": {
+            "garments": 172,
+            "any_strong_evidence": 25,
+            "labeled": 23,
+            "labels": {
+              "cropped": 21,
+              "standard": 2,
+              "long": 0
+            }
+          }
+        },
+        "dresses": {
+          "train": {
+            "garments": 3384,
+            "any_strong_evidence": 3249,
+            "labeled": 378,
+            "labels": {
+              "cropped": 0,
+              "standard": 13,
+              "long": 365
+            }
+          },
+          "val": {
+            "garments": 726,
+            "any_strong_evidence": 692,
+            "labeled": 86,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 86
+            }
+          },
+          "test": {
+            "garments": 744,
+            "any_strong_evidence": 727,
+            "labeled": 69,
+            "labels": {
+              "cropped": 0,
+              "standard": 1,
+              "long": 68
+            }
+          }
+        },
+        "jeans": {
+          "train": {
+            "garments": 1723,
+            "any_strong_evidence": 1607,
+            "labeled": 1359,
+            "labels": {
+              "cropped": 9,
+              "standard": 23,
+              "long": 1327
+            }
+          },
+          "val": {
+            "garments": 305,
+            "any_strong_evidence": 280,
+            "labeled": 225,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 225
+            }
+          },
+          "test": {
+            "garments": 323,
+            "any_strong_evidence": 307,
+            "labeled": 258,
+            "labels": {
+              "cropped": 1,
+              "standard": 5,
+              "long": 252
+            }
+          }
+        },
+        "joggers": {
+          "train": {
+            "garments": 749,
+            "any_strong_evidence": 719,
+            "labeled": 711,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 711
+            }
+          },
+          "val": {
+            "garments": 157,
+            "any_strong_evidence": 146,
+            "labeled": 144,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 144
+            }
+          },
+          "test": {
+            "garments": 148,
+            "any_strong_evidence": 137,
+            "labeled": 132,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 132
+            }
+          }
+        },
+        "jumpsuits_overalls": {
+          "train": {
+            "garments": 269,
+            "any_strong_evidence": 233,
+            "labeled": 126,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 126
+            }
+          },
+          "val": {
+            "garments": 53,
+            "any_strong_evidence": 53,
+            "labeled": 37,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 37
+            }
+          },
+          "test": {
+            "garments": 45,
+            "any_strong_evidence": 35,
+            "labeled": 22,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 22
+            }
+          }
+        },
+        "leggings": {
+          "train": {
+            "garments": 645,
+            "any_strong_evidence": 567,
+            "labeled": 533,
+            "labels": {
+              "cropped": 1,
+              "standard": 3,
+              "long": 529
+            }
+          },
+          "val": {
+            "garments": 167,
+            "any_strong_evidence": 127,
+            "labeled": 120,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 120
+            }
+          },
+          "test": {
+            "garments": 173,
+            "any_strong_evidence": 155,
+            "labeled": 144,
+            "labels": {
+              "cropped": 0,
+              "standard": 1,
+              "long": 143
+            }
+          }
+        },
+        "outerwear_coat": {
+          "train": {
+            "garments": 446,
+            "any_strong_evidence": 282,
+            "labeled": 139,
+            "labels": {
+              "cropped": 0,
+              "standard": 72,
+              "long": 67
+            }
+          },
+          "val": {
+            "garments": 94,
+            "any_strong_evidence": 71,
+            "labeled": 40,
+            "labels": {
+              "cropped": 0,
+              "standard": 21,
+              "long": 19
+            }
+          },
+          "test": {
+            "garments": 98,
+            "any_strong_evidence": 56,
+            "labeled": 30,
+            "labels": {
+              "cropped": 0,
+              "standard": 16,
+              "long": 14
+            }
+          }
+        },
+        "outerwear_gilet": {
+          "train": {
+            "garments": 398,
+            "any_strong_evidence": 353,
+            "labeled": 295,
+            "labels": {
+              "cropped": 17,
+              "standard": 225,
+              "long": 53
+            }
+          },
+          "val": {
+            "garments": 105,
+            "any_strong_evidence": 83,
+            "labeled": 62,
+            "labels": {
+              "cropped": 10,
+              "standard": 43,
+              "long": 9
+            }
+          },
+          "test": {
+            "garments": 59,
+            "any_strong_evidence": 57,
+            "labeled": 39,
+            "labels": {
+              "cropped": 7,
+              "standard": 25,
+              "long": 7
+            }
+          }
+        },
+        "outerwear_jacket": {
+          "train": {
+            "garments": 2005,
+            "any_strong_evidence": 1819,
+            "labeled": 1547,
+            "labels": {
+              "cropped": 22,
+              "standard": 1435,
+              "long": 90
+            }
+          },
+          "val": {
+            "garments": 478,
+            "any_strong_evidence": 406,
+            "labeled": 335,
+            "labels": {
+              "cropped": 9,
+              "standard": 308,
+              "long": 18
+            }
+          },
+          "test": {
+            "garments": 495,
+            "any_strong_evidence": 430,
+            "labeled": 372,
+            "labels": {
+              "cropped": 13,
+              "standard": 325,
+              "long": 34
+            }
+          }
+        },
+        "set": {
+          "train": {
+            "garments": 922,
+            "any_strong_evidence": 902,
+            "labeled": 152,
+            "labels": {
+              "cropped": 0,
+              "standard": 42,
+              "long": 110
+            }
+          },
+          "val": {
+            "garments": 199,
+            "any_strong_evidence": 196,
+            "labeled": 36,
+            "labels": {
+              "cropped": 0,
+              "standard": 14,
+              "long": 22
+            }
+          },
+          "test": {
+            "garments": 224,
+            "any_strong_evidence": 220,
+            "labeled": 39,
+            "labels": {
+              "cropped": 0,
+              "standard": 13,
+              "long": 26
+            }
+          }
+        },
+        "shirt_blouse": {
+          "train": {
+            "garments": 2922,
+            "any_strong_evidence": 2469,
+            "labeled": 2261,
+            "labels": {
+              "cropped": 31,
+              "standard": 2014,
+              "long": 216
+            }
+          },
+          "val": {
+            "garments": 608,
+            "any_strong_evidence": 506,
+            "labeled": 464,
+            "labels": {
+              "cropped": 5,
+              "standard": 426,
+              "long": 33
+            }
+          },
+          "test": {
+            "garments": 595,
+            "any_strong_evidence": 524,
+            "labeled": 475,
+            "labels": {
+              "cropped": 11,
+              "standard": 418,
+              "long": 46
+            }
+          }
+        },
+        "shorts": {
+          "train": {
+            "garments": 1292,
+            "any_strong_evidence": 1035,
+            "labeled": 3,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 3
+            }
+          },
+          "val": {
+            "garments": 251,
+            "any_strong_evidence": 210,
+            "labeled": 1,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 1
+            }
+          },
+          "test": {
+            "garments": 262,
+            "any_strong_evidence": 227,
+            "labeled": 0,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 0
+            }
+          }
+        },
+        "skirts": {
+          "train": {
+            "garments": 1231,
+            "any_strong_evidence": 1111,
+            "labeled": 123,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 123
+            }
+          },
+          "val": {
+            "garments": 263,
+            "any_strong_evidence": 245,
+            "labeled": 28,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 28
+            }
+          },
+          "test": {
+            "garments": 271,
+            "any_strong_evidence": 253,
+            "labeled": 23,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 23
+            }
+          }
+        },
+        "sleepwear_homewear": {
+          "train": {
+            "garments": 761,
+            "any_strong_evidence": 695,
+            "labeled": 219,
+            "labels": {
+              "cropped": 0,
+              "standard": 17,
+              "long": 202
+            }
+          },
+          "val": {
+            "garments": 158,
+            "any_strong_evidence": 139,
+            "labeled": 38,
+            "labels": {
+              "cropped": 0,
+              "standard": 2,
+              "long": 36
+            }
+          },
+          "test": {
+            "garments": 179,
+            "any_strong_evidence": 165,
+            "labeled": 70,
+            "labels": {
+              "cropped": 0,
+              "standard": 5,
+              "long": 65
+            }
+          }
+        },
+        "socks_hosiery": {
+          "train": {
+            "garments": 1170,
+            "any_strong_evidence": 70,
+            "labeled": 66,
+            "labels": {
+              "cropped": 0,
+              "standard": 4,
+              "long": 62
+            }
+          },
+          "val": {
+            "garments": 277,
+            "any_strong_evidence": 16,
+            "labeled": 11,
+            "labels": {
+              "cropped": 0,
+              "standard": 0,
+              "long": 11
+            }
+          },
+          "test": {
+            "garments": 231,
+            "any_strong_evidence": 21,
+            "labeled": 17,
+            "labels": {
+              "cropped": 0,
+              "standard": 5,
+              "long": 12
+            }
+          }
+        },
+        "sweater_cardigan": {
+          "train": {
+            "garments": 3104,
+            "any_strong_evidence": 2620,
+            "labeled": 2130,
+            "labels": {
+              "cropped": 16,
+              "standard": 1939,
+              "long": 175
+            }
+          },
+          "val": {
+            "garments": 603,
+            "any_strong_evidence": 516,
+            "labeled": 415,
+            "labels": {
+              "cropped": 1,
+              "standard": 378,
+              "long": 36
+            }
+          },
+          "test": {
+            "garments": 671,
+            "any_strong_evidence": 540,
+            "labeled": 434,
+            "labels": {
+              "cropped": 3,
+              "standard": 390,
+              "long": 41
+            }
+          }
+        },
+        "sweatshirt_hoodie": {
+          "train": {
+            "garments": 1383,
+            "any_strong_evidence": 1202,
+            "labeled": 1168,
+            "labels": {
+              "cropped": 9,
+              "standard": 1116,
+              "long": 43
+            }
+          },
+          "val": {
+            "garments": 308,
+            "any_strong_evidence": 254,
+            "labeled": 248,
+            "labels": {
+              "cropped": 4,
+              "standard": 232,
+              "long": 12
+            }
+          },
+          "test": {
+            "garments": 317,
+            "any_strong_evidence": 270,
+            "labeled": 263,
+            "labels": {
+              "cropped": 4,
+              "standard": 244,
+              "long": 15
+            }
+          }
+        },
+        "swimwear": {
+          "train": {
+            "garments": 916,
+            "any_strong_evidence": 163,
+            "labeled": 52,
+            "labels": {
+              "cropped": 3,
+              "standard": 43,
+              "long": 6
+            }
+          },
+          "val": {
+            "garments": 205,
+            "any_strong_evidence": 41,
+            "labeled": 15,
+            "labels": {
+              "cropped": 0,
+              "standard": 15,
+              "long": 0
+            }
+          },
+          "test": {
+            "garments": 171,
+            "any_strong_evidence": 27,
+            "labeled": 9,
+            "labels": {
+              "cropped": 1,
+              "standard": 8,
+              "long": 0
+            }
+          }
+        },
+        "tank_camisole_vest": {
+          "train": {
+            "garments": 692,
+            "any_strong_evidence": 580,
+            "labeled": 464,
+            "labels": {
+              "cropped": 45,
+              "standard": 406,
+              "long": 13
+            }
+          },
+          "val": {
+            "garments": 176,
+            "any_strong_evidence": 159,
+            "labeled": 124,
+            "labels": {
+              "cropped": 6,
+              "standard": 115,
+              "long": 3
+            }
+          },
+          "test": {
+            "garments": 143,
+            "any_strong_evidence": 133,
+            "labeled": 105,
+            "labels": {
+              "cropped": 5,
+              "standard": 98,
+              "long": 2
+            }
+          }
+        },
+        "top_generic": {
+          "train": {
+            "garments": 617,
+            "any_strong_evidence": 604,
+            "labeled": 427,
+            "labels": {
+              "cropped": 42,
+              "standard": 364,
+              "long": 21
+            }
+          },
+          "val": {
+            "garments": 137,
+            "any_strong_evidence": 133,
+            "labeled": 106,
+            "labels": {
+              "cropped": 10,
+              "standard": 86,
+              "long": 10
+            }
+          },
+          "test": {
+            "garments": 136,
+            "any_strong_evidence": 131,
+            "labeled": 100,
+            "labels": {
+              "cropped": 7,
+              "standard": 85,
+              "long": 8
+            }
+          }
+        },
+        "trousers": {
+          "train": {
+            "garments": 2916,
+            "any_strong_evidence": 2399,
+            "labeled": 2194,
+            "labels": {
+              "cropped": 16,
+              "standard": 14,
+              "long": 2164
+            }
+          },
+          "val": {
+            "garments": 606,
+            "any_strong_evidence": 507,
+            "labeled": 449,
+            "labels": {
+              "cropped": 2,
+              "standard": 3,
+              "long": 444
+            }
+          },
+          "test": {
+            "garments": 594,
+            "any_strong_evidence": 514,
+            "labeled": 473,
+            "labels": {
+              "cropped": 3,
+              "standard": 4,
+              "long": 466
+            }
+          }
+        },
+        "tshirt_polo": {
+          "train": {
+            "garments": 3856,
+            "any_strong_evidence": 2951,
+            "labeled": 2731,
+            "labels": {
+              "cropped": 38,
+              "standard": 2608,
+              "long": 85
+            }
+          },
+          "val": {
+            "garments": 816,
+            "any_strong_evidence": 626,
+            "labeled": 585,
+            "labels": {
+              "cropped": 12,
+              "standard": 561,
+              "long": 12
+            }
+          },
+          "test": {
+            "garments": 789,
+            "any_strong_evidence": 609,
+            "labeled": 568,
+            "labels": {
+              "cropped": 16,
+              "standard": 535,
+              "long": 17
+            }
+          }
+        },
+        "underwear_bottoms": {
+          "train": {
+            "garments": 1333,
+            "any_strong_evidence": 109,
+            "labeled": 38,
+            "labels": {
+              "cropped": 0,
+              "standard": 14,
+              "long": 24
+            }
+          },
+          "val": {
+            "garments": 304,
+            "any_strong_evidence": 37,
+            "labeled": 11,
+            "labels": {
+              "cropped": 0,
+              "standard": 3,
+              "long": 8
+            }
+          },
+          "test": {
+            "garments": 289,
+            "any_strong_evidence": 23,
+            "labeled": 12,
+            "labels": {
+              "cropped": 0,
+              "standard": 2,
+              "long": 10
+            }
+          }
+        }
+      },
+      "usable_categories_per_label": {
+        "cropped": [],
+        "standard": [
+          "outerwear_gilet",
+          "outerwear_jacket",
+          "shirt_blouse",
+          "sweater_cardigan",
+          "sweatshirt_hoodie",
+          "tank_camisole_vest",
+          "top_generic",
+          "tshirt_polo"
+        ],
+        "long": [
+          "dresses",
+          "jeans",
+          "joggers",
+          "jumpsuits_overalls",
+          "leggings",
+          "set",
+          "shirt_blouse",
+          "skirts",
+          "sleepwear_homewear",
+          "sweater_cardigan",
+          "trousers"
+        ]
+      },
+      "control_enabled_categories": [
+        "dresses",
+        "jeans",
+        "joggers",
+        "jumpsuits_overalls",
+        "leggings",
+        "outerwear_coat",
+        "outerwear_jacket",
+        "shirt_blouse",
+        "shorts",
+        "skirts",
+        "sleepwear_homewear",
+        "sweater_cardigan",
+        "sweatshirt_hoodie",
+        "tank_camisole_vest",
+        "top_generic",
+        "trousers",
+        "tshirt_polo"
+      ],
+      "train_coverage_in_control_enabled_categories": {
+        "garments": 27995,
+        "labeled": 16513,
+        "labeled_pct": 58.986
+      },
+      "enabled_but_no_supported_label": [
+        "outerwear_coat",
+        "shorts"
+      ],
+      "examples_train": {
+        "cropped": [
+          {
+            "garment_id": "g_01b3a9d54a7cefc9",
+            "detail_category": "tshirt_polo",
+            "product_name": "Oversized Fit Tee",
+            "source": "structured",
+            "matches": [
+              "structured:length:cropped"
+            ]
+          },
+          {
+            "garment_id": "g_01c00a84343964a4",
+            "detail_category": "jeans",
+            "product_name": "BLOOM Barrel Jeans",
+            "source": "structured",
+            "matches": [
+              "structured:length:cropped"
+            ]
+          },
+          {
+            "garment_id": "g_01e6dea4c16564e9",
+            "detail_category": "sweatshirt_hoodie",
+            "product_name": "Printed cropped hoodie",
+            "source": "structured",
+            "matches": [
+              "structured:length:cropped",
+              "name_term:name:cropped"
+            ]
+          }
+        ],
+        "standard": [
+          {
+            "garment_id": "g_0000622e9fa9a3ce",
+            "detail_category": "outerwear_jacket",
+            "product_name": "Utility twill jacket",
+            "source": "structured",
+            "matches": [
+              "structured:length:regular length"
+            ]
+          },
+          {
+            "garment_id": "g_00058c3ad842501b",
+            "detail_category": "tshirt_polo",
+            "product_name": "Print Tee",
+            "source": "structured",
+            "matches": [
+              "structured:length:regular length"
+            ]
+          },
+          {
+            "garment_id": "g_00069ee19137b72d",
+            "detail_category": "tank_camisole_vest",
+            "product_name": "Satin bandeau top",
+            "source": "structured",
+            "matches": [
+              "structured:length:regular length"
+            ]
+          }
+        ],
+        "long": [
+          {
+            "garment_id": "g_000367b1b1171df1",
+            "detail_category": "set",
+            "product_name": "Ribbed cotton set",
+            "source": "structured",
+            "matches": [
+              "structured:length:long"
+            ]
+          },
+          {
+            "garment_id": "g_0018a5193f864a88",
+            "detail_category": "trousers",
+            "product_name": "Knitted crease-front trousers",
+            "source": "structured",
+            "matches": [
+              "structured:length:long"
+            ]
+          },
+          {
+            "garment_id": "g_00215acf16108ebb",
+            "detail_category": "joggers",
+            "product_name": "Track pants with DryMove™",
+            "source": "structured",
+            "matches": [
+              "structured:length:long"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "raw_phrases": {
+    "slim fit": {
+      "train": {
+        "garments_any_source": 5394,
+        "parents": 4344,
+        "by_source": {
+          "name": 539,
+          "description": 1259,
+          "function": 5190
+        }
+      },
+      "val": {
+        "garments_any_source": 1111,
+        "parents": 883,
+        "by_source": {
+          "name": 101,
+          "description": 248,
+          "function": 1070
+        }
+      },
+      "test": {
+        "garments_any_source": 1098,
+        "parents": 893,
+        "by_source": {
+          "name": 97,
+          "description": 226,
+          "function": 1065
+        }
+      }
+    },
+    "skinny fit": {
+      "train": {
+        "garments_any_source": 165,
+        "parents": 142,
+        "by_source": {
+          "name": 20,
+          "description": 73,
+          "function": 159
+        }
+      },
+      "val": {
+        "garments_any_source": 37,
+        "parents": 32,
+        "by_source": {
+          "name": 8,
+          "description": 13,
+          "function": 37
+        }
+      },
+      "test": {
+        "garments_any_source": 35,
+        "parents": 33,
+        "by_source": {
+          "name": 6,
+          "description": 14,
+          "function": 33
+        }
+      }
+    },
+    "regular fit": {
+      "train": {
+        "garments_any_source": 11470,
+        "parents": 9486,
+        "by_source": {
+          "name": 941,
+          "description": 2269,
+          "function": 11216
+        }
+      },
+      "val": {
+        "garments_any_source": 2437,
+        "parents": 1999,
+        "by_source": {
+          "name": 210,
+          "description": 505,
+          "function": 2368
+        }
+      },
+      "test": {
+        "garments_any_source": 2495,
+        "parents": 2042,
+        "by_source": {
+          "name": 205,
+          "description": 502,
+          "function": 2437
+        }
+      }
+    },
+    "relaxed fit": {
+      "train": {
+        "garments_any_source": 1425,
+        "parents": 1263,
+        "by_source": {
+          "name": 368,
+          "description": 1055,
+          "function": 1205
+        }
+      },
+      "val": {
+        "garments_any_source": 312,
+        "parents": 276,
+        "by_source": {
+          "name": 91,
+          "description": 223,
+          "function": 276
+        }
+      },
+      "test": {
+        "garments_any_source": 302,
+        "parents": 268,
+        "by_source": {
+          "name": 73,
+          "description": 219,
+          "function": 252
+        }
+      }
+    },
+    "loose fit": {
+      "train": {
+        "garments_any_source": 4472,
+        "parents": 3683,
+        "by_source": {
+          "name": 805,
+          "description": 3360,
+          "function": 4346
+        }
+      },
+      "val": {
+        "garments_any_source": 920,
+        "parents": 761,
+        "by_source": {
+          "name": 159,
+          "description": 681,
+          "function": 879
+        }
+      },
+      "test": {
+        "garments_any_source": 918,
+        "parents": 766,
+        "by_source": {
+          "name": 180,
+          "description": 710,
+          "function": 885
+        }
+      }
+    },
+    "oversized": {
+      "train": {
+        "garments_any_source": 2624,
+        "parents": 2046,
+        "by_source": {
+          "name": 995,
+          "description": 2174,
+          "function": 1693
+        }
+      },
+      "val": {
+        "garments_any_source": 584,
+        "parents": 461,
+        "by_source": {
+          "name": 213,
+          "description": 493,
+          "function": 375
+        }
+      },
+      "test": {
+        "garments_any_source": 586,
+        "parents": 452,
+        "by_source": {
+          "name": 215,
+          "description": 477,
+          "function": 396
+        }
+      }
+    },
+    "wide leg": {
+      "train": {
+        "garments_any_source": 1346,
+        "parents": 1062,
+        "by_source": {
+          "name": 279,
+          "description": 371,
+          "function": 1241
+        }
+      },
+      "val": {
+        "garments_any_source": 261,
+        "parents": 197,
+        "by_source": {
+          "name": 57,
+          "description": 64,
+          "function": 239
+        }
+      },
+      "test": {
+        "garments_any_source": 282,
+        "parents": 228,
+        "by_source": {
+          "name": 61,
+          "description": 55,
+          "function": 265
+        }
+      }
+    },
+    "straight leg": {
+      "train": {
+        "garments_any_source": 1331,
+        "parents": 1104,
+        "by_source": {
+          "name": 129,
+          "description": 282,
+          "function": 1258
+        }
+      },
+      "val": {
+        "garments_any_source": 252,
+        "parents": 213,
+        "by_source": {
+          "name": 27,
+          "description": 48,
+          "function": 242
+        }
+      },
+      "test": {
+        "garments_any_source": 278,
+        "parents": 235,
+        "by_source": {
+          "name": 23,
+          "description": 62,
+          "function": 264
+        }
+      }
+    },
+    "tapered": {
+      "train": {
+        "garments_any_source": 983,
+        "parents": 624,
+        "by_source": {
+          "name": 137,
+          "description": 769,
+          "function": 697
+        }
+      },
+      "val": {
+        "garments_any_source": 179,
+        "parents": 119,
+        "by_source": {
+          "name": 30,
+          "description": 158,
+          "function": 134
+        }
+      },
+      "test": {
+        "garments_any_source": 188,
+        "parents": 124,
+        "by_source": {
+          "name": 29,
+          "description": 146,
+          "function": 129
+        }
+      }
+    },
+    "cropped": {
+      "train": {
+        "garments_any_source": 460,
+        "parents": 371,
+        "by_source": {
+          "name": 167,
+          "description": 361,
+          "function": 236
+        }
+      },
+      "val": {
+        "garments_any_source": 113,
+        "parents": 89,
+        "by_source": {
+          "name": 53,
+          "description": 88,
+          "function": 62
+        }
+      },
+      "test": {
+        "garments_any_source": 135,
+        "parents": 84,
+        "by_source": {
+          "name": 67,
+          "description": 84,
+          "function": 61
+        }
+      }
+    },
+    "ankle length": {
+      "train": {
+        "garments_any_source": 675,
+        "parents": 535,
+        "by_source": {
+          "name": 25,
+          "description": 567,
+          "function": 320
+        }
+      },
+      "val": {
+        "garments_any_source": 160,
+        "parents": 127,
+        "by_source": {
+          "name": 10,
+          "description": 136,
+          "function": 87
+        }
+      },
+      "test": {
+        "garments_any_source": 132,
+        "parents": 99,
+        "by_source": {
+          "name": 10,
+          "description": 109,
+          "function": 65
+        }
+      }
+    },
+    "full length": {
+      "train": {
+        "garments_any_source": 71,
+        "parents": 69,
+        "by_source": {
+          "name": 0,
+          "description": 71,
+          "function": 0
+        }
+      },
+      "val": {
+        "garments_any_source": 11,
+        "parents": 11,
+        "by_source": {
+          "name": 0,
+          "description": 11,
+          "function": 0
+        }
+      },
+      "test": {
+        "garments_any_source": 7,
+        "parents": 7,
+        "by_source": {
+          "name": 0,
+          "description": 7,
+          "function": 0
+        }
+      }
+    },
+    "longline": {
+      "train": {
+        "garments_any_source": 7,
+        "parents": 7,
+        "by_source": {
+          "name": 4,
+          "description": 6,
+          "function": 0
+        }
+      },
+      "val": {
+        "garments_any_source": 0,
+        "parents": 0,
+        "by_source": {
+          "name": 0,
+          "description": 0,
+          "function": 0
+        }
+      },
+      "test": {
+        "garments_any_source": 2,
+        "parents": 2,
+        "by_source": {
+          "name": 1,
+          "description": 2,
+          "function": 0
+        }
+      }
+    },
+    "maxi": {
+      "train": {
+        "garments_any_source": 259,
+        "parents": 205,
+        "by_source": {
+          "name": 164,
+          "description": 139,
+          "function": 206
+        }
+      },
+      "val": {
+        "garments_any_source": 52,
+        "parents": 41,
+        "by_source": {
+          "name": 37,
+          "description": 29,
+          "function": 41
+        }
+      },
+      "test": {
+        "garments_any_source": 57,
+        "parents": 46,
+        "by_source": {
+          "name": 36,
+          "description": 34,
+          "function": 46
+        }
+      }
+    },
+    "midi": {
+      "train": {
+        "garments_any_source": 964,
+        "parents": 794,
+        "by_source": {
+          "name": 186,
+          "description": 113,
+          "function": 926
+        }
+      },
+      "val": {
+        "garments_any_source": 209,
+        "parents": 167,
+        "by_source": {
+          "name": 37,
+          "description": 16,
+          "function": 209
+        }
+      },
+      "test": {
+        "garments_any_source": 242,
+        "parents": 192,
+        "by_source": {
+          "name": 43,
+          "description": 26,
+          "function": 233
+        }
+      }
+    },
+    "mini": {
+      "train": {
+        "garments_any_source": 653,
+        "parents": 469,
+        "by_source": {
+          "name": 445,
+          "description": 463,
+          "function": 394
+        }
+      },
+      "val": {
+        "garments_any_source": 121,
+        "parents": 84,
+        "by_source": {
+          "name": 103,
+          "description": 87,
+          "function": 65
+        }
+      },
+      "test": {
+        "garments_any_source": 143,
+        "parents": 114,
+        "by_source": {
+          "name": 104,
+          "description": 117,
+          "function": 79
+        }
+      }
+    }
+  },
+  "recommendations": {
+    "fit": [
+      {
+        "label": "skinny",
+        "recommendation": "MERGE",
+        "merge_into": "slim",
+        "reason": "below thresholds (train 175 garments / 144 parents); hypothesis: merge into 'slim' (human decision)"
+      },
+      {
+        "label": "slim",
+        "recommendation": "KEEP",
+        "reason": "meets train/val/test support thresholds"
+      },
+      {
+        "label": "regular",
+        "recommendation": "KEEP",
+        "reason": "meets train/val/test support thresholds"
+      },
+      {
+        "label": "relaxed",
+        "recommendation": "KEEP",
+        "reason": "meets train/val/test support thresholds"
+      },
+      {
+        "label": "oversized",
+        "recommendation": "KEEP",
+        "reason": "meets train/val/test support thresholds"
+      }
+    ],
+    "fit_raw_merge_candidates_train": {
+      "relaxed": {
+        "loose": 136,
+        "loose fit": 4346
+      }
+    },
+    "length": [
+      {
+        "label": "cropped",
+        "recommendation": "REMOVE_FROM_V1",
+        "reason": "insufficient support (train 268 garments / 213 parents)"
+      },
+      {
+        "label": "standard",
+        "recommendation": "KEEP",
+        "reason": "meets train/val/test support thresholds"
+      },
+      {
+        "label": "long",
+        "recommendation": "KEEP",
+        "reason": "meets train/val/test support thresholds"
+      }
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "defined_on_split": "train",
+  "principles": [
+    "exact/phrase evidence only",
+    "no label from absence of evidence (regular/standard included)",
+    "structured values are authoritative; unmapped structured values block text-based labelling",
+    "mixed mapped+unmapped or multiple labels within a tier -> conflict, label left null",
+    "weak bare terms are reported but never label a garment"
+  ],
+  "tiers": [
+    "structured",
+    "phrase",
+    "name_term",
+    "weak_term"
+  ],
+  "fit": {
+    "labels": [
+      "skinny",
+      "slim",
+      "regular",
+      "relaxed",
+      "oversized"
+    ],
+    "structured_keys": [
+      "fit",
+      "sock fit"
+    ],
+    "structured_value_map": {
+      "skinny": "skinny",
+      "skinny fit": "skinny",
+      "super skinny fit": "skinny",
+      "slim": "slim",
+      "slim fit": "slim",
+      "regular": "regular",
+      "regular fit": "regular",
+      "relaxed": "relaxed",
+      "relaxed fit": "relaxed",
+      "oversized": "oversized"
+    },
+    "phrase_regex": {
+      "skinny": "\\b(?:super |extra )?skinny[- ]fit\\b",
+      "slim": "\\bslim[- ]fit\\b",
+      "regular": "\\bregular[- ]fit\\b",
+      "relaxed": "\\brelaxed[- ]fit\\b",
+      "oversized": "\\boversized[- ]fit\\b"
+    },
+    "name_term_regex": {
+      "oversized": "\\boversized\\b"
+    },
+    "weak_term_regex": {
+      "skinny": "\\bskinny\\b",
+      "slim": "\\bslim\\b",
+      "regular": "\\bregular\\b",
+      "relaxed": "\\brelaxed\\b",
+      "loose": "\\bloose\\b",
+      "oversized": "\\boversized\\b"
+    }
+  },
+  "length": {
+    "labels": [
+      "cropped",
+      "standard",
+      "long"
+    ],
+    "structured_keys": [
+      "length"
+    ],
+    "ignored_structured_keys": [
+      "sleeve_length"
+    ],
+    "structured_value_map": {
+      "cropped": "cropped",
+      "long": "long",
+      "regular length": "standard"
+    },
+    "phrase_regex": {
+      "standard": "\\bregular length\\b",
+      "cropped": "\\bcropped (?:length|cut)\\b"
+    },
+    "name_term_regex": {
+      "cropped": "\\bcropped\\b(?!\\s+sleeves?\\b)"
+    },
+    "weak_term_regex": {
+      "cropped": "\\bcropped\\b",
+      "long": "\\blong\\b"
+    },
+    "notes": [
+      "'long' is only taken from the structured `length` value (never free text: 'long sleeve')",
+      "'standard' only from explicit 'Regular length' text"
+    ]
+  },
+  "raw_phrase_regex": {
+    "slim fit": "\\bslim[ -]fit\\b",
+    "skinny fit": "\\bskinny[ -]fit\\b",
+    "regular fit": "\\bregular[ -]fit\\b",
+    "relaxed fit": "\\brelaxed[ -]fit\\b",
+    "loose fit": "\\bloose[ -]fit\\b",
+    "oversized": "\\boversized\\b",
+    "wide leg": "\\bwide[ -]leg\\b",
+    "straight leg": "\\bstraight[ -]leg\\b",
+    "tapered": "\\btapered\\b",
+    "cropped": "\\bcropped\\b",
+    "ankle length": "\\bankle[ -]length\\b",
+    "full length": "\\bfull[ -]length\\b",
+    "longline": "\\blongline\\b",
+    "maxi": "\\bmaxi\\b",
+    "midi": "\\bmidi\\b",
+    "mini": "\\bmini\\b"
+  },
+  "usefulness_thresholds": {
+    "min_train_garments": 500,
+    "min_train_parents": 200,
+    "min_val_test_garments_each": 50,
+    "min_category_train_garments": 100
+  },
+  "merge_hypotheses": {
+    "label_to_target": {
+      "skinny": "slim"
+    },
+    "raw_values_that_would_extend_label": {
+      "relaxed": [
+        "loose",
+        "loose fit"
+      ]
+    }
+  },
+  "train_observed_unmapped_structured_values": {
+    "fit": {
+      "loose fit": 4346,
+      "very fitted": 231,
+      "fitted": 150,
+      "loose": 136,
+      "muscle fit": 36,
+      "fit-and-flare": 11,
+      "very relaxed": 11,
+      "compression fit": 5,
+      "tight": 4
+    },
+    "length": {
+      "short": 4648,
+      "knee length": 1419,
+      "midi": 926,
+      "mini": 388,
+      "ankle length": 320,
+      "maxi": 206,
+      "extra-long legs": 96,
+      "extra long legs": 42,
+      "three-quarter length": 40
+    }
+  }
+}
