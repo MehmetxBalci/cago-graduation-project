@@ -1,0 +1,2081 @@
+{
+  "config": {
+    "n_templates": 10,
+    "mutations_per_template": 5,
+    "seed": 42,
+    "min_mutations": 1,
+    "max_mutations": 3,
+    "max_attempts": 25,
+    "settings": {
+      "pct_steps": [
+        1.0,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "min_pct": 1.0,
+      "p_substitution": 0.5,
+      "property_bias_beta": 1.0,
+      "preferred_dominant_bias": 4.0,
+      "observed_combo_bonus": 2.0
+    },
+    "w_sub": 1.0,
+    "w_pct": 1.0
+  },
+  "support_tables": {
+    "splits_used": [
+      "train"
+    ],
+    "n_train_garments": 33265,
+    "n_components_used": 46734,
+    "n_components_skipped_non_vocab": 247,
+    "categories": 23,
+    "category_class_cells": 158,
+    "distinct_materials": 22,
+    "distinct_combinations": 1775,
+    "pct_stat_cells": 817
+  },
+  "leakage": {
+    "templates_not_from_train": 0,
+    "support_splits_used": [
+      "train"
+    ]
+  },
+  "train_garments_in_requested_cells": 6425,
+  "requests": [
+    {
+      "request": {
+        "target_segment": "women",
+        "detail_category": "trousers",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "polyester"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": "linen",
+          "stretch": "low",
+          "thermal_warmth": null,
+          "breathability": "high",
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": "relaxed",
+          "length_cut": "long",
+          "colour": null
+        },
+        "warnings": []
+      },
+      "request_key": "02eceda724d5",
+      "template_pool": {
+        "train_garments_in_cell": 1876,
+        "eligible_templates": 1868,
+        "ineligible_reasons": {
+          "non_vocab_material_token": 8
+        },
+        "selected": 10,
+        "selected_distinct_parents": 10,
+        "requested": 10,
+        "pool_smaller_than_requested": false,
+        "selected_requiring_forbidden_repair": 0
+      },
+      "templates_selected": [
+        {
+          "garment_id": "g_ffc6e2061355f436",
+          "parent_product_id": "1308126001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.6733
+        },
+        {
+          "garment_id": "g_0cad284594f86e00",
+          "parent_product_id": "1275509002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.3333
+        },
+        {
+          "garment_id": "g_16f303f35bedc6f2",
+          "parent_product_id": "1322928002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.3333
+        },
+        {
+          "garment_id": "g_18a9798a474bfa64",
+          "parent_product_id": "1275509005",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.3333
+        },
+        {
+          "garment_id": "g_ec8e2bf6d5e27f40",
+          "parent_product_id": "1273386007",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.3333
+        },
+        {
+          "garment_id": "g_2087062bd37393fb",
+          "parent_product_id": "1275509001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.3333
+        },
+        {
+          "garment_id": "g_9fdcf9fca12d2cc1",
+          "parent_product_id": "1209522004",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.3333
+        },
+        {
+          "garment_id": "g_1cc4912daa1cc66b",
+          "parent_product_id": "1322585003",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.2467
+        },
+        {
+          "garment_id": "g_16a46fab09782979",
+          "parent_product_id": "1322840002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.2467
+        },
+        {
+          "garment_id": "g_e0353b060d878c5e",
+          "parent_product_id": "1292066002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 1.1633
+        }
+      ],
+      "generation": {
+        "candidates_requested": 50,
+        "candidates_generated": 50,
+        "attempts": 56,
+        "rejected": {
+          "duplicate_candidate": 3,
+          "identical_to_template": 3
+        },
+        "failed_templates_unrepairable": [],
+        "mutation_types": {
+          "substitution": 64,
+          "percentage": 40
+        },
+        "forbidden_repairs": 0,
+        "mean_mutations_per_candidate": 2.08
+      },
+      "hard_constraints": {
+        "all_candidates_passed_validation": true,
+        "forbidden_material_occurrences": 0,
+        "pad_or_other_occurrences": 0,
+        "all_component_sums_100_within_1e-6": true,
+        "all_percentages_non_negative": true,
+        "all_templates_from_train": true
+      },
+      "template_distance_diagnostic": {
+        "diagnostic_distance": {
+          "mean": 0.9436,
+          "min": 0.02,
+          "max": 2.2
+        },
+        "n_substitutions": {
+          "mean": 0.86,
+          "min": 0,
+          "max": 2
+        },
+        "abs_pct_change_total": {
+          "mean": 8.36,
+          "min": 0.0,
+          "max": 40.0
+        },
+        "note": "diagnostic only; not a plausibility score"
+      },
+      "oracle_sr1_sr5": {
+        "template_rates_pct": {
+          "sr1_violation": 90.0,
+          "sr2_violation": 30.0,
+          "sr3_violation": 40.0,
+          "sr4_violation": 0.0,
+          "sr5_violation": 0.0,
+          "any_violation": 100.0
+        },
+        "candidate_rates_pct": {
+          "sr1_violation": 86.0,
+          "sr2_violation": 30.0,
+          "sr3_violation": 32.0,
+          "sr4_violation": 0.0,
+          "sr5_violation": 6.0,
+          "any_violation": 88.0
+        },
+        "candidates_whose_flag_differs_from_template": {
+          "sr1_violation": 10,
+          "sr2_violation": 0,
+          "sr3_violation": 4,
+          "sr4_violation": 0,
+          "sr5_violation": 3
+        }
+      },
+      "property_proxies_diagnostic": {
+        "candidate_diagnostic_mean_score": {
+          "mean": 0.3883,
+          "min": -0.14,
+          "max": 0.8725
+        },
+        "note": "diagnostic only; not the Intent Alignment Score"
+      },
+      "deterministic_rerun_hash_equal": true,
+      "examples": [
+        {
+          "candidate_id": "cand_ebe86a68d29d3202",
+          "template_garment_id": "g_ffc6e2061355f436",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 0,
+              "from_material": "viscose",
+              "to_material": "cotton",
+              "pct": 51.0
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "from_slot": 2,
+              "to_slot": 1,
+              "from_material": "wool",
+              "to_material": "linen",
+              "delta": 5.0,
+              "pct_before": [
+                22.0,
+                26.0
+              ],
+              "pct_after": [
+                17.0,
+                31.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 10.0,
+            "diagnostic_distance": 1.1
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "shell",
+              "materials": [
+                [
+                  "cotton",
+                  51.0
+                ],
+                [
+                  "linen",
+                  31.0
+                ],
+                [
+                  "wool",
+                  17.0
+                ],
+                [
+                  "elastane",
+                  1.0
+                ]
+              ]
+            },
+            {
+              "name": "lining",
+              "materials": [
+                [
+                  "viscose",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "candidate_id": "cand_4eee410a98739838",
+          "template_garment_id": "g_ffc6e2061355f436",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 2,
+              "from_material": "wool",
+              "to_material": "acrylic",
+              "pct": 22.0
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 2,
+              "from_material": "acrylic",
+              "to_material": "cotton",
+              "pct": 22.0
+            },
+            {
+              "step": 2,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "from_slot": 0,
+              "to_slot": 1,
+              "from_material": "viscose",
+              "to_material": "linen",
+              "delta": 1.0,
+              "pct_before": [
+                51.0,
+                26.0
+              ],
+              "pct_after": [
+                50.0,
+                27.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 2.0,
+            "diagnostic_distance": 1.02
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "shell",
+              "materials": [
+                [
+                  "viscose",
+                  50.0
+                ],
+                [
+                  "linen",
+                  27.0
+                ],
+                [
+                  "cotton",
+                  22.0
+                ],
+                [
+                  "elastane",
+                  1.0
+                ]
+              ]
+            },
+            {
+              "name": "lining",
+              "materials": [
+                [
+                  "viscose",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "men",
+        "detail_category": "tshirt_polo",
+        "hard_constraints": {
+          "forbidden_materials": []
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": "low",
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": true,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "request_key": "95ae1364cf85",
+      "template_pool": {
+        "train_garments_in_cell": 944,
+        "eligible_templates": 944,
+        "ineligible_reasons": {},
+        "selected": 10,
+        "selected_distinct_parents": 10,
+        "requested": 10,
+        "pool_smaller_than_requested": false,
+        "selected_requiring_forbidden_repair": 0
+      },
+      "templates_selected": [
+        {
+          "garment_id": "g_c5d5c0b2998e0a2e",
+          "parent_product_id": "1241036003",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.86
+        },
+        {
+          "garment_id": "g_6b45d2536273c07a",
+          "parent_product_id": "1232558002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.72
+        },
+        {
+          "garment_id": "g_f9bc02bc5e7a5a2c",
+          "parent_product_id": "0795243032",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.545
+        },
+        {
+          "garment_id": "g_2b884c8a79515562",
+          "parent_product_id": "0795243035",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.54
+        },
+        {
+          "garment_id": "g_1fffa3ab5a93560f",
+          "parent_product_id": "0795243001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.54
+        },
+        {
+          "garment_id": "g_8b9f49db993f0049",
+          "parent_product_id": "0795243038",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.54
+        },
+        {
+          "garment_id": "g_b9e4c705765a93c9",
+          "parent_product_id": "1263914004",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.5
+        },
+        {
+          "garment_id": "g_f8797098008009af",
+          "parent_product_id": "1323814008",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_4540aeb79ebf3097",
+          "parent_product_id": "1198468021",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_a62e9b41a2a1c782",
+          "parent_product_id": "1289490001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        }
+      ],
+      "generation": {
+        "candidates_requested": 50,
+        "candidates_generated": 50,
+        "attempts": 73,
+        "rejected": {
+          "identical_to_template": 6,
+          "duplicate_candidate": 17
+        },
+        "failed_templates_unrepairable": [],
+        "mutation_types": {
+          "substitution": 54,
+          "percentage": 50
+        },
+        "forbidden_repairs": 0,
+        "mean_mutations_per_candidate": 2.08
+      },
+      "hard_constraints": {
+        "all_candidates_passed_validation": true,
+        "forbidden_material_occurrences": 0,
+        "pad_or_other_occurrences": 0,
+        "all_component_sums_100_within_1e-6": true,
+        "all_percentages_non_negative": true,
+        "all_templates_from_train": true
+      },
+      "template_distance_diagnostic": {
+        "diagnostic_distance": {
+          "mean": 0.8896,
+          "min": 0.02,
+          "max": 2.02
+        },
+        "n_substitutions": {
+          "mean": 0.82,
+          "min": 0,
+          "max": 2
+        },
+        "abs_pct_change_total": {
+          "mean": 6.96,
+          "min": 0.0,
+          "max": 40.0
+        },
+        "note": "diagnostic only; not a plausibility score"
+      },
+      "oracle_sr1_sr5": {
+        "template_rates_pct": {
+          "sr1_violation": 80.0,
+          "sr2_violation": 60.0,
+          "sr3_violation": 70.0,
+          "sr4_violation": 30.0,
+          "sr5_violation": 0.0,
+          "any_violation": 90.0
+        },
+        "candidate_rates_pct": {
+          "sr1_violation": 80.0,
+          "sr2_violation": 60.0,
+          "sr3_violation": 62.0,
+          "sr4_violation": 30.0,
+          "sr5_violation": 0.0,
+          "any_violation": 88.0
+        },
+        "candidates_whose_flag_differs_from_template": {
+          "sr1_violation": 4,
+          "sr2_violation": 0,
+          "sr3_violation": 4,
+          "sr4_violation": 0,
+          "sr5_violation": 0
+        }
+      },
+      "property_proxies_diagnostic": {
+        "candidate_diagnostic_mean_score": {
+          "mean": 0.2,
+          "min": -0.5,
+          "max": 0.995
+        },
+        "note": "diagnostic only; not the Intent Alignment Score"
+      },
+      "deterministic_rerun_hash_equal": true,
+      "examples": [
+        {
+          "candidate_id": "cand_9137024b1703bfd2",
+          "template_garment_id": "g_c5d5c0b2998e0a2e",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 1,
+              "from_material": "lyocell",
+              "to_material": "viscose",
+              "pct": 18.0
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 1,
+              "from_material": "viscose",
+              "to_material": "nylon",
+              "pct": 18.0
+            },
+            {
+              "step": 2,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "from_slot": 0,
+              "to_slot": 2,
+              "from_material": "polyester",
+              "to_material": "wool",
+              "delta": 5.0,
+              "pct_before": [
+                72.0,
+                9.0
+              ],
+              "pct_after": [
+                67.0,
+                14.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 10.0,
+            "diagnostic_distance": 1.1
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "polyester",
+                  67.0
+                ],
+                [
+                  "nylon",
+                  18.0
+                ],
+                [
+                  "wool",
+                  14.0
+                ],
+                [
+                  "elastane",
+                  1.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "candidate_id": "cand_732a9e7773d72d43",
+          "template_garment_id": "g_c5d5c0b2998e0a2e",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "from_slot": 1,
+              "to_slot": 3,
+              "from_material": "lyocell",
+              "to_material": "elastane",
+              "delta": 1.0,
+              "pct_before": [
+                18.0,
+                1.0
+              ],
+              "pct_after": [
+                17.0,
+                2.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 0,
+            "abs_pct_change_total": 2.0,
+            "diagnostic_distance": 0.02
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "polyester",
+                  72.0
+                ],
+                [
+                  "lyocell",
+                  17.0
+                ],
+                [
+                  "wool",
+                  9.0
+                ],
+                [
+                  "elastane",
+                  2.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "women",
+        "detail_category": "dresses",
+        "hard_constraints": {
+          "forbidden_materials": []
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "request_key": "779e940d9df9",
+      "template_pool": {
+        "train_garments_in_cell": 2426,
+        "eligible_templates": 2418,
+        "ineligible_reasons": {
+          "non_vocab_material_token": 7,
+          "unmapped_material": 1
+        },
+        "selected": 10,
+        "selected_distinct_parents": 10,
+        "requested": 10,
+        "pool_smaller_than_requested": false,
+        "selected_requiring_forbidden_repair": 0
+      },
+      "templates_selected": [
+        {
+          "garment_id": "g_fb57e9b60fbecf19",
+          "parent_product_id": "1297709001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_84f5cc71643e6fa8",
+          "parent_product_id": "1317945001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_f0cb1a407d6b96b7",
+          "parent_product_id": "1247667002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_027f9d44b79bf4ca",
+          "parent_product_id": "1291738001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_c7d3b0075b24a397",
+          "parent_product_id": "1275763005",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_4a754cb4ae6c270e",
+          "parent_product_id": "1273482001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_0aaf64ad9e632983",
+          "parent_product_id": "1289482001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_ea41e03fbe3815b3",
+          "parent_product_id": "1307342001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_2784982a05fc83f7",
+          "parent_product_id": "1228855001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_02fb51ab2b5bf7fc",
+          "parent_product_id": "1283341002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        }
+      ],
+      "generation": {
+        "candidates_requested": 50,
+        "candidates_generated": 50,
+        "attempts": 63,
+        "rejected": {
+          "duplicate_candidate": 10,
+          "identical_to_template": 3
+        },
+        "failed_templates_unrepairable": [],
+        "mutation_types": {
+          "percentage": 40,
+          "substitution": 67
+        },
+        "forbidden_repairs": 0,
+        "mean_mutations_per_candidate": 2.14
+      },
+      "hard_constraints": {
+        "all_candidates_passed_validation": true,
+        "forbidden_material_occurrences": 0,
+        "pad_or_other_occurrences": 0,
+        "all_component_sums_100_within_1e-6": true,
+        "all_percentages_non_negative": true,
+        "all_templates_from_train": true
+      },
+      "template_distance_diagnostic": {
+        "diagnostic_distance": {
+          "mean": 0.9836,
+          "min": 0.02,
+          "max": 2.1
+        },
+        "n_substitutions": {
+          "mean": 0.92,
+          "min": 0,
+          "max": 2
+        },
+        "abs_pct_change_total": {
+          "mean": 6.36,
+          "min": 0.0,
+          "max": 40.0
+        },
+        "note": "diagnostic only; not a plausibility score"
+      },
+      "oracle_sr1_sr5": {
+        "template_rates_pct": {
+          "sr1_violation": 50.0,
+          "sr2_violation": 0.0,
+          "sr3_violation": 0.0,
+          "sr4_violation": 50.0,
+          "sr5_violation": 10.0,
+          "any_violation": 70.0
+        },
+        "candidate_rates_pct": {
+          "sr1_violation": 64.0,
+          "sr2_violation": 0.0,
+          "sr3_violation": 4.0,
+          "sr4_violation": 50.0,
+          "sr5_violation": 38.0,
+          "any_violation": 94.0
+        },
+        "candidates_whose_flag_differs_from_template": {
+          "sr1_violation": 11,
+          "sr2_violation": 0,
+          "sr3_violation": 2,
+          "sr4_violation": 0,
+          "sr5_violation": 16
+        }
+      },
+      "property_proxies_diagnostic": {
+        "candidate_diagnostic_mean_score": {
+          "mean": null,
+          "min": null,
+          "max": null
+        },
+        "note": "diagnostic only; not the Intent Alignment Score"
+      },
+      "deterministic_rerun_hash_equal": true,
+      "examples": [
+        {
+          "candidate_id": "cand_49ed05a87908b3e8",
+          "template_garment_id": "g_fb57e9b60fbecf19",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "from_slot": 0,
+              "to_slot": 1,
+              "from_material": "lyocell",
+              "to_material": "polyester",
+              "delta": 2.0,
+              "pct_before": [
+                76.0,
+                24.0
+              ],
+              "pct_after": [
+                74.0,
+                26.0
+              ]
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "from_slot": 0,
+              "to_slot": 1,
+              "from_material": "lyocell",
+              "to_material": "polyester",
+              "delta": 1.0,
+              "pct_before": [
+                74.0,
+                26.0
+              ],
+              "pct_after": [
+                73.0,
+                27.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 0,
+            "abs_pct_change_total": 6.0,
+            "diagnostic_distance": 0.06
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "shell",
+              "materials": [
+                [
+                  "lyocell",
+                  73.0
+                ],
+                [
+                  "polyester",
+                  27.0
+                ]
+              ]
+            },
+            {
+              "name": "lining",
+              "materials": [
+                [
+                  "polyester",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "candidate_id": "cand_c26e54aaccc168a5",
+          "template_garment_id": "g_fb57e9b60fbecf19",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 1,
+              "from_material": "polyester",
+              "to_material": "nylon",
+              "pct": 24.0
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 0,
+              "from_material": "lyocell",
+              "to_material": "cotton",
+              "pct": 76.0
+            },
+            {
+              "step": 2,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "from_slot": 0,
+              "to_slot": 1,
+              "from_material": "cotton",
+              "to_material": "nylon",
+              "delta": 5.0,
+              "pct_before": [
+                76.0,
+                24.0
+              ],
+              "pct_after": [
+                71.0,
+                29.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 2,
+            "abs_pct_change_total": 10.0,
+            "diagnostic_distance": 2.1
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "shell",
+              "materials": [
+                [
+                  "cotton",
+                  71.0
+                ],
+                [
+                  "nylon",
+                  29.0
+                ]
+              ]
+            },
+            {
+              "name": "lining",
+              "materials": [
+                [
+                  "polyester",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "men",
+        "detail_category": "outerwear_jacket",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "down",
+            "feather"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": true,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "request_key": "51e5c6a3e0c1",
+      "template_pool": {
+        "train_garments_in_cell": 404,
+        "eligible_templates": 391,
+        "ineligible_reasons": {
+          "non_vocab_material_token": 10,
+          "unmapped_material": 3
+        },
+        "selected": 10,
+        "selected_distinct_parents": 10,
+        "requested": 10,
+        "pool_smaller_than_requested": false,
+        "selected_requiring_forbidden_repair": 0
+      },
+      "templates_selected": [
+        {
+          "garment_id": "g_862cbe5c905a5093",
+          "parent_product_id": "1293996004",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_c4752baf805a3ba8",
+          "parent_product_id": "1312667001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_67afd7cef553557a",
+          "parent_product_id": "1334711001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_9135fbda90a7f76a",
+          "parent_product_id": "1295907001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_765d97613bffb002",
+          "parent_product_id": "1317984003",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_e645664fa4331a20",
+          "parent_product_id": "1305445001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_b81ab4b0c9e05461",
+          "parent_product_id": "1324968001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_8a27c2efc3be00b2",
+          "parent_product_id": "1262237001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_58598ecc41bacf7c",
+          "parent_product_id": "1293076001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        },
+        {
+          "garment_id": "g_a7c5ea7385a02c5c",
+          "parent_product_id": "0989408041",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.7
+        }
+      ],
+      "generation": {
+        "candidates_requested": 50,
+        "candidates_generated": 50,
+        "attempts": 59,
+        "rejected": {
+          "identical_to_template": 2,
+          "duplicate_candidate": 7
+        },
+        "failed_templates_unrepairable": [],
+        "mutation_types": {
+          "substitution": 90,
+          "percentage": 5
+        },
+        "forbidden_repairs": 0,
+        "mean_mutations_per_candidate": 1.9
+      },
+      "hard_constraints": {
+        "all_candidates_passed_validation": true,
+        "forbidden_material_occurrences": 0,
+        "pad_or_other_occurrences": 0,
+        "all_component_sums_100_within_1e-6": true,
+        "all_percentages_non_negative": true,
+        "all_templates_from_train": true
+      },
+      "template_distance_diagnostic": {
+        "diagnostic_distance": {
+          "mean": 1.264,
+          "min": 0.02,
+          "max": 2.0
+        },
+        "n_substitutions": {
+          "mean": 1.26,
+          "min": 0,
+          "max": 2
+        },
+        "abs_pct_change_total": {
+          "mean": 0.4,
+          "min": 0.0,
+          "max": 10.0
+        },
+        "note": "diagnostic only; not a plausibility score"
+      },
+      "oracle_sr1_sr5": {
+        "template_rates_pct": {
+          "sr1_violation": 20.0,
+          "sr2_violation": 10.0,
+          "sr3_violation": 10.0,
+          "sr4_violation": 30.0,
+          "sr5_violation": 70.0,
+          "any_violation": 90.0
+        },
+        "candidate_rates_pct": {
+          "sr1_violation": 32.0,
+          "sr2_violation": 10.0,
+          "sr3_violation": 10.0,
+          "sr4_violation": 30.0,
+          "sr5_violation": 78.0,
+          "any_violation": 84.0
+        },
+        "candidates_whose_flag_differs_from_template": {
+          "sr1_violation": 12,
+          "sr2_violation": 0,
+          "sr3_violation": 0,
+          "sr4_violation": 0,
+          "sr5_violation": 16
+        }
+      },
+      "property_proxies_diagnostic": {
+        "candidate_diagnostic_mean_score": {
+          "mean": 0.612,
+          "min": 0.5,
+          "max": 0.7
+        },
+        "note": "diagnostic only; not the Intent Alignment Score"
+      },
+      "deterministic_rerun_hash_equal": true,
+      "examples": [
+        {
+          "candidate_id": "cand_6439c5074c07e817",
+          "template_garment_id": "g_862cbe5c905a5093",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 0,
+              "from_material": "nylon",
+              "to_material": "polyester",
+              "pct": 100.0
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 0,
+              "from_material": "polyester",
+              "to_material": "cotton",
+              "pct": 100.0
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 0.0,
+            "diagnostic_distance": 1.0
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "shell",
+              "materials": [
+                [
+                  "cotton",
+                  100.0
+                ]
+              ]
+            },
+            {
+              "name": "lining",
+              "materials": [
+                [
+                  "polyester",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "candidate_id": "cand_72e1877b352780b4",
+          "template_garment_id": "g_862cbe5c905a5093",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 0,
+              "from_material": "nylon",
+              "to_material": "polyester",
+              "pct": 100.0
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "shell",
+              "slot": 0,
+              "from_material": "polyester",
+              "to_material": "leather",
+              "pct": 100.0
+            },
+            {
+              "step": 2,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 1,
+              "component_name": "lining",
+              "slot": 0,
+              "from_material": "polyester",
+              "to_material": "cotton",
+              "pct": 100.0
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 2,
+            "abs_pct_change_total": 0.0,
+            "diagnostic_distance": 2.0
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "shell",
+              "materials": [
+                [
+                  "leather",
+                  100.0
+                ]
+              ]
+            },
+            {
+              "name": "lining",
+              "materials": [
+                [
+                  "cotton",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "kids",
+        "detail_category": "sweatshirt_hoodie",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "acrylic"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": "heavy",
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "request_key": "c907247f09f0",
+      "template_pool": {
+        "train_garments_in_cell": 767,
+        "eligible_templates": 767,
+        "ineligible_reasons": {},
+        "selected": 10,
+        "selected_distinct_parents": 10,
+        "requested": 10,
+        "pool_smaller_than_requested": false,
+        "selected_requiring_forbidden_repair": 0
+      },
+      "templates_selected": [
+        {
+          "garment_id": "g_cf29e6669bf3edac",
+          "parent_product_id": "1284904001",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.3
+        },
+        {
+          "garment_id": "g_f91915b297b42951",
+          "parent_product_id": "1173015064",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_4012620a18aa3968",
+          "parent_product_id": "1285654002",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_5f67bc88e7506107",
+          "parent_product_id": "1274053005",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_47ecafdec73036c9",
+          "parent_product_id": "1267711009",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_7658de7e0ab3bb3e",
+          "parent_product_id": "1063809076",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_6febcb044d1b3d2a",
+          "parent_product_id": "1173514006",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_83e050639989e2b3",
+          "parent_product_id": "1200866010",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_bc50bbd78dafb484",
+          "parent_product_id": "1137239033",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        },
+        {
+          "garment_id": "g_70b2ed9b31ad56f7",
+          "parent_product_id": "1322465005",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.15
+        }
+      ],
+      "generation": {
+        "candidates_requested": 50,
+        "candidates_generated": 44,
+        "attempts": 210,
+        "rejected": {
+          "duplicate_candidate": 105,
+          "identical_to_template": 61,
+          "gave_up_after_max_attempts": 6
+        },
+        "failed_templates_unrepairable": [],
+        "mutation_types": {
+          "substitution": 38,
+          "percentage": 44
+        },
+        "forbidden_repairs": 0,
+        "mean_mutations_per_candidate": 1.864
+      },
+      "hard_constraints": {
+        "all_candidates_passed_validation": true,
+        "forbidden_material_occurrences": 0,
+        "pad_or_other_occurrences": 0,
+        "all_component_sums_100_within_1e-6": true,
+        "all_percentages_non_negative": true,
+        "all_templates_from_train": true
+      },
+      "template_distance_diagnostic": {
+        "diagnostic_distance": {
+          "mean": 0.7568,
+          "min": 0.02,
+          "max": 2.02
+        },
+        "n_substitutions": {
+          "mean": 0.6818,
+          "min": 0,
+          "max": 2
+        },
+        "abs_pct_change_total": {
+          "mean": 7.5,
+          "min": 0.0,
+          "max": 28.0
+        },
+        "note": "diagnostic only; not a plausibility score"
+      },
+      "oracle_sr1_sr5": {
+        "template_rates_pct": {
+          "sr1_violation": 10.0,
+          "sr2_violation": 10.0,
+          "sr3_violation": 10.0,
+          "sr4_violation": 0.0,
+          "sr5_violation": 0.0,
+          "any_violation": 10.0
+        },
+        "candidate_rates_pct": {
+          "sr1_violation": 36.36,
+          "sr2_violation": 11.36,
+          "sr3_violation": 11.36,
+          "sr4_violation": 0.0,
+          "sr5_violation": 9.09,
+          "any_violation": 40.91
+        },
+        "candidates_whose_flag_differs_from_template": {
+          "sr1_violation": 11,
+          "sr2_violation": 0,
+          "sr3_violation": 0,
+          "sr4_violation": 0,
+          "sr5_violation": 4
+        }
+      },
+      "property_proxies_diagnostic": {
+        "candidate_diagnostic_mean_score": {
+          "mean": 0.217,
+          "min": 0.15,
+          "max": 1.0
+        },
+        "note": "diagnostic only; not the Intent Alignment Score"
+      },
+      "deterministic_rerun_hash_equal": true,
+      "examples": [
+        {
+          "candidate_id": "cand_13e03d25dd7cdfc6",
+          "template_garment_id": "g_cf29e6669bf3edac",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 0,
+              "from_material": "polyester",
+              "to_material": "cotton",
+              "pct": 100.0
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 0.0,
+            "diagnostic_distance": 1.0
+          },
+          "oracle_any_violation": false,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "cotton",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "candidate_id": "cand_7fc566e2a8012bde",
+          "template_garment_id": "g_cf29e6669bf3edac",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 0,
+              "from_material": "polyester",
+              "to_material": "wool",
+              "pct": 100.0
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 0.0,
+            "diagnostic_distance": 1.0
+          },
+          "oracle_any_violation": false,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "wool",
+                  100.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "men",
+        "detail_category": "set",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "cotton",
+            "polyester"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "request_key": "2ce831af5b18",
+      "template_pool": {
+        "train_garments_in_cell": 6,
+        "eligible_templates": 6,
+        "ineligible_reasons": {},
+        "selected": 3,
+        "selected_distinct_parents": 3,
+        "requested": 10,
+        "pool_smaller_than_requested": true,
+        "selected_requiring_forbidden_repair": 3
+      },
+      "templates_selected": [
+        {
+          "garment_id": "g_90dc20e62daf9311",
+          "parent_product_id": "1332687001",
+          "n_forbidden_slots": 1,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_c1a8d0e0b0936a3d",
+          "parent_product_id": "1099732010",
+          "n_forbidden_slots": 2,
+          "rank_score_diagnostic": 0.0
+        },
+        {
+          "garment_id": "g_236c7185354b7d46",
+          "parent_product_id": "1099732009",
+          "n_forbidden_slots": 2,
+          "rank_score_diagnostic": 0.0
+        }
+      ],
+      "generation": {
+        "candidates_requested": 50,
+        "candidates_generated": 15,
+        "attempts": 15,
+        "rejected": {},
+        "failed_templates_unrepairable": [],
+        "mutation_types": {
+          "substitution": 38,
+          "percentage": 14
+        },
+        "forbidden_repairs": 25,
+        "mean_mutations_per_candidate": 3.467
+      },
+      "hard_constraints": {
+        "all_candidates_passed_validation": true,
+        "forbidden_material_occurrences": 0,
+        "pad_or_other_occurrences": 0,
+        "all_component_sums_100_within_1e-6": true,
+        "all_percentages_non_negative": true,
+        "all_templates_from_train": true
+      },
+      "template_distance_diagnostic": {
+        "diagnostic_distance": {
+          "mean": 1.9773,
+          "min": 1.0,
+          "max": 3.04
+        },
+        "n_substitutions": {
+          "mean": 1.9333,
+          "min": 1,
+          "max": 3
+        },
+        "abs_pct_change_total": {
+          "mean": 4.4,
+          "min": 0.0,
+          "max": 20.0
+        },
+        "note": "diagnostic only; not a plausibility score"
+      },
+      "oracle_sr1_sr5": {
+        "template_rates_pct": {
+          "sr1_violation": 33.33,
+          "sr2_violation": 33.33,
+          "sr3_violation": 66.67,
+          "sr4_violation": 0.0,
+          "sr5_violation": 0.0,
+          "any_violation": 66.67
+        },
+        "candidate_rates_pct": {
+          "sr1_violation": 100.0,
+          "sr2_violation": 33.33,
+          "sr3_violation": 60.0,
+          "sr4_violation": 0.0,
+          "sr5_violation": 0.0,
+          "any_violation": 100.0
+        },
+        "candidates_whose_flag_differs_from_template": {
+          "sr1_violation": 10,
+          "sr2_violation": 0,
+          "sr3_violation": 1,
+          "sr4_violation": 0,
+          "sr5_violation": 0
+        }
+      },
+      "property_proxies_diagnostic": {
+        "candidate_diagnostic_mean_score": {
+          "mean": null,
+          "min": null,
+          "max": null
+        },
+        "note": "diagnostic only; not the Intent Alignment Score"
+      },
+      "deterministic_rerun_hash_equal": true,
+      "examples": [
+        {
+          "candidate_id": "cand_f4773d721857f631",
+          "template_garment_id": "g_90dc20e62daf9311",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": "forbidden_repair",
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 0,
+              "from_material": "cotton",
+              "to_material": "viscose",
+              "pct": 96.0
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "from_slot": 0,
+              "to_slot": 1,
+              "from_material": "viscose",
+              "to_material": "elastane",
+              "delta": 1.0,
+              "pct_before": [
+                96.0,
+                4.0
+              ],
+              "pct_after": [
+                95.0,
+                5.0
+              ]
+            },
+            {
+              "step": 2,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 0,
+              "from_material": "viscose",
+              "to_material": "nylon",
+              "pct": 95.0
+            },
+            {
+              "step": 3,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "from_slot": 1,
+              "to_slot": 0,
+              "from_material": "elastane",
+              "to_material": "nylon",
+              "delta": 1.0,
+              "pct_before": [
+                5.0,
+                95.0
+              ],
+              "pct_after": [
+                4.0,
+                96.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 0.0,
+            "diagnostic_distance": 1.0
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "nylon",
+                  96.0
+                ],
+                [
+                  "elastane",
+                  4.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "candidate_id": "cand_9aebe5ee21754df1",
+          "template_garment_id": "g_90dc20e62daf9311",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": "forbidden_repair",
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 0,
+              "from_material": "cotton",
+              "to_material": "viscose",
+              "pct": 96.0
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 0,
+              "from_material": "viscose",
+              "to_material": "wool",
+              "pct": 96.0
+            },
+            {
+              "step": 2,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 1,
+              "from_material": "elastane",
+              "to_material": "nylon",
+              "pct": 4.0
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 2,
+            "abs_pct_change_total": 0.0,
+            "diagnostic_distance": 2.0
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "wool",
+                  96.0
+                ],
+                [
+                  "nylon",
+                  4.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "baby",
+        "detail_category": "trousers",
+        "hard_constraints": {
+          "forbidden_materials": []
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "request_key": "af7d24a7692b",
+      "template_pool": {
+        "train_garments_in_cell": 2,
+        "eligible_templates": 2,
+        "ineligible_reasons": {},
+        "selected": 1,
+        "selected_distinct_parents": 1,
+        "requested": 10,
+        "pool_smaller_than_requested": true,
+        "selected_requiring_forbidden_repair": 0
+      },
+      "templates_selected": [
+        {
+          "garment_id": "g_102c257f10841fe0",
+          "parent_product_id": "479660",
+          "n_forbidden_slots": 0,
+          "rank_score_diagnostic": 0.0
+        }
+      ],
+      "generation": {
+        "candidates_requested": 50,
+        "candidates_generated": 5,
+        "attempts": 5,
+        "rejected": {},
+        "failed_templates_unrepairable": [],
+        "mutation_types": {
+          "substitution": 7,
+          "percentage": 3
+        },
+        "forbidden_repairs": 0,
+        "mean_mutations_per_candidate": 2
+      },
+      "hard_constraints": {
+        "all_candidates_passed_validation": true,
+        "forbidden_material_occurrences": 0,
+        "pad_or_other_occurrences": 0,
+        "all_component_sums_100_within_1e-6": true,
+        "all_percentages_non_negative": true,
+        "all_templates_from_train": true
+      },
+      "template_distance_diagnostic": {
+        "diagnostic_distance": {
+          "mean": 0.816,
+          "min": 0.02,
+          "max": 1.06
+        },
+        "n_substitutions": {
+          "mean": 0.8,
+          "min": 0,
+          "max": 1
+        },
+        "abs_pct_change_total": {
+          "mean": 1.6,
+          "min": 0.0,
+          "max": 6.0
+        },
+        "note": "diagnostic only; not a plausibility score"
+      },
+      "oracle_sr1_sr5": {
+        "template_rates_pct": {
+          "sr1_violation": 0.0,
+          "sr2_violation": 0.0,
+          "sr3_violation": 0.0,
+          "sr4_violation": 0.0,
+          "sr5_violation": 0.0,
+          "any_violation": 0.0
+        },
+        "candidate_rates_pct": {
+          "sr1_violation": 60.0,
+          "sr2_violation": 0.0,
+          "sr3_violation": 0.0,
+          "sr4_violation": 0.0,
+          "sr5_violation": 0.0,
+          "any_violation": 60.0
+        },
+        "candidates_whose_flag_differs_from_template": {
+          "sr1_violation": 3,
+          "sr2_violation": 0,
+          "sr3_violation": 0,
+          "sr4_violation": 0,
+          "sr5_violation": 0
+        }
+      },
+      "property_proxies_diagnostic": {
+        "candidate_diagnostic_mean_score": {
+          "mean": null,
+          "min": null,
+          "max": null
+        },
+        "note": "diagnostic only; not the Intent Alignment Score"
+      },
+      "deterministic_rerun_hash_equal": true,
+      "examples": [
+        {
+          "candidate_id": "cand_0a89db275630b1da",
+          "template_garment_id": "g_102c257f10841fe0",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 1,
+              "from_material": "elastane",
+              "to_material": "viscose",
+              "pct": 5.0
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "from_slot": 0,
+              "to_slot": 1,
+              "from_material": "cotton",
+              "to_material": "viscose",
+              "delta": 2.0,
+              "pct_before": [
+                95.0,
+                5.0
+              ],
+              "pct_after": [
+                93.0,
+                7.0
+              ]
+            },
+            {
+              "step": 2,
+              "type": "percentage",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "from_slot": 0,
+              "to_slot": 1,
+              "from_material": "cotton",
+              "to_material": "viscose",
+              "delta": 1.0,
+              "pct_before": [
+                93.0,
+                7.0
+              ],
+              "pct_after": [
+                92.0,
+                8.0
+              ]
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 6.0,
+            "diagnostic_distance": 1.06
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "cotton",
+                  92.0
+                ],
+                [
+                  "viscose",
+                  8.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "candidate_id": "cand_9ac07526a27c53fa",
+          "template_garment_id": "g_102c257f10841fe0",
+          "mutation_log": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "component_index": 0,
+              "component_name": "main",
+              "slot": 0,
+              "from_material": "cotton",
+              "to_material": "viscose",
+              "pct": 95.0
+            }
+          ],
+          "template_distance": {
+            "n_substitutions": 1,
+            "abs_pct_change_total": 0.0,
+            "diagnostic_distance": 1.0
+          },
+          "oracle_any_violation": true,
+          "components": [
+            {
+              "name": "main",
+              "materials": [
+                [
+                  "viscose",
+                  95.0
+                ],
+                [
+                  "elastane",
+                  5.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "edge_cases": [
+    "kids/sweatshirt_hoodie: 44/50 candidates generated; rejections {'duplicate_candidate': 105, 'identical_to_template': 61, 'gave_up_after_max_attempts': 6}",
+    "men/set: only 3 templates available (requested 10)",
+    "men/set: 15/50 candidates generated; rejections {}",
+    "baby/trousers: only 1 templates available (requested 10)",
+    "baby/trousers: 5/50 candidates generated; rejections {}"
+  ]
+}

@@ -1,0 +1,2718 @@
+{
+  "seed": 42,
+  "generation_config": {
+    "n_templates": 10,
+    "per_template": 8
+  },
+  "support_splits_used": [
+    "train"
+  ],
+  "requests": [
+    {
+      "request": {
+        "target_segment": "women",
+        "detail_category": "trousers",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "polyester"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": "linen",
+          "stretch": "low",
+          "thermal_warmth": null,
+          "breathability": "high",
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": "relaxed",
+          "length_cut": "long",
+          "colour": null
+        },
+        "warnings": []
+      },
+      "generated": 80,
+      "hard_valid": 80,
+      "hard_excluded": [],
+      "templates_used": 10,
+      "active_preferences": [
+        "breathability",
+        "fit",
+        "length_cut",
+        "preferred_dominant_material",
+        "stretch"
+      ],
+      "unscorable_preferences": {},
+      "intent_0_100": {
+        "n": 80,
+        "min": 32.11,
+        "p25": 48.33,
+        "median": 55.56,
+        "p75": 77.67,
+        "mean": 60.93,
+        "max": 77.78
+      },
+      "candidates_without_intent_score": 0,
+      "violation_count_distribution": {
+        "0": 9,
+        "1": 43,
+        "2": 6,
+        "3": 18,
+        "4": 4,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 80,
+        "min": 18.39,
+        "p25": 40.75,
+        "median": 53.27,
+        "p75": 66.49,
+        "mean": 54.15,
+        "max": 93.08
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "intent_loss",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "active",
+        "n_with_intent": 80,
+        "n_candidates": 80,
+        "front_size": 3,
+        "rank_counts": {
+          "0": 3,
+          "1": 3,
+          "2": 3,
+          "3": 3,
+          "4": 3,
+          "5": 2,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 2,
+          "10": 3,
+          "11": 1,
+          "12": 1,
+          "13": 4,
+          "14": 3,
+          "15": 2,
+          "16": 8,
+          "17": 4,
+          "18": 10,
+          "19": 8,
+          "20": 6,
+          "21": 3,
+          "22": 2,
+          "23": 1,
+          "24": 1,
+          "25": 1
+        },
+        "front_ids": [
+          "cand_5a59c50e23dcc75f",
+          "cand_5c69bbfcecf56a92",
+          "cand_abd13c7861b91537"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_5a59c50e23dcc75f",
+          "roles": [
+            "sorting_focused"
+          ],
+          "balanced_distance": 0.489616,
+          "template_garment_id": "g_16f303f35bedc6f2",
+          "violation_count": 0,
+          "sorting_compatibility_index_0_100": 100.0,
+          "intent_0_100": 55.56,
+          "plausibility_0_100": 79.46
+        },
+        {
+          "candidate_id": "cand_abd13c7861b91537",
+          "roles": [
+            "balanced",
+            "intent_focused"
+          ],
+          "balanced_distance": 0.312144,
+          "template_garment_id": "g_18a9798a474bfa64",
+          "violation_count": 1,
+          "sorting_compatibility_index_0_100": 80.0,
+          "intent_0_100": 77.78,
+          "plausibility_0_100": 91.03
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": false,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 90.0,
+          "SR2": 30.0,
+          "SR3": 40.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 1.6
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 86.25,
+          "SR2": 30.0,
+          "SR3": 35.0,
+          "SR4": 0.0,
+          "SR5": 5.0,
+          "ANY": 88.75,
+          "mean_violation_count": 1.562
+        },
+        "pareto_front": {
+          "SR1": 33.33,
+          "SR2": 0.0,
+          "SR3": 33.33,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 66.67,
+          "mean_violation_count": 0.667
+        },
+        "selected_designs": {
+          "SR1": 50.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 50.0,
+          "mean_violation_count": 0.5
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 1,
+          "intent_improves_sorting_worsens": 0,
+          "plausibility_falls_substantially": 0
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [
+            "cand_5a59c50e23dcc75f"
+          ],
+          "intent_improves_sorting_worsens": [],
+          "plausibility_falls_substantially": []
+        },
+        "front_size_is_one": false,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_5a59c50e23dcc75f",
+          "roles": [
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_16f303f35bedc6f2",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "breathability",
+                "requested_value": "high",
+                "satisfaction_0_1": 1.0,
+                "explanation": "proxy 'breathability=high' scored 1 from composition/text evidence (breathable_fibre_share=1.00)"
+              },
+              {
+                "preference": "fit",
+                "requested_value": "relaxed",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template fit label 'relaxed' matches requested 'relaxed'"
+              },
+              {
+                "preference": "length_cut",
+                "requested_value": "long",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template length_cut label 'long' matches requested 'long'"
+              }
+            ],
+            "partial": [],
+            "not_satisfied": [
+              {
+                "preference": "preferred_dominant_material",
+                "requested_value": "linen",
+                "satisfaction_0_1": 0.0,
+                "explanation": "linen is not the highest-percentage material of the primary component ('cotton' at 100%)"
+              },
+              {
+                "preference": "stretch",
+                "requested_value": "low",
+                "satisfaction_0_1": 0.0,
+                "explanation": "proxy 'stretch=low' scored -1 from composition/text evidence (elastane=0%; bucket=none)"
+              }
+            ],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 0,
+            "template_violation_count": 1,
+            "sorting_compatibility_index_0_100": 100.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": true,
+                "vs_template": "resolved",
+                "confirmed_by_mutation_steps": [
+                  2
+                ]
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "no_baseline_violation"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted linen with lyocell in component 'main' (slot at 100%)"
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted lyocell with linen in component 'main' (slot at 100%)"
+            },
+            {
+              "step": 2,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted linen with cotton in component 'main' (slot at 100%)"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": -1,
+            "intent_points": -22.22,
+            "plausibility_points": 1.16
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 1 -> candidate 0 (-1).",
+            "Intent alignment index: template 77.8 -> candidate 55.6 (-22.2 points).",
+            "Dataset-relative plausibility index: template 78.3 -> candidate 79.5 (+1.2 points).",
+            "Trade-off: sorting rule violations decreased while intent alignment decreased relative to the template."
+          ],
+          "statements": [
+            "SR1 is no longer violated compared with the template (confirmed: undoing mutation step(s) [2] restores the template's SR1 result).",
+            "Preference 'breathability=high' satisfied: proxy 'breathability=high' scored 1 from composition/text evidence (breathable_fibre_share=1.00).",
+            "Preference 'fit=relaxed' satisfied: template fit label 'relaxed' matches requested 'relaxed'.",
+            "Preference 'length_cut=long' satisfied: template length_cut label 'long' matches requested 'long'.",
+            "Preference 'preferred_dominant_material=linen' not fully satisfied (satisfaction 0): linen is not the highest-percentage material of the primary component ('cotton' at 100%).",
+            "Preference 'stretch=low' not fully satisfied (satisfaction 0): proxy 'stretch=low' scored -1 from composition/text evidence (elastane=0%; bucket=none)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        },
+        {
+          "candidate_id": "cand_abd13c7861b91537",
+          "roles": [
+            "balanced",
+            "intent_focused"
+          ],
+          "template_garment_id": "g_18a9798a474bfa64",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "preferred_dominant_material",
+                "requested_value": "linen",
+                "satisfaction_0_1": 1.0,
+                "explanation": "linen is the highest-percentage material of the primary component ('linen' at 56%)"
+              },
+              {
+                "preference": "breathability",
+                "requested_value": "high",
+                "satisfaction_0_1": 1.0,
+                "explanation": "proxy 'breathability=high' scored 1 from composition/text evidence (breathable_fibre_share=1.00)"
+              },
+              {
+                "preference": "fit",
+                "requested_value": "relaxed",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template fit label 'relaxed' matches requested 'relaxed'"
+              },
+              {
+                "preference": "length_cut",
+                "requested_value": "long",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template length_cut label 'long' matches requested 'long'"
+              }
+            ],
+            "partial": [],
+            "not_satisfied": [
+              {
+                "preference": "stretch",
+                "requested_value": "low",
+                "satisfaction_0_1": 0.0,
+                "explanation": "proxy 'stretch=low' scored -1 from composition/text evidence (elastane=0%; bucket=none)"
+              }
+            ],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 1,
+            "template_violation_count": 1,
+            "sorting_compatibility_index_0_100": 80.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": true,
+                "template_violated": true,
+                "vs_template": "still_violated"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "SR1:unsupported_binary"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 1 percentage points from viscose (45% -> 44%) to linen (55% -> 56%) in component 'shell'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": 0.0,
+            "plausibility_points": -0.5
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 1 -> candidate 1 (+0).",
+            "Intent alignment index: template 77.8 -> candidate 77.8 (+0.0 points).",
+            "Dataset-relative plausibility index: template 91.5 -> candidate 91.0 (-0.5 points)."
+          ],
+          "statements": [
+            "Preference 'preferred_dominant_material=linen' satisfied: linen is the highest-percentage material of the primary component ('linen' at 56%).",
+            "Preference 'breathability=high' satisfied: proxy 'breathability=high' scored 1 from composition/text evidence (breathable_fibre_share=1.00).",
+            "Preference 'fit=relaxed' satisfied: template fit label 'relaxed' matches requested 'relaxed'.",
+            "Preference 'length_cut=long' satisfied: template length_cut label 'long' matches requested 'long'.",
+            "Preference 'stretch=low' not fully satisfied (satisfaction 0): proxy 'stretch=low' scored -1 from composition/text evidence (elastane=0%; bucket=none)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "men",
+        "detail_category": "tshirt_polo",
+        "hard_constraints": {
+          "forbidden_materials": []
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": "low",
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": true,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": "black"
+        },
+        "warnings": []
+      },
+      "generated": 80,
+      "hard_valid": 80,
+      "hard_excluded": [],
+      "templates_used": 10,
+      "active_preferences": [
+        "colour",
+        "moisture_wicking",
+        "stretch"
+      ],
+      "unscorable_preferences": {},
+      "intent_0_100": {
+        "n": 80,
+        "min": 0.0,
+        "p25": 36.36,
+        "median": 40.45,
+        "p75": 63.64,
+        "mean": 45.97,
+        "max": 94.0
+      },
+      "candidates_without_intent_score": 0,
+      "violation_count_distribution": {
+        "0": 0,
+        "1": 18,
+        "2": 13,
+        "3": 37,
+        "4": 12,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 80,
+        "min": 17.5,
+        "p25": 30.33,
+        "median": 48.93,
+        "p75": 72.61,
+        "mean": 52.4,
+        "max": 90.5
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "intent_loss",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "active",
+        "n_with_intent": 80,
+        "n_candidates": 80,
+        "front_size": 3,
+        "rank_counts": {
+          "0": 3,
+          "1": 4,
+          "2": 6,
+          "3": 4,
+          "4": 4,
+          "5": 2,
+          "6": 7,
+          "7": 4,
+          "8": 4,
+          "9": 6,
+          "10": 5,
+          "11": 6,
+          "12": 5,
+          "13": 7,
+          "14": 4,
+          "15": 2,
+          "16": 2,
+          "17": 2,
+          "18": 2,
+          "19": 1
+        },
+        "front_ids": [
+          "cand_588c755ec6e47da4",
+          "cand_7b61a0b81a320483",
+          "cand_99d924ef32a73699"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_588c755ec6e47da4",
+          "roles": [
+            "intent_focused"
+          ],
+          "balanced_distance": 0.939112,
+          "template_garment_id": "g_c5d5c0b2998e0a2e",
+          "violation_count": 4,
+          "sorting_compatibility_index_0_100": 20.0,
+          "intent_0_100": 94.0,
+          "plausibility_0_100": 51.18
+        },
+        {
+          "candidate_id": "cand_7b61a0b81a320483",
+          "roles": [
+            "balanced",
+            "sorting_focused"
+          ],
+          "balanced_distance": 0.432845,
+          "template_garment_id": "g_ae652a0e3cb8b6c6",
+          "violation_count": 1,
+          "sorting_compatibility_index_0_100": 80.0,
+          "intent_0_100": 63.64,
+          "plausibility_0_100": 87.7
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": false,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 60.0,
+          "SR2": 60.0,
+          "SR3": 70.0,
+          "SR4": 60.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 2.5
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 72.5,
+          "SR2": 60.0,
+          "SR3": 61.25,
+          "SR4": 60.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 2.538
+        },
+        "pareto_front": {
+          "SR1": 33.33,
+          "SR2": 33.33,
+          "SR3": 66.67,
+          "SR4": 100.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 2.333
+        },
+        "selected_designs": {
+          "SR1": 50.0,
+          "SR2": 50.0,
+          "SR3": 50.0,
+          "SR4": 100.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 2.5
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 0,
+          "intent_improves_sorting_worsens": 0,
+          "plausibility_falls_substantially": 0
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [],
+          "intent_improves_sorting_worsens": [],
+          "plausibility_falls_substantially": []
+        },
+        "front_size_is_one": false,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_588c755ec6e47da4",
+          "roles": [
+            "intent_focused"
+          ],
+          "template_garment_id": "g_c5d5c0b2998e0a2e",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "stretch",
+                "requested_value": "low",
+                "satisfaction_0_1": 1.0,
+                "explanation": "proxy 'stretch=low' scored 1 from composition/text evidence (elastane=2%; bucket=low)"
+              },
+              {
+                "preference": "colour",
+                "requested_value": "black",
+                "satisfaction_0_1": 1.0,
+                "explanation": "candidate colour 'black' matches requested 'black' (exact match)"
+              }
+            ],
+            "partial": [
+              {
+                "preference": "moisture_wicking",
+                "requested_value": true,
+                "satisfaction_0_1": 0.78,
+                "explanation": "proxy 'moisture_wicking=True' scored 0.78 from composition/text evidence (polyester_nylon_share=0.78)"
+              }
+            ],
+            "not_satisfied": [],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 4,
+            "template_violation_count": 4,
+            "sorting_compatibility_index_0_100": 20.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": true,
+                "template_violated": true,
+                "vs_template": "still_violated"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": true,
+                "template_violated": true,
+                "vs_template": "still_violated"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": true,
+                "template_violated": true,
+                "vs_template": "still_violated"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": true,
+                "template_violated": true,
+                "vs_template": "still_violated"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "SR1:more_than_two_fibres; SR2:4_fibres; SR3:minor<5%:elastane=2,wool=2; SR4:black"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 2 percentage points from wool (9% -> 7%) to polyester (72% -> 74%) in component 'main'"
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 5 percentage points from wool (7% -> 2%) to polyester (74% -> 79%) in component 'main'"
+            },
+            {
+              "step": 2,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 1 percentage points from polyester (79% -> 78%) to elastane (1% -> 2%) in component 'main'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": 1.64,
+            "plausibility_points": -3.38
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 4 -> candidate 4 (+0).",
+            "Intent alignment index: template 92.4 -> candidate 94.0 (+1.6 points).",
+            "Dataset-relative plausibility index: template 54.6 -> candidate 51.2 (-3.4 points)."
+          ],
+          "statements": [
+            "Preference 'stretch=low' satisfied: proxy 'stretch=low' scored 1 from composition/text evidence (elastane=2%; bucket=low).",
+            "Preference 'colour=black' satisfied: candidate colour 'black' matches requested 'black' (exact match).",
+            "Preference 'moisture_wicking=True' not fully satisfied (satisfaction 0.78): proxy 'moisture_wicking=True' scored 0.78 from composition/text evidence (polyester_nylon_share=0.78)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        },
+        {
+          "candidate_id": "cand_7b61a0b81a320483",
+          "roles": [
+            "balanced",
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_ae652a0e3cb8b6c6",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "moisture_wicking",
+                "requested_value": true,
+                "satisfaction_0_1": 1.0,
+                "explanation": "proxy 'moisture_wicking=True' scored 1 from composition/text evidence (polyester_nylon_share=0.91; text:quick_dry)"
+              },
+              {
+                "preference": "colour",
+                "requested_value": "black",
+                "satisfaction_0_1": 1.0,
+                "explanation": "candidate colour 'black' matches requested 'black' (exact match)"
+              }
+            ],
+            "partial": [],
+            "not_satisfied": [
+              {
+                "preference": "stretch",
+                "requested_value": "low",
+                "satisfaction_0_1": 0.0,
+                "explanation": "proxy 'stretch=low' scored -1 from composition/text evidence (elastane=9%; bucket=high)"
+              }
+            ],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 1,
+            "template_violation_count": 1,
+            "sorting_compatibility_index_0_100": 80.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": true,
+                "template_violated": true,
+                "vs_template": "still_violated"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "SR4:black"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 1 percentage points from polyester (92% -> 91%) to elastane (8% -> 9%) in component 'main'"
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted polyester with cotton in component 'main' (slot at 91%)"
+            },
+            {
+              "step": 2,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted cotton with polyester in component 'main' (slot at 91%)"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": 0.0,
+            "plausibility_points": -0.5
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 1 -> candidate 1 (+0).",
+            "Intent alignment index: template 63.6 -> candidate 63.6 (+0.0 points).",
+            "Dataset-relative plausibility index: template 88.2 -> candidate 87.7 (-0.5 points)."
+          ],
+          "statements": [
+            "Preference 'moisture_wicking=True' satisfied: proxy 'moisture_wicking=True' scored 1 from composition/text evidence (polyester_nylon_share=0.91; text:quick_dry).",
+            "Preference 'colour=black' satisfied: candidate colour 'black' matches requested 'black' (exact match).",
+            "Preference 'stretch=low' not fully satisfied (satisfaction 0): proxy 'stretch=low' scored -1 from composition/text evidence (elastane=9%; bucket=high)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "women",
+        "detail_category": "dresses",
+        "hard_constraints": {
+          "forbidden_materials": []
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "generated": 80,
+      "hard_valid": 80,
+      "hard_excluded": [],
+      "templates_used": 10,
+      "active_preferences": [],
+      "unscorable_preferences": {},
+      "intent_0_100": {
+        "n": 0,
+        "min": null,
+        "median": null,
+        "mean": null,
+        "max": null
+      },
+      "candidates_without_intent_score": 80,
+      "violation_count_distribution": {
+        "0": 6,
+        "1": 37,
+        "2": 31,
+        "3": 6,
+        "4": 0,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 80,
+        "min": 23.58,
+        "p25": 53.47,
+        "median": 63.39,
+        "p75": 72.22,
+        "mean": 62.6,
+        "max": 92.96
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "none_scorable",
+        "n_with_intent": 0,
+        "n_candidates": 80,
+        "front_size": 2,
+        "rank_counts": {
+          "0": 2,
+          "1": 2,
+          "2": 3,
+          "3": 2,
+          "4": 4,
+          "5": 3,
+          "6": 1,
+          "7": 1,
+          "8": 1,
+          "9": 1,
+          "10": 2,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 2,
+          "18": 1,
+          "19": 1,
+          "20": 2,
+          "21": 2,
+          "22": 2,
+          "23": 2,
+          "24": 2,
+          "25": 2,
+          "26": 3,
+          "27": 2,
+          "28": 2,
+          "29": 2,
+          "30": 3,
+          "31": 3,
+          "32": 2,
+          "33": 2,
+          "34": 2,
+          "35": 2,
+          "36": 2,
+          "37": 3,
+          "38": 1,
+          "39": 1,
+          "40": 1,
+          "41": 1,
+          "42": 1,
+          "43": 1,
+          "44": 1,
+          "45": 1
+        },
+        "front_ids": [
+          "cand_239ee2e649fa9d14",
+          "cand_4fff3cf57a990534"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_239ee2e649fa9d14",
+          "roles": [
+            "balanced",
+            "sorting_focused"
+          ],
+          "balanced_distance": 0.084235,
+          "template_garment_id": "g_4a754cb4ae6c270e",
+          "violation_count": 0,
+          "sorting_compatibility_index_0_100": 100.0,
+          "intent_0_100": null,
+          "plausibility_0_100": 91.58
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": true,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 50.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 50.0,
+          "SR5": 10.0,
+          "ANY": 70.0,
+          "mean_violation_count": 1.1
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 58.75,
+          "SR2": 0.0,
+          "SR3": 2.5,
+          "SR4": 50.0,
+          "SR5": 35.0,
+          "ANY": 92.5,
+          "mean_violation_count": 1.462
+        },
+        "pareto_front": {
+          "SR1": 50.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 50.0,
+          "ANY": 50.0,
+          "mean_violation_count": 1
+        },
+        "selected_designs": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 0.0,
+          "mean_violation_count": 0
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 0,
+          "intent_improves_sorting_worsens": 0,
+          "plausibility_falls_substantially": 0
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [],
+          "intent_improves_sorting_worsens": [],
+          "plausibility_falls_substantially": []
+        },
+        "front_size_is_one": false,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_239ee2e649fa9d14",
+          "roles": [
+            "balanced",
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_4a754cb4ae6c270e",
+          "preferences": {
+            "satisfied": [],
+            "partial": [],
+            "not_satisfied": [],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 0,
+            "template_violation_count": 0,
+            "sorting_compatibility_index_0_100": 100.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "no_baseline_violation"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 1 percentage points from cotton (42% -> 41%) to polyester (58% -> 59%) in component 'shell'"
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 2 percentage points from cotton (41% -> 39%) to polyester (59% -> 61%) in component 'shell'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": null,
+            "plausibility_points": -1.48
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 0 -> candidate 0 (+0).",
+            "Dataset-relative plausibility index: template 93.1 -> candidate 91.6 (-1.5 points)."
+          ],
+          "statements": [],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "women",
+        "detail_category": "dresses",
+        "hard_constraints": {
+          "forbidden_materials": []
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": "standard",
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": "slim",
+          "length_cut": "long",
+          "colour": null
+        },
+        "warnings": []
+      },
+      "generated": 80,
+      "hard_valid": 80,
+      "hard_excluded": [],
+      "templates_used": 10,
+      "active_preferences": [
+        "fit",
+        "length_cut",
+        "thermal_warmth"
+      ],
+      "unscorable_preferences": {
+        "thermal_warmth:neutral_value": 80
+      },
+      "intent_0_100": {
+        "n": 80,
+        "min": 100.0,
+        "p25": 100.0,
+        "median": 100.0,
+        "p75": 100.0,
+        "mean": 100.0,
+        "max": 100.0
+      },
+      "candidates_without_intent_score": 0,
+      "violation_count_distribution": {
+        "0": 19,
+        "1": 43,
+        "2": 15,
+        "3": 3,
+        "4": 0,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 80,
+        "min": 18.39,
+        "p25": 42.21,
+        "median": 55.77,
+        "p75": 71.9,
+        "mean": 58.35,
+        "max": 93.09
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "intent_loss",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "active",
+        "n_with_intent": 80,
+        "n_candidates": 80,
+        "front_size": 1,
+        "rank_counts": {
+          "0": 1,
+          "1": 2,
+          "2": 1,
+          "3": 1,
+          "4": 2,
+          "5": 2,
+          "6": 2,
+          "7": 3,
+          "8": 2,
+          "9": 3,
+          "10": 2,
+          "11": 2,
+          "12": 4,
+          "13": 3,
+          "14": 3,
+          "15": 2,
+          "16": 1,
+          "17": 2,
+          "18": 1,
+          "19": 1,
+          "20": 1,
+          "21": 1,
+          "22": 1,
+          "23": 1,
+          "24": 1,
+          "25": 2,
+          "26": 1,
+          "27": 2,
+          "28": 2,
+          "29": 1,
+          "30": 2,
+          "31": 1,
+          "32": 2,
+          "33": 3,
+          "34": 2,
+          "35": 3,
+          "36": 3,
+          "37": 3,
+          "38": 1,
+          "39": 2,
+          "40": 3,
+          "41": 1,
+          "42": 1
+        },
+        "front_ids": [
+          "cand_154c000f9de65c55"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_154c000f9de65c55",
+          "roles": [
+            "balanced",
+            "intent_focused",
+            "sorting_focused"
+          ],
+          "balanced_distance": 0.06909,
+          "template_garment_id": "g_08e1d7557a08e23b",
+          "violation_count": 0,
+          "sorting_compatibility_index_0_100": 100.0,
+          "intent_0_100": 100.0,
+          "plausibility_0_100": 93.09
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": false,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 20.0,
+          "SR2": 10.0,
+          "SR3": 20.0,
+          "SR4": 20.0,
+          "SR5": 0.0,
+          "ANY": 50.0,
+          "mean_violation_count": 0.7
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 52.5,
+          "SR2": 10.0,
+          "SR3": 10.0,
+          "SR4": 20.0,
+          "SR5": 10.0,
+          "ANY": 76.25,
+          "mean_violation_count": 1.025
+        },
+        "pareto_front": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 0.0,
+          "mean_violation_count": 0
+        },
+        "selected_designs": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 0.0,
+          "mean_violation_count": 0
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 0,
+          "intent_improves_sorting_worsens": 0,
+          "plausibility_falls_substantially": 0
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [],
+          "intent_improves_sorting_worsens": [],
+          "plausibility_falls_substantially": []
+        },
+        "front_size_is_one": true,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_154c000f9de65c55",
+          "roles": [
+            "balanced",
+            "intent_focused",
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_08e1d7557a08e23b",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "fit",
+                "requested_value": "slim",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template fit label 'slim' matches requested 'slim'"
+              },
+              {
+                "preference": "length_cut",
+                "requested_value": "long",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template length_cut label 'long' matches requested 'long'"
+              }
+            ],
+            "partial": [],
+            "not_satisfied": [],
+            "unscorable": [
+              {
+                "preference": "thermal_warmth",
+                "requested_value": "standard",
+                "satisfaction_0_1": null,
+                "explanation": "'standard' is a neutral request and is not scored",
+                "reason": "neutral_value"
+              }
+            ]
+          },
+          "sorting": {
+            "violation_count": 0,
+            "template_violation_count": 0,
+            "sorting_compatibility_index_0_100": 100.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "no_baseline_violation"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted elastane with nylon in component 'shell' (slot at 11%)"
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 2 percentage points from polyester (89% -> 87%) to nylon (11% -> 13%) in component 'shell'"
+            },
+            {
+              "step": 2,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted nylon with elastane in component 'shell' (slot at 13%)"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": 0.0,
+            "plausibility_points": -0.99
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 0 -> candidate 0 (+0).",
+            "Intent alignment index: template 100.0 -> candidate 100.0 (+0.0 points).",
+            "Dataset-relative plausibility index: template 94.1 -> candidate 93.1 (-1.0 points)."
+          ],
+          "statements": [
+            "Preference 'fit=slim' satisfied: template fit label 'slim' matches requested 'slim'.",
+            "Preference 'length_cut=long' satisfied: template length_cut label 'long' matches requested 'long'.",
+            "Preference 'thermal_warmth=standard' could not be scored (neutral_value)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "men",
+        "detail_category": "outerwear_jacket",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "down",
+            "feather"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": "reinforced",
+          "moisture_wicking": null,
+          "water_repellent": true,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "generated": 79,
+      "hard_valid": 79,
+      "hard_excluded": [],
+      "templates_used": 10,
+      "active_preferences": [
+        "durability_wear",
+        "water_repellent"
+      ],
+      "unscorable_preferences": {},
+      "intent_0_100": {
+        "n": 79,
+        "min": 0.0,
+        "p25": 30.0,
+        "median": 42.0,
+        "p75": 52.0,
+        "mean": 40.41,
+        "max": 82.0
+      },
+      "candidates_without_intent_score": 0,
+      "violation_count_distribution": {
+        "0": 8,
+        "1": 36,
+        "2": 30,
+        "3": 5,
+        "4": 0,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 79,
+        "min": 38.83,
+        "p25": 59.28,
+        "median": 63.6,
+        "p75": 69.39,
+        "mean": 64.02,
+        "max": 87.26
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "intent_loss",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "active",
+        "n_with_intent": 79,
+        "n_candidates": 79,
+        "front_size": 8,
+        "rank_counts": {
+          "0": 8,
+          "1": 7,
+          "2": 11,
+          "3": 8,
+          "4": 5,
+          "5": 5,
+          "6": 4,
+          "7": 4,
+          "8": 3,
+          "9": 5,
+          "10": 5,
+          "11": 3,
+          "12": 3,
+          "13": 2,
+          "14": 2,
+          "15": 2,
+          "16": 1,
+          "17": 1
+        },
+        "front_ids": [
+          "cand_15e5f383b85ea2db",
+          "cand_2b486269a8da571c",
+          "cand_6a8ffe4aabd2bbca",
+          "cand_b1f55080e4ac9aa1",
+          "cand_cc600718ca35de0c",
+          "cand_e55331a1f54c9049",
+          "cand_e56eb461d22e7c6d",
+          "cand_e5f77103f34992b8"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_e56eb461d22e7c6d",
+          "roles": [
+            "balanced",
+            "intent_focused",
+            "sorting_focused"
+          ],
+          "balanced_distance": 0.403246,
+          "template_garment_id": "g_e35286f9dcff0e91",
+          "violation_count": 0,
+          "sorting_compatibility_index_0_100": 100.0,
+          "intent_0_100": 82.0,
+          "plausibility_0_100": 63.92
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": false,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 10.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 30.0,
+          "SR5": 70.0,
+          "ANY": 80.0,
+          "mean_violation_count": 1.1
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 27.85,
+          "SR2": 0.0,
+          "SR3": 1.27,
+          "SR4": 30.38,
+          "SR5": 81.01,
+          "ANY": 89.87,
+          "mean_violation_count": 1.405
+        },
+        "pareto_front": {
+          "SR1": 12.5,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 12.5,
+          "SR5": 75.0,
+          "ANY": 75.0,
+          "mean_violation_count": 1
+        },
+        "selected_designs": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 0.0,
+          "mean_violation_count": 0
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 1,
+          "intent_improves_sorting_worsens": 0,
+          "plausibility_falls_substantially": 3
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [],
+          "intent_improves_sorting_worsens": [],
+          "plausibility_falls_substantially": [
+            "cand_e56eb461d22e7c6d"
+          ]
+        },
+        "front_size_is_one": false,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_e56eb461d22e7c6d",
+          "roles": [
+            "balanced",
+            "intent_focused",
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_e35286f9dcff0e91",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "durability_wear",
+                "requested_value": "reinforced",
+                "satisfaction_0_1": 1.0,
+                "explanation": "proxy 'durability_wear=reinforced' scored 1 from composition/text evidence (nylon_share=1.00)"
+              }
+            ],
+            "partial": [
+              {
+                "preference": "water_repellent",
+                "requested_value": true,
+                "satisfaction_0_1": 0.7,
+                "explanation": "proxy 'water_repellent=True' scored 0.7 from composition/text evidence (text:water_resistant; supporting:synthetic_shell)"
+              }
+            ],
+            "not_satisfied": [],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 0,
+            "template_violation_count": 1,
+            "sorting_compatibility_index_0_100": 100.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": true,
+                "vs_template": "resolved",
+                "confirmed_by_mutation_steps": [
+                  0
+                ]
+              }
+            ],
+            "sr_explanation": "no_baseline_violation"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted polyester with nylon in component 'inner_layer' (slot at 100%)"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": -1,
+            "intent_points": 0.0,
+            "plausibility_points": -29.93
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 1 -> candidate 0 (-1).",
+            "Intent alignment index: template 82.0 -> candidate 82.0 (+0.0 points).",
+            "Dataset-relative plausibility index: template 93.8 -> candidate 63.9 (-29.9 points)."
+          ],
+          "statements": [
+            "SR5 is no longer violated compared with the template (confirmed: undoing mutation step(s) [0] restores the template's SR5 result).",
+            "Preference 'durability_wear=reinforced' satisfied: proxy 'durability_wear=reinforced' scored 1 from composition/text evidence (nylon_share=1.00).",
+            "Preference 'water_repellent=True' not fully satisfied (satisfaction 0.7): proxy 'water_repellent=True' scored 0.7 from composition/text evidence (text:water_resistant; supporting:synthetic_shell)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "kids",
+        "detail_category": "sweatshirt_hoodie",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "acrylic"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": null,
+          "thermal_warmth": "heavy",
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": "oversized",
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "generated": 80,
+      "hard_valid": 80,
+      "hard_excluded": [],
+      "templates_used": 10,
+      "active_preferences": [
+        "fit",
+        "thermal_warmth"
+      ],
+      "unscorable_preferences": {},
+      "intent_0_100": {
+        "n": 80,
+        "min": 63.57,
+        "p25": 63.57,
+        "median": 63.57,
+        "p75": 63.57,
+        "mean": 66.5,
+        "max": 100.0
+      },
+      "candidates_without_intent_score": 0,
+      "violation_count_distribution": {
+        "0": 45,
+        "1": 30,
+        "2": 5,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 80,
+        "min": 16.64,
+        "p25": 37.01,
+        "median": 55.18,
+        "p75": 91.35,
+        "mean": 59.54,
+        "max": 99.5
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "intent_loss",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "active",
+        "n_with_intent": 80,
+        "n_candidates": 80,
+        "front_size": 9,
+        "rank_counts": {
+          "0": 9,
+          "1": 3,
+          "2": 9,
+          "3": 2,
+          "4": 3,
+          "5": 1,
+          "6": 2,
+          "7": 1,
+          "8": 1,
+          "9": 1,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "13": 1,
+          "14": 1,
+          "15": 1,
+          "16": 1,
+          "17": 1,
+          "18": 1,
+          "19": 4,
+          "20": 2,
+          "21": 2,
+          "22": 2,
+          "23": 3,
+          "24": 2,
+          "25": 2,
+          "26": 3,
+          "27": 5,
+          "28": 1,
+          "29": 1,
+          "30": 1,
+          "31": 1,
+          "32": 1,
+          "33": 2,
+          "34": 1,
+          "35": 1,
+          "36": 1,
+          "37": 1,
+          "38": 2,
+          "39": 1
+        },
+        "front_ids": [
+          "cand_290bdf070eb3038e",
+          "cand_2bc91a752cfe3ffd",
+          "cand_2dccb691abbed269",
+          "cand_46296259ca81e40d",
+          "cand_6308d497a94f3454",
+          "cand_6e148e2070c55613",
+          "cand_7a93b8f6e3f77293",
+          "cand_a58342013aad8fe1",
+          "cand_eccea2090a6746a4"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_290bdf070eb3038e",
+          "roles": [
+            "balanced",
+            "sorting_focused"
+          ],
+          "balanced_distance": 0.36432,
+          "template_garment_id": "g_d67a7bc7c475a683",
+          "violation_count": 0,
+          "sorting_compatibility_index_0_100": 100.0,
+          "intent_0_100": 63.57,
+          "plausibility_0_100": 99.5
+        },
+        {
+          "candidate_id": "cand_6308d497a94f3454",
+          "roles": [
+            "intent_focused"
+          ],
+          "balanced_distance": 0.621442,
+          "template_garment_id": "g_d67a7bc7c475a683",
+          "violation_count": 2,
+          "sorting_compatibility_index_0_100": 60.0,
+          "intent_0_100": 100.0,
+          "plausibility_0_100": 52.44
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": false,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 0.0,
+          "mean_violation_count": 0
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 40.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 10.0,
+          "ANY": 43.75,
+          "mean_violation_count": 0.5
+        },
+        "pareto_front": {
+          "SR1": 33.33,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 11.11,
+          "ANY": 33.33,
+          "mean_violation_count": 0.444
+        },
+        "selected_designs": {
+          "SR1": 50.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 50.0,
+          "ANY": 50.0,
+          "mean_violation_count": 1
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 0,
+          "intent_improves_sorting_worsens": 3,
+          "plausibility_falls_substantially": 3
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [],
+          "intent_improves_sorting_worsens": [
+            "cand_6308d497a94f3454"
+          ],
+          "plausibility_falls_substantially": [
+            "cand_6308d497a94f3454"
+          ]
+        },
+        "front_size_is_one": false,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_290bdf070eb3038e",
+          "roles": [
+            "balanced",
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_d67a7bc7c475a683",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "fit",
+                "requested_value": "oversized",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template fit label 'oversized' matches requested 'oversized'"
+              }
+            ],
+            "partial": [
+              {
+                "preference": "thermal_warmth",
+                "requested_value": "heavy",
+                "satisfaction_0_1": 0.15,
+                "explanation": "proxy 'thermal_warmth=heavy' scored 0.15 from composition/text evidence (wool_acrylic_share=0.00; text:brushed)"
+              }
+            ],
+            "not_satisfied": [],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 0,
+            "template_violation_count": 0,
+            "sorting_compatibility_index_0_100": 100.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "no_baseline_violation"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 1 percentage points from polyester (20% -> 19%) to cotton (80% -> 81%) in component 'shell'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": 0.0,
+            "plausibility_points": -0.5
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 0 -> candidate 0 (+0).",
+            "Intent alignment index: template 63.6 -> candidate 63.6 (+0.0 points).",
+            "Dataset-relative plausibility index: template 100.0 -> candidate 99.5 (-0.5 points)."
+          ],
+          "statements": [
+            "Preference 'fit=oversized' satisfied: template fit label 'oversized' matches requested 'oversized'.",
+            "Preference 'thermal_warmth=heavy' not fully satisfied (satisfaction 0.15): proxy 'thermal_warmth=heavy' scored 0.15 from composition/text evidence (wool_acrylic_share=0.00; text:brushed)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        },
+        {
+          "candidate_id": "cand_6308d497a94f3454",
+          "roles": [
+            "intent_focused"
+          ],
+          "template_garment_id": "g_d67a7bc7c475a683",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "thermal_warmth",
+                "requested_value": "heavy",
+                "satisfaction_0_1": 1.0,
+                "explanation": "proxy 'thermal_warmth=heavy' scored 1 from composition/text evidence (wool_acrylic_share=0.90; text:brushed)"
+              },
+              {
+                "preference": "fit",
+                "requested_value": "oversized",
+                "satisfaction_0_1": 1.0,
+                "explanation": "template fit label 'oversized' matches requested 'oversized'"
+              }
+            ],
+            "partial": [],
+            "not_satisfied": [],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 2,
+            "template_violation_count": 0,
+            "sorting_compatibility_index_0_100": 60.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": true,
+                "template_violated": false,
+                "vs_template": "introduced",
+                "confirmed_by_mutation_steps": [
+                  1
+                ]
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": true,
+                "template_violated": false,
+                "vs_template": "introduced",
+                "confirmed_by_mutation_steps": [
+                  1
+                ]
+              }
+            ],
+            "sr_explanation": "SR1:unsupported_binary; SR5:hood_lining>5%_absent_from_shell:cotton=100"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 5 percentage points from polyester (20% -> 15%) to cotton (80% -> 85%) in component 'shell'"
+            },
+            {
+              "step": 1,
+              "type": "substitution",
+              "reason": null,
+              "description": "Substituted cotton with wool in component 'shell' (slot at 85%)"
+            },
+            {
+              "step": 2,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 5 percentage points from polyester (15% -> 10%) to wool (85% -> 90%) in component 'shell'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 2,
+            "intent_points": 36.43,
+            "plausibility_points": -47.56
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 0 -> candidate 2 (+2).",
+            "Intent alignment index: template 63.6 -> candidate 100.0 (+36.4 points).",
+            "Dataset-relative plausibility index: template 100.0 -> candidate 52.4 (-47.6 points).",
+            "Trade-off: intent alignment increased while sorting rule violations increased relative to the template."
+          ],
+          "statements": [
+            "SR1 is newly violated compared with the template (confirmed: undoing mutation step(s) [1] restores the template's SR1 result).",
+            "SR5 is newly violated compared with the template (confirmed: undoing mutation step(s) [1] restores the template's SR5 result).",
+            "Preference 'thermal_warmth=heavy' satisfied: proxy 'thermal_warmth=heavy' scored 1 from composition/text evidence (wool_acrylic_share=0.90; text:brushed).",
+            "Preference 'fit=oversized' satisfied: template fit label 'oversized' matches requested 'oversized'."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "men",
+        "detail_category": "set",
+        "hard_constraints": {
+          "forbidden_materials": [
+            "cotton",
+            "polyester"
+          ]
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": "nylon",
+          "stretch": null,
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "generated": 24,
+      "hard_valid": 24,
+      "hard_excluded": [],
+      "templates_used": 3,
+      "active_preferences": [
+        "preferred_dominant_material"
+      ],
+      "unscorable_preferences": {},
+      "intent_0_100": {
+        "n": 24,
+        "min": 0.0,
+        "p25": 100.0,
+        "median": 100.0,
+        "p75": 100.0,
+        "mean": 79.17,
+        "max": 100.0
+      },
+      "candidates_without_intent_score": 0,
+      "violation_count_distribution": {
+        "0": 0,
+        "1": 12,
+        "2": 5,
+        "3": 7,
+        "4": 0,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 24,
+        "min": 9.89,
+        "p25": 17.32,
+        "median": 18.39,
+        "p75": 36.11,
+        "mean": 25.51,
+        "max": 49.61
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "intent_loss",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "active",
+        "n_with_intent": 24,
+        "n_candidates": 24,
+        "front_size": 2,
+        "rank_counts": {
+          "0": 2,
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 2,
+          "5": 1,
+          "6": 2,
+          "7": 3,
+          "8": 2,
+          "9": 2,
+          "10": 1,
+          "11": 2,
+          "12": 1,
+          "13": 1,
+          "14": 1
+        },
+        "front_ids": [
+          "cand_2d0a944f1c434063",
+          "cand_488a3e501ed339e0"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_2d0a944f1c434063",
+          "roles": [
+            "balanced",
+            "intent_focused",
+            "sorting_focused"
+          ],
+          "balanced_distance": 0.555911,
+          "template_garment_id": "g_90dc20e62daf9311",
+          "violation_count": 1,
+          "sorting_compatibility_index_0_100": 80.0,
+          "intent_0_100": 100.0,
+          "plausibility_0_100": 48.13
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": false,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 33.33,
+          "SR2": 33.33,
+          "SR3": 66.67,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 66.67,
+          "mean_violation_count": 1.333
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 100.0,
+          "SR2": 33.33,
+          "SR3": 45.83,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 1.792
+        },
+        "pareto_front": {
+          "SR1": 100.0,
+          "SR2": 0.0,
+          "SR3": 50.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 1.5
+        },
+        "selected_designs": {
+          "SR1": 100.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 100.0,
+          "mean_violation_count": 1
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 0,
+          "intent_improves_sorting_worsens": 1,
+          "plausibility_falls_substantially": 2
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [],
+          "intent_improves_sorting_worsens": [],
+          "plausibility_falls_substantially": [
+            "cand_2d0a944f1c434063"
+          ]
+        },
+        "front_size_is_one": false,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_2d0a944f1c434063",
+          "roles": [
+            "balanced",
+            "intent_focused",
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_90dc20e62daf9311",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "preferred_dominant_material",
+                "requested_value": "nylon",
+                "satisfaction_0_1": 1.0,
+                "explanation": "nylon is the highest-percentage material of the primary component ('nylon' at 91%)"
+              }
+            ],
+            "partial": [],
+            "not_satisfied": [],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 1,
+            "template_violation_count": 1,
+            "sorting_compatibility_index_0_100": 80.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": true,
+                "template_violated": false,
+                "vs_template": "introduced",
+                "confirmed_by_mutation_steps": [
+                  0
+                ]
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": true,
+                "vs_template": "resolved",
+                "confirmed_by_mutation_steps": [
+                  1
+                ]
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "SR1:unsupported_binary"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "substitution",
+              "reason": "forbidden_repair",
+              "description": "Substituted cotton with nylon in component 'main' (slot at 96%) (forbidden-material repair)"
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 5 percentage points from nylon (96% -> 91%) to elastane (4% -> 9%) in component 'main'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": 100.0,
+            "plausibility_points": -42.88
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 1 -> candidate 1 (+0).",
+            "Intent alignment index: template 0.0 -> candidate 100.0 (+100.0 points).",
+            "Dataset-relative plausibility index: template 91.0 -> candidate 48.1 (-42.9 points)."
+          ],
+          "statements": [
+            "SR1 is newly violated compared with the template (confirmed: undoing mutation step(s) [0] restores the template's SR1 result).",
+            "SR3 is no longer violated compared with the template (confirmed: undoing mutation step(s) [1] restores the template's SR3 result).",
+            "Preference 'preferred_dominant_material=nylon' satisfied: nylon is the highest-percentage material of the primary component ('nylon' at 91%)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    },
+    {
+      "request": {
+        "target_segment": "baby",
+        "detail_category": "trousers",
+        "hard_constraints": {
+          "forbidden_materials": []
+        },
+        "soft_preferences": {
+          "preferred_dominant_material": null,
+          "stretch": "low",
+          "thermal_warmth": null,
+          "breathability": null,
+          "durability_wear": null,
+          "moisture_wicking": null,
+          "water_repellent": null,
+          "fit": null,
+          "length_cut": null,
+          "colour": null
+        },
+        "warnings": []
+      },
+      "generated": 8,
+      "hard_valid": 8,
+      "hard_excluded": [],
+      "templates_used": 1,
+      "active_preferences": [
+        "stretch"
+      ],
+      "unscorable_preferences": {},
+      "intent_0_100": {
+        "n": 8,
+        "min": 0.0,
+        "p25": 0.0,
+        "median": 0.0,
+        "p75": 0.0,
+        "mean": 12.5,
+        "max": 100.0
+      },
+      "candidates_without_intent_score": 0,
+      "violation_count_distribution": {
+        "0": 5,
+        "1": 3,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "plausibility_0_100": {
+        "n": 8,
+        "min": 35.04,
+        "p25": 66.75,
+        "median": 91.62,
+        "p75": 92.59,
+        "mean": 78.11,
+        "max": 93.08
+      },
+      "pareto": {
+        "dimensions": [
+          "violation_count",
+          "intent_loss",
+          "plausibility_loss"
+        ],
+        "intent_dimension": "active",
+        "n_with_intent": 8,
+        "n_candidates": 8,
+        "front_size": 2,
+        "rank_counts": {
+          "0": 2,
+          "1": 2,
+          "2": 1,
+          "3": 2,
+          "4": 1
+        },
+        "front_ids": [
+          "cand_5779825e38b12330",
+          "cand_a94afa9454222f6f"
+        ]
+      },
+      "selections": [
+        {
+          "candidate_id": "cand_5779825e38b12330",
+          "roles": [
+            "balanced",
+            "intent_focused"
+          ],
+          "balanced_distance": 0.215035,
+          "template_garment_id": "g_102c257f10841fe0",
+          "violation_count": 1,
+          "sorting_compatibility_index_0_100": 80.0,
+          "intent_0_100": 100.0,
+          "plausibility_0_100": 92.1
+        },
+        {
+          "candidate_id": "cand_a94afa9454222f6f",
+          "roles": [
+            "sorting_focused"
+          ],
+          "balanced_distance": 1.002391,
+          "template_garment_id": "g_102c257f10841fe0",
+          "violation_count": 0,
+          "sorting_compatibility_index_0_100": 100.0,
+          "intent_0_100": 0.0,
+          "plausibility_0_100": 93.08
+        }
+      ],
+      "selection_notes": {
+        "intent_focused_omitted": false,
+        "multiple_roles_same_candidate": true
+      },
+      "sr_rates_pct": {
+        "templates": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 0.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 0.0,
+          "mean_violation_count": 0
+        },
+        "all_hard_valid_candidates": {
+          "SR1": 12.5,
+          "SR2": 0.0,
+          "SR3": 25.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 37.5,
+          "mean_violation_count": 0.375
+        },
+        "pareto_front": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 50.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 50.0,
+          "mean_violation_count": 0.5
+        },
+        "selected_designs": {
+          "SR1": 0.0,
+          "SR2": 0.0,
+          "SR3": 50.0,
+          "SR4": 0.0,
+          "SR5": 0.0,
+          "ANY": 50.0,
+          "mean_violation_count": 0.5
+        }
+      },
+      "tradeoff_flags": {
+        "pareto_front": {
+          "sorting_improves_intent_decreases": 0,
+          "intent_improves_sorting_worsens": 1,
+          "plausibility_falls_substantially": 0
+        },
+        "selected": {
+          "sorting_improves_intent_decreases": [],
+          "intent_improves_sorting_worsens": [
+            "cand_5779825e38b12330"
+          ],
+          "plausibility_falls_substantially": []
+        },
+        "front_size_is_one": false,
+        "plausibility_drop_threshold_pts": 20.0
+      },
+      "deterministic_rerun_digest_equal": true,
+      "explanations": [
+        {
+          "candidate_id": "cand_5779825e38b12330",
+          "roles": [
+            "balanced",
+            "intent_focused"
+          ],
+          "template_garment_id": "g_102c257f10841fe0",
+          "preferences": {
+            "satisfied": [
+              {
+                "preference": "stretch",
+                "requested_value": "low",
+                "satisfaction_0_1": 1.0,
+                "explanation": "proxy 'stretch=low' scored 1 from composition/text evidence (elastane=2%; bucket=low)"
+              }
+            ],
+            "partial": [],
+            "not_satisfied": [],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 1,
+            "template_violation_count": 0,
+            "sorting_compatibility_index_0_100": 80.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": true,
+                "template_violated": false,
+                "vs_template": "introduced",
+                "confirmed_by_mutation_steps": []
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "SR3:minor<5%:elastane=2"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 2 percentage points from elastane (5% -> 3%) to cotton (95% -> 97%) in component 'main'"
+            },
+            {
+              "step": 1,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 2 percentage points from elastane (3% -> 1%) to cotton (97% -> 99%) in component 'main'"
+            },
+            {
+              "step": 2,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 1 percentage points from cotton (99% -> 98%) to elastane (1% -> 2%) in component 'main'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 1,
+            "intent_points": 100.0,
+            "plausibility_points": -1.48
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 0 -> candidate 1 (+1).",
+            "Intent alignment index: template 0.0 -> candidate 100.0 (+100.0 points).",
+            "Dataset-relative plausibility index: template 93.6 -> candidate 92.1 (-1.5 points).",
+            "Trade-off: intent alignment increased while sorting rule violations increased relative to the template."
+          ],
+          "statements": [
+            "SR3 is newly violated compared with the template (no single mutation step alone is confirmed to cause this change).",
+            "Preference 'stretch=low' satisfied: proxy 'stretch=low' scored 1 from composition/text evidence (elastane=2%; bucket=low)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        },
+        {
+          "candidate_id": "cand_a94afa9454222f6f",
+          "roles": [
+            "sorting_focused"
+          ],
+          "template_garment_id": "g_102c257f10841fe0",
+          "preferences": {
+            "satisfied": [],
+            "partial": [],
+            "not_satisfied": [
+              {
+                "preference": "stretch",
+                "requested_value": "low",
+                "satisfaction_0_1": 0.0,
+                "explanation": "proxy 'stretch=low' scored -1 from composition/text evidence (elastane=6%; bucket=high)"
+              }
+            ],
+            "unscorable": []
+          },
+          "sorting": {
+            "violation_count": 0,
+            "template_violation_count": 0,
+            "sorting_compatibility_index_0_100": 100.0,
+            "rules": [
+              {
+                "rule": "SR1",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR2",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR3",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR4",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              },
+              {
+                "rule": "SR5",
+                "candidate_violated": false,
+                "template_violated": false,
+                "vs_template": "still_satisfied"
+              }
+            ],
+            "sr_explanation": "no_baseline_violation"
+          },
+          "mutations": [
+            {
+              "step": 0,
+              "type": "percentage",
+              "reason": null,
+              "description": "Moved 1 percentage points from cotton (95% -> 94%) to elastane (5% -> 6%) in component 'main'"
+            }
+          ],
+          "deltas_vs_template": {
+            "violation_count": 0,
+            "intent_points": 0.0,
+            "plausibility_points": -0.5
+          },
+          "trade_offs": [
+            "Sorting rule violations: template 0 -> candidate 0 (+0).",
+            "Intent alignment index: template 0.0 -> candidate 0.0 (+0.0 points).",
+            "Dataset-relative plausibility index: template 93.6 -> candidate 93.1 (-0.5 points)."
+          ],
+          "statements": [
+            "Preference 'stretch=low' not fully satisfied (satisfaction 0): proxy 'stretch=low' scored -1 from composition/text evidence (elastane=6%; bucket=high)."
+          ],
+          "disclaimer": "Indices are computed from composition/label data only (preference alignment, rule satisfaction, similarity to the TRAIN distribution). They are not measures of physical performance, environmental impact or production feasibility."
+        }
+      ]
+    }
+  ],
+  "edge_cases": [
+    "women/trousers: selected designs with sorting_improves_intent_decreases: 1",
+    "women/dresses: intent objective dropped from Pareto (none_scorable)",
+    "women/dresses: Pareto front contains a single candidate",
+    "women/dresses: unscorable preferences {'thermal_warmth:neutral_value': 80}",
+    "men/outerwear_jacket: selected designs with plausibility_falls_substantially: 1",
+    "men/outerwear_jacket: 3 Pareto candidates fall >20.0 plausibility points below their template",
+    "kids/sweatshirt_hoodie: selected designs with intent_improves_sorting_worsens: 1",
+    "kids/sweatshirt_hoodie: selected designs with plausibility_falls_substantially: 1",
+    "kids/sweatshirt_hoodie: 3 Pareto candidates fall >20.0 plausibility points below their template",
+    "men/set: selected designs with plausibility_falls_substantially: 1",
+    "men/set: 2 Pareto candidates fall >20.0 plausibility points below their template",
+    "baby/trousers: selected designs with intent_improves_sorting_worsens: 1"
+  ]
+}
