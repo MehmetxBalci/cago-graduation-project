@@ -51,3 +51,37 @@ def request(forbidden=(), **soft):
 def surface(mats, name="shell", cid="c0"):
     return [{"component_id": cid, "source_component_index": 0, "component_class": "surface_component",
              "component_name_normalized": name, "materials": [{"material": m, "pct": float(p)} for m, p in mats]}]
+
+
+# ---------------------------------------------------------------- benchmark / validation fixtures
+import dataclasses
+
+from cago.requirements.schema import CAPABILITY_FIELDS
+
+CAPS_ALL = {"categories": {c: {"parent_category": "x", "controls": {f: True for f in CAPABILITY_FIELDS}} for c in ("trousers", "shorts")}}
+CTX_FULL = dataclasses.replace(CTX, capabilities=CAPS_ALL)
+
+
+def make_rep_with_tests() -> pd.DataFrame:
+    """TRAIN + TEST garments in two cells. TEST-only material combinations/materials exist (nylon/wool in men/shorts test)."""
+    rows = make_rep().to_dict("records")
+    rows += [
+        garment("T6", "p6t", "train", [("cotton", 70), ("elastane", 30)], [("cotton", 100)]),
+        garment("S1", "ps1", "train", [("cotton", 100)], [("cotton", 100)], seg="men", cat="shorts", colour="blue"),
+        garment("S2", "ps2", "train", [("polyester", 60), ("cotton", 40)], [("polyester", 100)], seg="men", cat="shorts", colour="red"),
+        garment("S3", "ps3", "train", [("polyester", 100)], [("polyester", 100)], seg="men", cat="shorts"),
+        # TEST evaluation examples
+        garment("E1", "pe1", "test", [("cotton", 60), ("polyester", 40)], [("polyester", 100)], colour="black", fit="slim", length="long"),
+        garment("E2", "pe2", "test", [("cotton", 95), ("elastane", 5)], [("viscose", 100)], colour="white", fit="relaxed", length="standard"),
+        garment("E3", "pe3", "test", [("wool", 55), ("cotton", 45)], [("polyester", 100)], colour="navy"),
+        garment("E4", "pe4", "test", [("cotton", 50), ("polyester", 30), ("nylon", 20)], [("nylon", 100)], colour="black", fit="regular"),
+        garment("E5", "pe5", "test", [("nylon", 100)], [("nylon", 100)], seg="men", cat="shorts", colour="red"),
+        garment("E6", "pe6", "test", [("wool", 60), ("viscose", 40)], [("polyester", 100)], seg="men", cat="shorts", colour="blue"),
+    ]
+    rep = pd.DataFrame(rows)
+    for c in ("fit", "length"):
+        rep[f"{c}_label_source"] = rep[f"{c}_label"].map(lambda v: None if v is None else "structured")
+    return rep
+
+
+VOCAB_LIST = sorted(VOCAB)
