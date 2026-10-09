@@ -110,3 +110,166 @@ def score_label(x: float | None) -> str:
 def contains_banned_claim(text: str) -> list[str]:
     low = text.lower()
     return [b for b in BANNED_CLAIMS if b in low]
+
+
+# ---------------------------------------------------------------- plain-language wording (display only)
+# The frozen evaluation produces technical evidence tokens (e.g. "breathable_fibre_share=0.85"). The functions below turn the
+# structured values into readable sentences; they never change a score, a status or the composition. The original technical
+# explanation stays available next to the readable sentence.
+PREFERENCE_NAMES = {"preferred_dominant_material": "preferred dominant material", "colour": "colour", "fit": "fit", "length_cut": "length",
+                    "stretch": "stretch", "thermal_warmth": "thermal warmth", "breathability": "breathability", "durability_wear": "durability",
+                    "moisture_wicking": "moisture wicking", "water_repellent": "water repellency"}
+_SHARE_TEXT = {
+    "breathable_fibre_share": "share of breathable fibres (linen, cotton, lyocell, viscose) in the main fabric",
+    "light_fibre_share": "share of light fibres (cotton, linen, lyocell, viscose) in the main fabric",
+    "wool_acrylic_share": "share of wool and acrylic in the main fabric",
+    "nylon_share": "share of nylon in the main fabric",
+    "polyester_nylon_share": "share of polyester and nylon in the main fabric",
+    "polyester_filling_share": "share of polyester in the filling",
+    "wool_penalty": "deduction for wool in the main fabric",
+}
+_FLAG_TEXT = {
+    "coating_penalty": "a coating layer lowers breathability",
+    "filling_penalty": "a filling layer counts against this preference",
+    "filling_present": "a filling layer adds warmth",
+    "polyester_blend": "a polyester blend adds durability",
+    "coating_component": "a coating layer (strong water-repellency evidence)",
+    "supporting:synthetic_shell": "a mainly synthetic outer fabric (supporting evidence only, not proof)",
+    "strong_evidence_present": "strong water-repellency evidence found",
+    "no_strong_evidence (synthetic shell alone is not proof)": "no strong water-repellency evidence (a synthetic outer fabric alone is not proof)",
+    "neutral": "neutral request",
+}
+_STRETCH_BUCKET = {"none": "no elastane (no stretch)", "low": "a low elastane share (low stretch)", "high": "a high elastane share (high stretch)",
+                   "out_of_range": "an elastane share outside the supported range"}
+_UNSCORABLE_TEXT = {
+    "neutral_value": "'standard' is a neutral choice, so it is not scored",
+    "no_label_evidence": "the template has no {pref} label in the dataset, so this preference cannot be checked (it is not counted as a miss)",
+    "no_primary_component_materials": "the main fabric lists no materials",
+    "candidate_colour_unavailable": "the template has no recorded colour",
+}
+
+
+def evidence_phrase(token: str) -> str:
+    """One technical evidence token -> readable phrase (unknown tokens are returned unchanged)."""
+    if token in _FLAG_TEXT:
+        return _FLAG_TEXT[token]
+    if token.startswith("text:"):
+        return "product text mentions " + token[5:].replace("_", " ").replace(",", ", ")
+    if "=" in token:
+        key, val = token.split("=", 1)
+        if key in _SHARE_TEXT:
+            try:
+                return f"{_SHARE_TEXT[key]}: {float(val) * 100:.0f}%"
+            except ValueError:
+                return f"{_SHARE_TEXT[key]}: {val}"
+        if key == "elastane":
+            return f"elastane share: {val}"
+        if key in ("bucket", "stretch_bucket"):
+            return "stretch level: " + _STRETCH_BUCKET.get(val, val)
+        if key == "primary_component":
+            return f"main fabric: {val.replace('_', ' ')}"
+        if key == "template_label":
+            return f"template label: {val}"
+        if key == "candidate_colour":
+            return f"colour: {val}"
+    return token
+
+
+def preference_sentence(p: dict[str, Any]) -> str:
+    """Readable explanation for one frozen intent entry (keys: preference, requested_value, scorable, satisfaction_0_1,
+    evidence, unscorable_reason)."""
+    name = PREFERENCE_NAMES.get(p["preference"], p["preference"].replace("_", " "))
+    val = p["requested_value"]
+    if not p["scorable"]:
+        why = _UNSCORABLE_TEXT.get(p.get("unscorable_reason"), str(p.get("unscorable_reason") or "no evidence"))
+        return "Not scored: " + why.format(pref=name) + "."
+    ev = [str(t) for t in p.get("evidence", [])]
+    if p["preference"] == "preferred_dominant_material":
+        dom = next((t.split("=", 2) for t in ev if t.startswith("dominant=")), None)
+        prim = next((t.split("=", 1)[1] for t in ev if t.startswith("primary_component=")), None)
+        where = f"the main fabric ({prim.replace('_', ' ')})" if prim and prim != "main" else "the main fabric"
+        if dom and len(dom) == 3:
+            return f"The largest material in {where} is {dom[1]} at {dom[2]}" + ("" if dom[1] == val else f", not {val}") + "."
+    if p["preference"] in ("fit", "length_cut", "colour"):
+        got = next((t.split("=", 1)[1] for t in ev if "=" in t), None)
+        src = "inherited from the TRAIN template" if p["preference"] != "colour" else "inherited from the TRAIN template; CAGO does not recolour"
+        if got is not None:
+            return f"The {name} is '{got}' ({src}); you asked for '{val}'."
+    sat = p["satisfaction_0_1"]
+    phrases = list(dict.fromkeys(evidence_phrase(t) for t in ev if t != "neutral"))      # de-duplicated, order kept
+    if isinstance(val, bool):
+        verb = "fully supports" if sat >= 0.99 else "does not support" if sat <= 0.01 else "partly supports"
+        head = f"Composition-based estimate: {verb} {name}"
+    else:
+        verb = "fully meets" if sat >= 0.99 else "does not meet" if sat <= 0.01 else "partly meets"
+        head = f"Composition-based estimate: {verb} '{val}' {name}"
+    return head + (" — " + "; ".join(phrases) if phrases else "") + ". This is a proxy from the material list, not a measured property."
+
+
+def _pp(d: float) -> str:
+    return f"{d:g} percentage point" + ("" if abs(float(d) - 1) < 1e-9 else "s")
+
+
+def change_number(step: int) -> int:
+    """Generator steps are 0-based; the UI numbers changes from 1 (used consistently for changes and rule attributions)."""
+    return int(step) + 1
+
+
+def change_sentence(e: dict[str, Any]) -> str:
+    """Readable description of one mutation-log entry (frozen generator log)."""
+    comp = str(e.get("component_name", "component")).replace("_", " ") + " component"
+    if e["type"] == "substitution":
+        why = " to remove a forbidden material" if e.get("reason") == "forbidden_repair" else ""
+        return (f"Change {change_number(e['step'])}: replaced {e['from_material']} with {e['to_material']} in the {comp} "
+                f"(that material made up {fmt_pct(float(e['pct']))} of it){why}.")
+    b, a = e["pct_before"], e["pct_after"]
+    if e["from_material"] == e["to_material"]:
+        return (f"Change {change_number(e['step'])}: moved {_pp(e['delta'])} between two {e['from_material']} entries in the {comp} "
+                f"(the material total is unchanged).")
+    return (f"Change {change_number(e['step'])}: moved {_pp(e['delta'])} from {e['from_material']} to {e['to_material']} in the {comp} "
+            f"({e['from_material']} {fmt_pct(float(b[0]))} → {fmt_pct(float(a[0]))}, {e['to_material']} {fmt_pct(float(b[1]))} → {fmt_pct(float(a[1]))}).")
+
+
+def rule_change_sentence(r: dict[str, Any]) -> str | None:
+    """Readable statement for an SR rule whose result differs from the template (frozen ablation evidence)."""
+    if r.get("vs_template") not in ("resolved", "introduced"):
+        return None
+    name = SR_RULES.get(r["rule"], (r["rule"],))[0].lower()
+    steps = [change_number(x) for x in (r.get("confirmed_by_mutation_steps") or [])]
+    undo = (f"undoing change {steps[0]}" if len(steps) == 1 else
+            "undoing any one of changes " + ", ".join(map(str, steps[:-1])) + f" or {steps[-1]}") if steps else ""
+    if r["vs_template"] == "resolved":
+        head = f"{r['rule']} ({name}) is no longer flagged, while the template was flagged"
+        tail = (f"; confirmed: {undo} on its own brings the flag back" if steps
+                else "; no single change alone is confirmed as the cause")
+    else:
+        head = f"{r['rule']} ({name}) is newly flagged compared with the template"
+        tail = (f"; confirmed: {undo} on its own removes the flag" if steps
+                else "; no single change alone is confirmed as the cause")
+    return head + tail + "."
+
+
+def trade_off_sentence(s: str) -> str:
+    """Light wording clean-up of the frozen template-vs-candidate trade-off lines."""
+    return (s.replace(" -> ", " → ").replace("Sorting rule violations:", "SR1–SR5 violations:")
+            .replace("Intent alignment index:", "Intent alignment:").replace("Dataset-relative plausibility index:", "Dataset-relative plausibility:"))
+
+
+_CONFLICT_TEXT = {
+    frozenset({"fit", "stretch"}): "the chosen fit is rarely combined with the chosen stretch level in the dataset",
+    frozenset({"breathability", "water_repellent"}): "water-repellency evidence (coatings, membranes) works against high breathability",
+    frozenset({"thermal_warmth", "breathability"}): "heavy warmth (fillings, padding) works against high breathability",
+    frozenset({"stretch", "forbidden_materials"}): "stretch is estimated from elastane, but elastane is forbidden",
+    frozenset({"moisture_wicking", "forbidden_materials"}): "moisture wicking is estimated from polyester and nylon, but both are forbidden",
+    frozenset({"preferred_dominant_material", "stretch"}): "an elastane-dominant material contradicts 'no stretch'",
+}
+
+
+def conflict_text(fields: list[str], fallback: str) -> str:
+    return _CONFLICT_TEXT.get(frozenset(fields), fallback)
+
+
+def invalid_value_text(detail: str) -> str:
+    """Remove API-only hints ("use null ...") from frozen validation messages shown in the UI."""
+    return (detail.replace(" (use null for no preference)", "; choose one of these or 'No preference'")
+            .replace("use true or null", "only true or 'No preference' is allowed"))

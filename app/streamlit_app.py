@@ -19,7 +19,7 @@ import altair as alt  # noqa: E402  (bundled with Streamlit)
 import pandas as pd  # noqa: E402
 import streamlit as st  # noqa: E402
 
-from app.adapters import (DEFAULT_PROCESSED_DIR, MissingDataError, enum_options, field_availability, form_to_raw_request,  # noqa: E402
+from app.adapters import (DEFAULT_PROCESSED_DIR, DataLoadError, MissingDataError, enum_options, field_availability, form_to_raw_request,  # noqa: E402
                           load_app_data)
 from app.presenters import DISCLAIMER, ROLE_TITLES, fmt_pct  # noqa: E402
 from app.service import FINAL_TEST_BUDGET, STATUS_OK, AppConfig, generate_recommendations  # noqa: E402
@@ -54,6 +54,14 @@ def missing_data_screen(err: MissingDataError) -> None:
     st.markdown("\n".join(f"- `{n}`: {why}" for n, why in err.missing.items()))
     st.markdown("See `docs/DEMO_APP.md` (section *Required data files*). You can point the app to another folder with the "
                 "`CAGO_PROCESSED_DIR` environment variable.")
+
+
+def data_error_screen(err: DataLoadError) -> None:
+    st.error(f"A processed data file in `{err.processed_dir}` cannot be used: `{err.file}`.")
+    st.markdown(f"- Problem: {err.problem}")
+    st.markdown("The file is probably incomplete, corrupted or from an incompatible version. Copy a complete `data/processed/` folder "
+                "again or rebuild it (see `docs/DEMO_APP.md`, section *Required data files*). The app only reads TRAIN rows and does not "
+                "repair or regenerate data.")
 
 
 def sidebar(data):
@@ -151,13 +159,16 @@ def card(rec) -> None:
             if rec["preferences"]:
                 st.markdown("**Your preferences**")
                 for p in rec["preferences"]:
-                    st.markdown(f"- {p['preference']} = `{p['requested']}`: **{p['status']}**. {p['explanation']}.")
+                    st.markdown(f"- {p['preference']} = `{p['requested']}`: **{p['status']}**. {p['explanation']}")
+                    st.caption(f"Technical evidence: {p['technical']}")
         with st.expander("SR1–SR5 sorting-screening results"):
             for r in rec["sr"]:
                 st.markdown(f"- {'⚠️' if r['violated'] else '✅'} **{r['rule']} · {r['name']}**: {r['status']}. {r['detail']}")
         with st.expander("Changes from the TRAIN template"):
-            st.caption(f"Template garment `{rec['template_garment_id']}` · {rec['template_distance']['n_substitutions']} substitution(s), "
-                       f"{rec['template_distance']['abs_pct_change_total']:g} percentage points moved.")
+            td = rec["template_distance"]
+            st.caption(f"Template garment `{rec['template_garment_id']}` · {td['n_substitutions']} material substitution(s) · "
+                       f"total absolute percentage change {td['abs_pct_change_total']:g} points (summed over every material slot, so moving "
+                       "2 points from one slot to another counts as 4).")
             for m in rec["changes_from_template"]:
                 st.markdown(f"- {m}")
             for s in rec["confirmed_rule_changes"]:
@@ -175,9 +186,15 @@ def pareto_chart(result) -> None:
     has_intent = df["intent_0_100"].notna().any()
     xfield, xtitle = ("intent_0_100", "Intent alignment (0–100)") if has_intent else ("violation_count", "SR1–SR5 violations")
     if not has_intent:
-        st.caption("No scorable preference was given, so the chart shows violations instead of intent alignment.")
+        st.caption("Intent alignment is n/a for every candidate (no scorable soft preference), so the x axis shows SR1–SR5 violations instead.")
+    elif df["intent_0_100"].isna().any():
+        st.caption(f"{int(df['intent_0_100'].isna().sum())} candidate(s) without a scorable preference have no intent value and are not "
+                   "plotted; they are listed in the candidate table.")
     base = alt.Chart(df).encode(
-        x=alt.X(f"{xfield}:Q", title=xtitle, scale=alt.Scale(zero=False)),
+        # fixed domains: intent is always 0-100 and violations 0-5, so identical values (e.g. every candidate at intent 0) still give a
+        # readable axis instead of a degenerate one
+        x=alt.X(f"{xfield}:Q", title=xtitle, scale=alt.Scale(domain=[0, 100] if has_intent else [0, 5]),
+                axis=alt.Axis(format="d", tickMinStep=1)),
         y=alt.Y("plausibility_0_100:Q", title="Dataset-relative plausibility (0–100)", scale=alt.Scale(zero=False)),
         tooltip=[alt.Tooltip("candidate_id:N", title="candidate"), alt.Tooltip("intent_0_100:Q", title="intent", format=".0f"),
                  alt.Tooltip("plausibility_0_100:Q", title="plausibility", format=".0f"), alt.Tooltip("violation_count:Q", title="SR violations"),
@@ -191,7 +208,8 @@ def pareto_chart(result) -> None:
     lab = base.transform_filter(alt.datum.role != "").mark_text(dx=12, align="left", fontSize=12, fontWeight="bold", color="#0b0b0b").encode(text="role:N")
     st.altair_chart((pts + vio + sel + lab).properties(height=360), width="stretch")
     st.caption("Each dot is an evaluated hard-valid candidate. Numbers above Pareto-front dots are SR1–SR5 violation counts; "
-               "circled dots are the recommendations.")
+               "circled dots are the recommendations. The Pareto front uses three objectives (violations, intent, plausibility), so a grey "
+               "dot can look better in this 2-D view while having more SR1–SR5 violations.")
     with st.expander("Candidate table"):
         st.dataframe(df[["candidate_id", "intent_0_100", "plausibility_0_100", "violation_count", "is_pareto", "role"]]
                      .sort_values(["is_pareto", "violation_count"], ascending=[False, True]), width="stretch", hide_index=True)
@@ -218,6 +236,9 @@ def main() -> None:
         data = get_data(str(PROCESSED_DIR))
     except MissingDataError as err:
         missing_data_screen(err)
+        return
+    except DataLoadError as err:
+        data_error_screen(err)
         return
     form, seed, cfg, submitted = sidebar(data)
     raw = form_to_raw_request(form)

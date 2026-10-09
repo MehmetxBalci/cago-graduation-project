@@ -56,9 +56,20 @@ class MissingDataError(RuntimeError):
         super().__init__(f"missing processed files in {processed_dir}: {sorted(missing)}")
 
 
+class DataLoadError(RuntimeError):
+    """A required processed file exists but cannot be used (corrupted, wrong format, missing columns / keys, no TRAIN rows)."""
+
+    def __init__(self, processed_dir: Path, file: str, problem: str):
+        self.processed_dir, self.file, self.problem = Path(processed_dir), file, problem
+        super().__init__(f"{file} in {processed_dir}: {problem}")
+
+
+VOCAB_KEYS = ("tokens", "special_tokens", "canonical_to_token")
+
+
 def missing_files(processed_dir: Path) -> dict[str, str]:
     d = Path(processed_dir)
-    return {n: why for n, why in REQUIRED_FILES.items() if not (d / n).exists()}
+    return {n: why for n, why in REQUIRED_FILES.items() if not (d / n).is_file()}
 
 
 @dataclass
@@ -90,17 +101,57 @@ class AppData:
 
 
 def read_train_representation(processed_dir: Path) -> pd.DataFrame:
-    """TRAIN rows only, filtered while reading (VAL/TEST rows are never materialised)."""
-    path = Path(processed_dir) / "garment_representation.parquet"
+    """TRAIN rows only, filtered while reading (VAL/TEST rows are never materialised).
+
+    There is deliberately no "read everything, then filter" fallback: an unreadable file or a file without the required columns
+    raises DataLoadError instead of loading other splits."""
+    import pyarrow.parquet as pq
+
+    name = "garment_representation.parquet"
+    path = Path(processed_dir) / name
+    try:
+        schema_cols = set(pq.read_schema(path).names)
+    except Exception as exc:                          # ArrowInvalid, OSError, ...: not a readable parquet file
+        raise DataLoadError(processed_dir, name, f"not a readable Parquet file ({type(exc).__name__}: {exc})") from exc
+    absent = [c for c in REPRESENTATION_COLUMNS if c not in schema_cols]
+    if absent:
+        raise DataLoadError(processed_dir, name, "required column(s) missing: " + ", ".join(absent))
     try:
         rep = pd.read_parquet(path, columns=REPRESENTATION_COLUMNS, filters=[("split", "==", "train")])
-    except (ValueError, KeyError):                    # older pyarrow / missing optional columns: fall back, then filter
-        rep = pd.read_parquet(path)
-        rep = rep[rep["split"] == "train"]
+    except Exception as exc:
+        raise DataLoadError(processed_dir, name, f"TRAIN rows could not be read ({type(exc).__name__}: {exc})") from exc
     rep = rep.reset_index(drop=True)
     if set(rep["split"].unique()) - {"train"}:
         raise ValueError("application data must contain TRAIN rows only")
+    if rep.empty:
+        raise DataLoadError(processed_dir, name, "the file contains no rows with split == 'train'")
     return rep
+
+
+def _read_json(processed_dir: Path, name: str) -> Any:
+    try:
+        return json.loads((Path(processed_dir) / name).read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise DataLoadError(processed_dir, name, f"not a readable JSON file ({type(exc).__name__}: {exc})") from exc
+
+
+def read_vocabulary(processed_dir: Path) -> dict[str, Any]:
+    vocab = _read_json(processed_dir, "ml_material_vocabulary.json")
+    absent = [k for k in VOCAB_KEYS if not isinstance(vocab, dict) or k not in vocab]
+    if absent:
+        raise DataLoadError(processed_dir, "ml_material_vocabulary.json", "required key(s) missing: " + ", ".join(absent))
+    return vocab
+
+
+def read_capabilities(processed_dir: Path) -> dict[str, Any]:
+    name = "category_capabilities.json"
+    try:
+        caps = load_capabilities(Path(processed_dir) / name)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise DataLoadError(processed_dir, name, f"not a readable JSON file ({type(exc).__name__}: {exc})") from exc
+    if not isinstance(caps, dict) or not isinstance(caps.get("categories"), dict):
+        raise DataLoadError(processed_dir, name, "required key 'categories' missing")
+    return caps
 
 
 def build_context(rep_train: pd.DataFrame, vocab: dict[str, Any], caps: dict[str, Any]) -> RequirementContext:
@@ -128,13 +179,13 @@ def build_app_data(rep_train: pd.DataFrame, vocab: dict[str, Any], caps: dict[st
 
 
 def load_app_data(processed_dir: Path = DEFAULT_PROCESSED_DIR) -> AppData:
-    """Load processed files (raises MissingDataError listing what is missing)."""
+    """Load processed files. Raises MissingDataError (lists missing files) or DataLoadError (file present but unusable)."""
     d = Path(processed_dir)
     miss = missing_files(d)
     if miss:
         raise MissingDataError(d, miss)
-    vocab = json.loads((d / "ml_material_vocabulary.json").read_text(encoding="utf-8"))
-    caps = load_capabilities(d / "category_capabilities.json")
+    vocab = read_vocabulary(d)
+    caps = read_capabilities(d)
     return build_app_data(read_train_representation(d), vocab, caps, d)
 
 
