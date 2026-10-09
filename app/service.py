@@ -17,8 +17,9 @@ from dataclasses import asdict, dataclass
 from typing import Any, Callable
 
 from app.adapters import REQUEST_TO_UI, UI_LABELS, AppData, form_to_raw_request
-from app.presenters import (ROLE_ORDER, ROLE_TITLES, ZERO_VIOLATION_TEXT, composition_lines, fmt_pct, score_label, sorting_summary_text,
-                            sr_status)
+from app.presenters import (PREFERENCE_NAMES, ROLE_ORDER, ROLE_TITLES, ZERO_VIOLATION_TEXT, change_sentence, composition_lines,
+                            conflict_text, invalid_value_text, preference_sentence, rule_change_sentence, score_label,
+                            sorting_summary_text, sr_status, trade_off_sentence)
 from cago.evaluation.config import EvaluationConfig
 from cago.evaluation.pipeline import evaluate_and_select
 from cago.generation_sorting.config import MODE_CONFIGS, SortingAwareGenerationConfig
@@ -73,7 +74,8 @@ def validation_messages(result) -> list[dict[str, Any]]:
     for e in result.errors:
         fld = e.field if isinstance(e.field, str) else None
         tpl = ERROR_TEXT.get(e.code, "{detail}")
-        out.append(_msg("error", e.code, tpl.format(label=_label(fld).lower() if e.code == "missing_required_field" else _label(fld), detail=e.message),
+        detail = invalid_value_text(e.message) if e.code == "invalid_value" else e.message
+        out.append(_msg("error", e.code, tpl.format(label=_label(fld).lower() if e.code == "missing_required_field" else _label(fld), detail=detail),
                         [fld] if fld else []))
     return out
 
@@ -87,7 +89,8 @@ def warning_messages(request: dict[str, Any]) -> list[dict[str, Any]]:
         elif w.get("severity") == "hard_override":
             text = "Your preferred material is also forbidden. Forbidden materials are a hard constraint, so the preference was not used."
         elif w["code"] == "preference_conflict":
-            text = f"Possible conflict between {labels}: {w['message']}. Both are kept; the trade-off is visible in the results."
+            text = (f"Possible conflict between {labels}: {conflict_text(w.get('fields', []), w['message'])}. "
+                    "Both preferences are kept; the trade-off is visible in the results.")
         else:
             text = w.get("message", w["code"])
         out.append(_msg("warning", w["code"], text, w.get("fields")))
@@ -121,8 +124,9 @@ def _preference_lines(e: dict[str, Any]) -> list[dict[str, Any]]:
             status = "not satisfied"
         else:
             status = "partially satisfied"
-        out.append({"preference": _label(p["preference"]), "requested": p["requested_value"], "status": status,
-                    "satisfaction": p["satisfaction_0_1"], "explanation": p["explanation"]})
+        req = p["requested_value"]
+        out.append({"preference": _label(p["preference"]), "requested": "yes" if req is True else req, "status": status,
+                    "satisfaction": p["satisfaction_0_1"], "explanation": preference_sentence(p), "technical": p["explanation"]})
     return out
 
 
@@ -189,9 +193,10 @@ def _recommendations(pe: dict[str, Any], res: dict[str, Any], category: str) -> 
             "violation_count": e["sorting"]["violation_count"], "sr": sr, "sorting_summary": sorting_summary_text(e["sorting"]["violation_count"], sr),
             "preferences": _preference_lines(e),
             "role_reasons": [_role_reason(r, e, s, len(front), dims) for r in roles],
-            "changes_from_template": [m["description"] for m in x["mutations"]],
-            "confirmed_rule_changes": [st for st in x["statements"] if st.split(" ")[0] in {"SR1", "SR2", "SR3", "SR4", "SR5"}],
-            "trade_offs_vs_template": x["trade_offs"],
+            "changes_from_template": [change_sentence(m) for m in c["mutation_log"]],
+            "confirmed_rule_changes": [t for t in (rule_change_sentence(r) for r in x["sorting"]["rules"]) if t],
+            "trade_offs_vs_template": [trade_off_sentence(t) for t in x["trade_offs"]],
+            "technical_statements": [m["description"] for m in x["mutations"]] + list(x["statements"]),
             "template_distance": e["template_distance_raw"],
             "display_merged_duplicate_slots": any(cl["had_duplicate_slots"] for cl in composition_lines(c["components"])),
         }
@@ -200,6 +205,26 @@ def _recommendations(pe: dict[str, Any], res: dict[str, Any], category: str) -> 
     for r in recs:
         r["comparisons"] = _comparison_lines(r, [o for o in recs if o is not r])
     return recs
+
+
+_UNSCORABLE_SHORT = {"neutral_value": "'standard' is neutral and not scored", "no_label_evidence": "the templates have no label for it",
+                     "no_primary_component_materials": "no main-fabric materials", "candidate_colour_unavailable": "no recorded colour"}
+
+
+def _no_intent_text(valid: list[dict[str, Any]], ignored: list[str] | None = None) -> str:
+    """Why there is no Intent-focused recommendation: no soft preference at all vs. preferences that could not be scored."""
+    reasons: dict[str, set[str]] = {}
+    for e in valid:
+        for u in e["intent"].get("unscorable_preferences", []):
+            reasons.setdefault(u["preference"], set()).add(_UNSCORABLE_SHORT.get(u["reason"], str(u["reason"])))
+    if not reasons:
+        if ignored:
+            return ("Your soft preference(s) (" + ", ".join(ignored) + ") are not available for this garment category and were not used, "
+                    "so there is no Intent-focused recommendation.")
+        return "No soft preference was given, so there is no Intent-focused recommendation."
+    detail = "; ".join(f"{PREFERENCE_NAMES.get(k, k)}: {', '.join(sorted(v))}" for k, v in sorted(reasons.items()))
+    return ("None of your soft preferences could be scored for the Pareto-front candidates (" + detail + "), so there is no Intent-focused "
+            "recommendation and intent alignment is shown as n/a.")
 
 
 def generate_recommendations(user_request: dict[str, Any], seed: int = 0, data: AppData | None = None, app_cfg: AppConfig = AppConfig(),
@@ -289,7 +314,9 @@ def generate_recommendations(user_request: dict[str, Any], seed: int = 0, data: 
     elif out["flags"]["duplicate_roles"]:
         out["messages"].append(_msg("info", "duplicate_roles", "One candidate fulfils several recommendation roles; it is shown once with all its roles."))
     if out["flags"]["intent_focused_omitted"]:
-        out["messages"].append(_msg("info", "no_intent", "No scorable soft preference was given, so there is no Intent-focused recommendation."))
+        out["messages"].append(_msg("info", "no_intent", _no_intent_text(
+            [e for e in valid if e["is_pareto"]],
+            [_label(f).lower() for w in req.get("warnings", []) if w["code"] == "control_not_available" for f in w.get("fields", [])])))
     if pool["pool_smaller_than_requested"]:
         out["messages"].append(_msg("info", "small_pool", f"Only {pool['eligible_templates']} eligible TRAIN template(s) exist for this cell; "
                                     "fewer and less diverse candidates are possible."))
