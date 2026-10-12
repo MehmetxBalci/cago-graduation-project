@@ -54,6 +54,14 @@ app/i18n/
 3. Run `CAGO_I18N_STRICT=1 python -m pytest app/tests -q`; `test_i18n.py` fails on a missing key, a placeholder mismatch, a key used in
    code but absent from the catalogs, or an untranslated Turkish string.
 
+### V1.2 additions
+
+Segment-aware category filtering adds `form.help.category`, `form.no_categories` (segment without available categories),
+`form.invalid_combination` (defensive guard), `app.stale_request` and `request.*` (names the request an outdated result belongs to).
+The V1.1 keys `form.no_templates_suffix` / `form.no_templates_warning` were removed because no category is shown with
+"(no TRAIN templates)" any more. Category labels are translated with the existing `category` vocabulary (all 23 categories); the
+selectors keep the internal identifiers, so switching the language never changes the selected segment / category.
+
 ## Glossary (EN → TR)
 
 | English | Türkçe | Note |
@@ -76,7 +84,9 @@ app/i18n/
 | forbidden material | yasaklı malzeme | |
 | preferred dominant material | tercih edilen baskın malzeme | |
 | segment (women / men / kids / baby) | hedef grup (Kadın / Erkek / Çocuk / Bebek) | |
-| garment category | giysi kategorisi | e.g. trousers → Pantolon |
+| garment category | giysi kategorisi | e.g. trousers → Pantolon, shorts → Şort |
+| eligible TRAIN template | uygun TRAIN şablonu | V1.2 category availability |
+| The results below belong to the previous request | Aşağıdaki sonuçlar önceki isteğe aittir | outdated results |
 | fit: slim / regular / relaxed / oversized | kesim: Dar kesim / Normal kesim / Rahat kesim / Oversize (bol kesim) | |
 | length: standard / long | boy: Standart boy / Uzun boy | |
 | stretch, thermal warmth, breathability, durability, moisture wicking, water repellency | esneme, sıcak tutma, nefes alabilirlik, dayanıklılık, nem uzaklaştırma, su iticilik | composition-based proxies |

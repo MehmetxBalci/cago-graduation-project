@@ -33,3 +33,18 @@ def result_is_stale(state: MutableMapping[str, Any], raw_request: dict[str, Any]
 def record_generation(state: MutableMapping[str, Any]) -> int:
     state[GENERATION_COUNT_KEY] = state.get(GENERATION_COUNT_KEY, 0) + 1
     return state[GENERATION_COUNT_KEY]
+
+
+DEFAULT_CATEGORY = "trousers"                            # initial category when it is available for the segment (V1 default)
+
+
+def resolve_category(available: list[str], current: str | None, preferred: str = DEFAULT_CATEGORY) -> str | None:
+    """Category to keep selected after the segment (and therefore the category options) changed.
+
+    A still-valid selection is preserved; an invalid or stale one is replaced by `preferred` when available, otherwise by the
+    first available category; None when the segment has no available category (generation is then disabled)."""
+    if current in available:
+        return current
+    if not available:
+        return None
+    return preferred if preferred in available else available[0]

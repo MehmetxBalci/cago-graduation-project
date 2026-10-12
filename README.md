@@ -1,4 +1,4 @@
-# CAGO — Constraint-Aware Garment Optimization (V1.1)
+# CAGO — Constraint-Aware Garment Optimization (V1.2)
 
 Graduation-project prototype. CAGO adapts real garment templates from the TRAIN split of a public garment-composition dataset to a
 user's requirements and screens every candidate with the SR1–SR5 textile-sorting rules (a reproduction of Li & Walther 2026).
@@ -32,6 +32,14 @@ python -m streamlit run app/streamlit_app.py
 ```
 
 The browser opens at <http://localhost:8501>. Stop the app with `Ctrl+C` in the terminal.
+
+## Garment categories per segment (V1.2)
+
+After choosing a segment (women, men, kids, baby) the **Garment category** list only contains categories with at least one eligible
+TRAIN garment template in that segment — the same eligibility rule the frozen generator applies when it selects templates. Categories
+without such templates are not listed (V1.0/V1.1 showed them as "(no TRAIN templates)"). A still-valid category stays selected when the
+segment changes; an unavailable one is replaced. Lists are derived from TRAIN data only (never VAL/TEST, nothing hard-coded); a direct
+service request for an unavailable pair still returns the structured `no_templates` status. Details: [docs/DEMO_APP.md](docs/DEMO_APP.md#available-categories-v12).
 
 ## Language / Dil (English · Türkçe)
 
@@ -73,7 +81,14 @@ CAGO_I18N_STRICT=1 python -m pytest app/tests -q   # same, a missing translation
 python -m app.demo_scenarios        # V1 demo scenarios on real data -> docs/v1_demo_evidence.json (--lang tr: Turkish wording)
 python -m app.browser_smoke         # optional real-browser test (needs: pip install playwright; python -m playwright install chromium)
 python -m app.browser_smoke_i18n    # optional real-browser EN -> TR -> EN test (selections kept, no regeneration, screenshots)
+python -m app.browser_smoke_categories   # optional real-browser check of the category list of every segment (EN + TR)
 ```
+
+**Windows (Python 3.12):** the app and the application tests run unchanged. One frozen research test,
+`tests/test_final_test_evaluation.py::test_parallel_and_cached_execution_reproduce_sequential_results`, uses a fork-based process pool,
+which Windows does not provide, and is expected to fail there; the frozen research code is intentionally not changed. Run
+`python -m pytest -q --deselect tests/test_final_test_evaluation.py::test_parallel_and_cached_execution_reproduce_sequential_results`
+on Windows (see [docs/V1_KNOWN_LIMITATIONS.md](docs/V1_KNOWN_LIMITATIONS.md)).
 
 ## Project layout
 
@@ -86,7 +101,7 @@ scripts/    frozen research entry points (run_preprocessing.py, run_representati
 tests/      frozen research tests
 configs/    final_test_evaluation_manifest.json (frozen TEST configuration and hashes)
 data/processed/  processed data, audits and reports (incl. final_test_evaluation_report.*)
-docs/       DEMO_APP.md, LOCALIZATION.md, V1_1_RELEASE_NOTES.md, V1_DEMO_SCENARIOS.md, V1_RELEASE_CHECKLIST.md, V1_KNOWN_LIMITATIONS.md,
+docs/       DEMO_APP.md, LOCALIZATION.md, V1_1_RELEASE_NOTES.md, V1_2_RELEASE_NOTES.md, V1_DEMO_SCENARIOS.md, V1_RELEASE_CHECKLIST.md, V1_KNOWN_LIMITATIONS.md,
             FINAL_TEST_EVALUATION_REPRODUCTION.md
 ```
 
@@ -95,6 +110,7 @@ docs/       DEMO_APP.md, LOCALIZATION.md, V1_1_RELEASE_NOTES.md, V1_DEMO_SCENARI
 * [docs/DEMO_APP.md](docs/DEMO_APP.md) — app usage, architecture, data, troubleshooting
 * [docs/LOCALIZATION.md](docs/LOCALIZATION.md) — English / Turkish interface: switching, architecture, glossary
 * [docs/V1_1_RELEASE_NOTES.md](docs/V1_1_RELEASE_NOTES.md) — V1.1.0 changes, verification results and readiness
+* [docs/V1_2_RELEASE_NOTES.md](docs/V1_2_RELEASE_NOTES.md) — V1.2.0 segment-aware category filtering: method, verification, readiness
 * [docs/V1_DEMO_SCENARIOS.md](docs/V1_DEMO_SCENARIOS.md) — reproducible demo scenarios with recorded output
 * [docs/V1_RELEASE_CHECKLIST.md](docs/V1_RELEASE_CHECKLIST.md) — release verification and results
 * [docs/V1_KNOWN_LIMITATIONS.md](docs/V1_KNOWN_LIMITATIONS.md)

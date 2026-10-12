@@ -16,6 +16,7 @@ from typing import Any
 import pandas as pd
 
 from cago.generation.support_tables import SupportTables, build_support_tables
+from cago.generation.template_selector import ineligibility_reason, template_components
 from cago.requirements.capabilities import load_capabilities
 from cago.requirements.schema import ENUMS
 from cago.requirements.validation import RequirementContext
@@ -86,9 +87,22 @@ class AppData:
     colours: dict[tuple[str, str], list[tuple[str, int]]]     # (segment, category) -> TRAIN colours with counts
     loaded_splits: tuple[str, ...] = ("train",)
     notes: list[str] = field(default_factory=list)
+    eligible: dict[str, dict[str, int]] = field(default_factory=dict)   # segment -> category -> ELIGIBLE TRAIN templates (V1.2)
 
     def categories_for(self, segment: str) -> list[str]:
+        """Categories with at least one TRAIN garment in the segment (eligible or not). The UI uses available_categories."""
         return sorted(self.cells.get(segment, {}))
+
+    def eligible_templates(self, segment: str | None, category: str | None) -> int:
+        """Number of TRAIN garments of the exact (segment, category) cell the frozen template selector accepts as templates."""
+        return int(self.eligible.get(segment or "", {}).get(category or "", 0))
+
+    def available_categories(self, segment: str | None) -> list[str]:
+        """Categories that can be offered for a segment: at least one eligible TRAIN template in that exact cell."""
+        return sorted(c for c, n in self.eligible.get(segment or "", {}).items() if n > 0)
+
+    def is_available(self, segment: str | None, category: str | None) -> bool:
+        return self.eligible_templates(segment, category) > 0
 
     def segments(self) -> list[str]:
         order = {"women": 0, "men": 1, "kids": 2, "baby": 3}
@@ -170,6 +184,24 @@ def build_context(rep_train: pd.DataFrame, vocab: dict[str, Any], caps: dict[str
         ml_tokens=frozenset(vocab["special_tokens"]))
 
 
+def eligible_template_counts(rep_train: pd.DataFrame) -> dict[str, dict[str, int]]:
+    """segment -> category -> number of TRAIN garments that can serve as a generator template.
+
+    Same definition as the frozen template selector (`cago.generation.template_selector.select_templates`, reported there as
+    `eligible_templates`): split == train, exact (target_segment, detail_category) cell, and the frozen
+    `ineligibility_reason(row, template_components(row.components))` is None (fully usable, no unmapped / OTHER material,
+    every component sums to 100 %). Forbidden materials and soft preferences only RANK templates, so they do not change the
+    pool. Only TRAIN rows are accepted; there is no VAL / TEST fallback."""
+    if set(rep_train["split"].unique()) - {"train"}:
+        raise ValueError("category availability must be computed from TRAIN rows only")
+    out: dict[str, dict[str, int]] = {}
+    for row in rep_train.itertuples(index=False):
+        if ineligibility_reason(row, template_components(row.components)) is None:
+            cell = out.setdefault(row.target_segment, {})
+            cell[row.detail_category] = cell.get(row.detail_category, 0) + 1
+    return out
+
+
 def build_app_data(rep_train: pd.DataFrame, vocab: dict[str, Any], caps: dict[str, Any], processed_dir: Path = Path(".")) -> AppData:
     if set(rep_train["split"].unique()) - {"train"}:
         raise ValueError("application data must contain TRAIN rows only")
@@ -182,7 +214,8 @@ def build_app_data(rep_train: pd.DataFrame, vocab: dict[str, Any], caps: dict[st
         vc = g["normalized_colour"].dropna().value_counts()
         colours[(s, c)] = [(str(k), int(v)) for k, v in sorted(vc.items(), key=lambda kv: (-kv[1], kv[0]))]
     tokens = tuple(t for t in vocab["tokens"] if t not in vocab["special_tokens"])
-    return AppData(Path(processed_dir), rep_train, support, build_context(rep_train, vocab, caps), tokens, caps, cells, colours)
+    return AppData(Path(processed_dir), rep_train, support, build_context(rep_train, vocab, caps), tokens, caps, cells, colours,
+                   eligible=eligible_template_counts(rep_train))
 
 
 def load_app_data(processed_dir: Path = DEFAULT_PROCESSED_DIR) -> AppData:

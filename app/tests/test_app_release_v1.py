@@ -213,7 +213,7 @@ def test_corrupted_data_screen(monkeypatch, tmp_path):
 
 def test_disabled_field_does_not_keep_a_stale_value(monkeypatch, tmp_path):
     """A preference chosen for one category is reset when the next category disables that field (fixture copy with fit
-    disabled for shorts)."""
+    disabled for shorts). V1.2: shorts is only offered for `men` in this fixture, so the category changes via the segment."""
     write_valid(tmp_path)
     caps = json.loads(json.dumps(CAPS))
     caps["categories"]["shorts"]["controls"]["fit"] = False
@@ -227,7 +227,8 @@ def test_disabled_field_does_not_keep_a_stale_value(monkeypatch, tmp_path):
     at.sidebar.button[0].click()
     at.run()
     assert {s.label: s for s in at.sidebar.selectbox}["Fit"].value == "relaxed"
-    {s.label: s for s in at.sidebar.selectbox}["Garment category"].set_value("shorts")
+    {s.label: s for s in at.sidebar.selectbox}["Segment"].set_value("men")              # women/shorts has no TRAIN template
     at.run()
+    assert {s.label: s for s in at.sidebar.selectbox}["Garment category"].value == "shorts"
     fit = {s.label: s for s in at.sidebar.selectbox}["Fit"]
     assert fit.disabled and fit.value == "No preference"
