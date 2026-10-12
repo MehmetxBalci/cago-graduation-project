@@ -1,4 +1,4 @@
-# CAGO — Constraint-Aware Garment Optimization (V1)
+# CAGO — Constraint-Aware Garment Optimization (V1.1)
 
 Graduation-project prototype. CAGO adapts real garment templates from the TRAIN split of a public garment-composition dataset to a
 user's requirements and screens every candidate with the SR1–SR5 textile-sorting rules (a reproduction of Li & Walther 2026).
@@ -33,6 +33,18 @@ python -m streamlit run app/streamlit_app.py
 
 The browser opens at <http://localhost:8501>. Stop the app with `Ctrl+C` in the terminal.
 
+## Language / Dil (English · Türkçe)
+
+The interface is available in **English** (default) and **Turkish**. Use the **EN / TR** switcher in the upper-right corner of the
+page. Switching keeps all selections and the recommendations already on screen; it only changes the wording and never runs the
+generator again. Localization is presentation-only: the request sent to the frozen research engine, the candidates, all scores, the
+SR1–SR5 flags, the Pareto front and the selected roles are identical in both languages, and the frozen evaluation results are not
+affected. Architecture, glossary and translation policy: [docs/LOCALIZATION.md](docs/LOCALIZATION.md).
+
+Arayüz **İngilizce** (varsayılan) ve **Türkçe** kullanılabilir. Sayfanın sağ üst köşesindeki **EN / TR** seçicisiyle dil değiştirilir;
+seçimleriniz ve ekrandaki öneriler korunur, öneriler yeniden üretilmez. Yerelleştirme yalnızca sunum katmanını etkiler; araştırma
+motoru ve dondurulmuş değerlendirme sonuçları değişmez.
+
 ## Required data files
 
 The app needs three processed files in `data/processed/` (relative to the project root):
@@ -56,27 +68,33 @@ The research tests that rebuild data from the raw dataset additionally need the 
 
 ```bash
 python -m pytest -q                 # whole project (research + app), about 1.5–2 min
-python -m pytest app/tests -q       # application layer only, including headless Streamlit AppTest
-python -m app.demo_scenarios        # V1 demo scenarios on real data -> docs/v1_demo_evidence.json
+python -m pytest app/tests -q       # application layer only, including headless Streamlit AppTest and the EN/TR tests
+CAGO_I18N_STRICT=1 python -m pytest app/tests -q   # same, a missing translation key raises instead of falling back
+python -m app.demo_scenarios        # V1 demo scenarios on real data -> docs/v1_demo_evidence.json (--lang tr: Turkish wording)
 python -m app.browser_smoke         # optional real-browser test (needs: pip install playwright; python -m playwright install chromium)
+python -m app.browser_smoke_i18n    # optional real-browser EN -> TR -> EN test (selections kept, no regeneration, screenshots)
 ```
 
 ## Project layout
 
 ```
-app/        Streamlit demo app, service layer, adapters, presenters, app tests, demo-scenario and browser-smoke runners
+app/        Streamlit demo app, service layer, adapters, presenters, i18n/ (English + Turkish catalogs, translator), app tests,
+            demo-scenario and browser-smoke runners
 cago/       frozen research package (preprocessing, oracle, requirements, representation, generation, generation_sorting,
             evaluation, optimization, benchmark)
 scripts/    frozen research entry points (run_preprocessing.py, run_representation.py, run_final_test_evaluation.py, ...)
 tests/      frozen research tests
 configs/    final_test_evaluation_manifest.json (frozen TEST configuration and hashes)
 data/processed/  processed data, audits and reports (incl. final_test_evaluation_report.*)
-docs/       DEMO_APP.md, V1_DEMO_SCENARIOS.md, V1_RELEASE_CHECKLIST.md, V1_KNOWN_LIMITATIONS.md, FINAL_TEST_EVALUATION_REPRODUCTION.md
+docs/       DEMO_APP.md, LOCALIZATION.md, V1_1_RELEASE_NOTES.md, V1_DEMO_SCENARIOS.md, V1_RELEASE_CHECKLIST.md, V1_KNOWN_LIMITATIONS.md,
+            FINAL_TEST_EVALUATION_REPRODUCTION.md
 ```
 
 ## Documentation
 
 * [docs/DEMO_APP.md](docs/DEMO_APP.md) — app usage, architecture, data, troubleshooting
+* [docs/LOCALIZATION.md](docs/LOCALIZATION.md) — English / Turkish interface: switching, architecture, glossary
+* [docs/V1_1_RELEASE_NOTES.md](docs/V1_1_RELEASE_NOTES.md) — V1.1.0 changes, verification results and readiness
 * [docs/V1_DEMO_SCENARIOS.md](docs/V1_DEMO_SCENARIOS.md) — reproducible demo scenarios with recorded output
 * [docs/V1_RELEASE_CHECKLIST.md](docs/V1_RELEASE_CHECKLIST.md) — release verification and results
 * [docs/V1_KNOWN_LIMITATIONS.md](docs/V1_KNOWN_LIMITATIONS.md)

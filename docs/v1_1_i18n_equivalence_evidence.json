@@ -1,0 +1,949 @@
+{
+ "note": "SYNTHETIC test fixture (app/tests/app_fixtures.py); same request, budget and seed in both languages.",
+ "python": "3.13.16",
+ "n_cases": 34,
+ "all_identical": true,
+ "cases": {
+  "plain": {
+   "status": "ok",
+   "digest_en": "b38747cf1843bdad3bcb12ee",
+   "digest_tr": "b38747cf1843bdad3bcb12ee",
+   "research_view_sha256_en": "95d6855d9f39b70f",
+   "research_view_sha256_tr": "95d6855d9f39b70f",
+   "identical": true,
+   "candidate_ids": [
+    "candB_ee07db02aa01491d"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_ee07db02aa01491d"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "prefs": {
+   "status": "ok",
+   "digest_en": "4ee16d269bc78194be1136c3",
+   "digest_tr": "4ee16d269bc78194be1136c3",
+   "research_view_sha256_en": "fcca3b76efe70226",
+   "research_view_sha256_tr": "fcca3b76efe70226",
+   "identical": true,
+   "candidate_ids": [
+    "candB_5e781a2cd725a89f"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_5e781a2cd725a89f"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "linen_relaxed": {
+   "status": "ok",
+   "digest_en": "421715d0a51ce9bfa6a69b30",
+   "digest_tr": "421715d0a51ce9bfa6a69b30",
+   "research_view_sha256_en": "305960234ff87bd8",
+   "research_view_sha256_tr": "305960234ff87bd8",
+   "identical": true,
+   "candidate_ids": [
+    "candB_4cf77768e8160abd",
+    "candB_d867ae9443b8da77"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "intent_focused"
+    ],
+    [
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Intent-focused"
+    ],
+    [
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Tercih Odaklı"
+    ],
+    [
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_4cf77768e8160abd",
+    "candB_d42f5240e9b382ae",
+    "candB_d867ae9443b8da77",
+    "candB_eabbfab3eabf18a6"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "stretch_low": {
+   "status": "ok",
+   "digest_en": "3735d33644fdd2851e7ff650",
+   "digest_tr": "3735d33644fdd2851e7ff650",
+   "research_view_sha256_en": "667fe87ccc86fde9",
+   "research_view_sha256_tr": "667fe87ccc86fde9",
+   "identical": true,
+   "candidate_ids": [
+    "candB_4c063d4422776fe4",
+    "candB_af57fd2e68528ca2"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "intent_focused"
+    ],
+    [
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Intent-focused"
+    ],
+    [
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Tercih Odaklı"
+    ],
+    [
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_4c063d4422776fe4",
+    "candB_af57fd2e68528ca2"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "stretch_low_s4": {
+   "status": "ok",
+   "digest_en": "50255e6b818a186159f94f8a",
+   "digest_tr": "50255e6b818a186159f94f8a",
+   "research_view_sha256_en": "70d6d3639eedcc60",
+   "research_view_sha256_tr": "70d6d3639eedcc60",
+   "identical": true,
+   "candidate_ids": [
+    "candB_80574da531f0b9b4"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_80574da531f0b9b4"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "all_functional": {
+   "status": "ok",
+   "digest_en": "a5236302b87bb8a29aeaec62",
+   "digest_tr": "a5236302b87bb8a29aeaec62",
+   "research_view_sha256_en": "bb3bbd06f66b2bbc",
+   "research_view_sha256_tr": "bb3bbd06f66b2bbc",
+   "identical": true,
+   "candidate_ids": [
+    "candB_f51a8ccd25b0135a",
+    "candB_1727bdbbc09bb3df"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused"
+    ],
+    [
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused"
+    ],
+    [
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı"
+    ],
+    [
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_1727bdbbc09bb3df",
+    "candB_7d1cf50a4bf2ce03",
+    "candB_7f3e056ba14ca71c",
+    "candB_9c7e24d68df94f33",
+    "candB_a3e74b407ea86541",
+    "candB_cbc387577b0d0862",
+    "candB_f51a8ccd25b0135a",
+    "candB_fb328d39d1e515d3"
+   ],
+   "first_message_en": "Possible conflict between Breathability, Water repellency: water-repellency evidence (coatings, membranes) works against high breathability. Both preferences are kept; the trade-off is visible in the results.",
+   "first_message_tr": "Olası tercih çatışması (Nefes alabilirlik, Su iticilik): su iticilik kanıtı (kaplamalar, membranlar) yüksek nefes alabilirliğe ters etki eder. İki tercih de korunur; aradaki ödünleşim sonuçlarda görülebilir."
+  },
+  "neutral_warmth": {
+   "status": "ok",
+   "digest_en": "fab2d3f640a954ec937e32e5",
+   "digest_tr": "fab2d3f640a954ec937e32e5",
+   "research_view_sha256_en": "37427eda87b78afa",
+   "research_view_sha256_tr": "37427eda87b78afa",
+   "identical": true,
+   "candidate_ids": [
+    "candB_cb2efc3e4450ccbe"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_cb2efc3e4450ccbe",
+    "candB_db1c759c24fdcc0b"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "forbidden_pref": {
+   "status": "ok",
+   "digest_en": "6f2346049392aa71188cad4c",
+   "digest_tr": "6f2346049392aa71188cad4c",
+   "research_view_sha256_en": "9b11d88cb730ed21",
+   "research_view_sha256_tr": "9b11d88cb730ed21",
+   "identical": true,
+   "candidate_ids": [
+    "candB_f9c0a46481afb196"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_8b6631b20bd93ec1",
+    "candB_f9c0a46481afb196"
+   ],
+   "first_message_en": "Your preferred material is also forbidden. Forbidden materials are a hard constraint, so the preference was not used.",
+   "first_message_tr": "Tercih ettiğiniz malzeme aynı zamanda yasaklı. Yasaklı malzemeler zorunlu bir kısıttır; bu nedenle tercih dikkate alınmadı."
+  },
+  "forbidden_poly": {
+   "status": "ok",
+   "digest_en": "3070faeb9b3144e27d17f4c5",
+   "digest_tr": "3070faeb9b3144e27d17f4c5",
+   "research_view_sha256_en": "cdacfa4fa848bd4a",
+   "research_view_sha256_tr": "cdacfa4fa848bd4a",
+   "identical": true,
+   "candidate_ids": [
+    "candB_69d309f9fc3fa4ff"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_69d309f9fc3fa4ff"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "conflict_elastane": {
+   "status": "ok",
+   "digest_en": "6207d606deb3bab549c47216",
+   "digest_tr": "6207d606deb3bab549c47216",
+   "research_view_sha256_en": "0050f4e8d8d76067",
+   "research_view_sha256_tr": "0050f4e8d8d76067",
+   "identical": true,
+   "candidate_ids": [
+    "candB_77313cb89b446860"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_77313cb89b446860"
+   ],
+   "first_message_en": "Possible conflict between Stretch, Forbidden materials: stretch is estimated from elastane, but elastane is forbidden. Both preferences are kept; the trade-off is visible in the results.",
+   "first_message_tr": "Olası tercih çatışması (Esneme, Yasaklı malzemeler): esneme elastan payından tahmin edilir, ancak elastan yasaklandı. İki tercih de korunur; aradaki ödünleşim sonuçlarda görülebilir."
+  },
+  "conflict_wicking": {
+   "status": "ok",
+   "digest_en": "c90764b6364becc7349b806e",
+   "digest_tr": "c90764b6364becc7349b806e",
+   "research_view_sha256_en": "1fb94542df3b67e9",
+   "research_view_sha256_tr": "1fb94542df3b67e9",
+   "identical": true,
+   "candidate_ids": [
+    "candB_9f8c104387570501"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_9f8c104387570501"
+   ],
+   "first_message_en": "Possible conflict between Moisture wicking, Forbidden materials: moisture wicking is estimated from polyester and nylon, but both are forbidden. Both preferences are kept; the trade-off is visible in the results.",
+   "first_message_tr": "Olası tercih çatışması (Nem uzaklaştırma, Yasaklı malzemeler): nem uzaklaştırma polyester ve naylon payından tahmin edilir, ancak ikisi de yasaklandı. İki tercih de korunur; aradaki ödünleşim sonuçlarda görülebilir."
+  },
+  "conflict_fit_stretch": {
+   "status": "ok",
+   "digest_en": "dbb8aea06df758f440ee33b7",
+   "digest_tr": "dbb8aea06df758f440ee33b7",
+   "research_view_sha256_en": "0aa99eb1ce6d3bce",
+   "research_view_sha256_tr": "0aa99eb1ce6d3bce",
+   "identical": true,
+   "candidate_ids": [
+    "candB_ff4c94ae9869e6f2",
+    "candB_44b1fce99e556ee5"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "intent_focused"
+    ],
+    [
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Intent-focused"
+    ],
+    [
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Tercih Odaklı"
+    ],
+    [
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_44b1fce99e556ee5",
+    "candB_ff4c94ae9869e6f2"
+   ],
+   "first_message_en": "Possible conflict between Fit, Stretch: the chosen fit is rarely combined with the chosen stretch level in the dataset. Both preferences are kept; the trade-off is visible in the results.",
+   "first_message_tr": "Olası tercih çatışması (Kesim, Esneme): seçilen kesim, veri setinde seçilen esneme düzeyiyle nadiren birlikte görülür. İki tercih de korunur; aradaki ödünleşim sonuçlarda görülebilir."
+  },
+  "conflict_elastane_dom": {
+   "status": "ok",
+   "digest_en": "6c0a6c72960e0c26b386114b",
+   "digest_tr": "6c0a6c72960e0c26b386114b",
+   "research_view_sha256_en": "02fee43828348815",
+   "research_view_sha256_tr": "02fee43828348815",
+   "identical": true,
+   "candidate_ids": [
+    "candB_e72f55ec742519c4"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_e72f55ec742519c4",
+    "candB_f153db9d5f95e5e3"
+   ],
+   "first_message_en": "Possible conflict between Preferred dominant material, Stretch: an elastane-dominant material contradicts 'no stretch'. Both preferences are kept; the trade-off is visible in the results.",
+   "first_message_tr": "Olası tercih çatışması (Tercih edilen baskın malzeme, Esneme): elastanın baskın olduğu bir malzeme 'esneme yok' tercihiyle çelişir. İki tercih de korunur; aradaki ödünleşim sonuçlarda görülebilir."
+  },
+  "single": {
+   "status": "ok",
+   "digest_en": "fc9e3efd53ea741a3a339c72",
+   "digest_tr": "fc9e3efd53ea741a3a339c72",
+   "research_view_sha256_en": "cbdb0d418b74aaf0",
+   "research_view_sha256_tr": "cbdb0d418b74aaf0",
+   "identical": true,
+   "candidate_ids": [
+    "candB_39149cd466c09965"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_39149cd466c09965"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 2). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 2). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "default_budget": {
+   "status": "ok",
+   "digest_en": "b65ff7d21dead96612244294",
+   "digest_tr": "b65ff7d21dead96612244294",
+   "research_view_sha256_en": "f9bd2a49ec72f18e",
+   "research_view_sha256_tr": "f9bd2a49ec72f18e",
+   "identical": true,
+   "candidate_ids": [
+    "candB_243df8cc5a9a2acf",
+    "candB_86cfd4ebd821f6cf"
+   ],
+   "roles": [
+    [
+     "balanced"
+    ],
+    [
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced"
+    ],
+    [
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli"
+    ],
+    [
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_243df8cc5a9a2acf",
+    "candB_86cfd4ebd821f6cf",
+    "candB_a2d438b6c7fc12d0",
+    "candB_d8fc392c89e133c5"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  },
+  "no_templates": {
+   "status": "no_templates",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "228587bfe9e2dbc5",
+   "research_view_sha256_tr": "228587bfe9e2dbc5",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "No recommendations can be generated because there are no TRAIN garments for this segment and category. CAGO only builds designs from TRAIN garment templates of the same segment and category.",
+   "first_message_tr": "Öneri üretilemiyor, çünkü bu hedef grup ve kategori için TRAIN giysisi yok. CAGO tasarımları yalnızca aynı hedef grup ve kategorideki TRAIN giysi şablonlarından oluşturur."
+  },
+  "no_candidates": {
+   "status": "no_candidates",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "cfb8c9028ed2f3f4",
+   "research_view_sha256_tr": "cfb8c9028ed2f3f4",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "No candidate could be generated. 1 template(s) contain a forbidden material that has no TRAIN-supported replacement; other attempts were rejected: unrepairable forbidden material (1). Try removing a forbidden material or choosing another category.",
+   "first_message_tr": "Hiç aday üretilemedi. 1 şablon, TRAIN verisinde desteklenen bir ikamesi olmayan yasaklı bir malzeme içeriyor; diğer denemeler reddedildi: onarılamayan yasaklı malzeme (1). Yasaklı bir malzemeyi kaldırmayı ya da başka bir kategori seçmeyi deneyin."
+  },
+  "invalid_enum": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "a2c2648029476887",
+   "research_view_sha256_tr": "a2c2648029476887",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Invalid value for Stretch: 'medium' is not one of ['none', 'low', 'high']; choose one of these or 'No preference'.",
+   "first_message_tr": "Esneme için geçersiz değer: 'medium' şu seçeneklerden biri değil: 'Esneme yok', 'Düşük', 'Yüksek'; bunlardan birini ya da 'Tercih yok' seçeneğini seçin."
+  },
+  "invalid_breath": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "6b9bfeed43506f5a",
+   "research_view_sha256_tr": "6b9bfeed43506f5a",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Invalid value for Breathability: 'very_high' is not one of ['standard', 'high']; choose one of these or 'No preference'.",
+   "first_message_tr": "Nefes alabilirlik için geçersiz değer: 'very_high' şu seçeneklerden biri değil: 'Standart', 'Yüksek'; bunlardan birini ya da 'Tercih yok' seçeneğini seçin."
+  },
+  "invalid_material": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "b5d9b820397888d8",
+   "research_view_sha256_tr": "b5d9b820397888d8",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Unknown material: unknown material 'kryptonite'.",
+   "first_message_tr": "Bilinmeyen malzeme: 'kryptonite'."
+  },
+  "invalid_forbidden": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "f29ea8d7898e9281",
+   "research_view_sha256_tr": "f29ea8d7898e9281",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Unknown material: unknown material 'kryptonite'.",
+   "first_message_tr": "Bilinmeyen malzeme: 'kryptonite'."
+  },
+  "removed_fit": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "47c3996c3b50ccaa",
+   "research_view_sha256_tr": "47c3996c3b50ccaa",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Fit: 'skinny' was removed in V1; use 'slim' (allowed: ['slim', 'regular', 'relaxed', 'oversized']).",
+   "first_message_tr": "Kesim: 'skinny' V1'de kaldırıldı; bunun yerine 'Dar kesim' kullanın (izin verilenler: 'Dar kesim', 'Normal kesim', 'Rahat kesim', 'Oversize (bol kesim)')."
+  },
+  "removed_length": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "e1f8b840d4dfe3ba",
+   "research_view_sha256_tr": "e1f8b840d4dfe3ba",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Length: 'cropped' was removed in V1 (allowed: ['standard', 'long']).",
+   "first_message_tr": "Boy: 'cropped' V1'de kaldırıldı (izin verilenler: 'Standart boy', 'Uzun boy')."
+  },
+  "missing_segment": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "05cd4730164c2c4f",
+   "research_view_sha256_tr": "05cd4730164c2c4f",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Please choose a segment.",
+   "first_message_tr": "Lütfen bir hedef grup seçin."
+  },
+  "bad_segment": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "a5401ac7aad98a9a",
+   "research_view_sha256_tr": "a5401ac7aad98a9a",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "This segment is not available in the CAGO TRAIN data.",
+   "first_message_tr": "Bu hedef grup CAGO TRAIN verisinde mevcut değil."
+  },
+  "bad_category": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "ebb4c7da41c40042",
+   "research_view_sha256_tr": "ebb4c7da41c40042",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "This garment category is not available in the CAGO TRAIN data.",
+   "first_message_tr": "Bu giysi kategorisi CAGO TRAIN verisinde mevcut değil."
+  },
+  "unknown_field": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "9790c2c6d7f56711",
+   "research_view_sha256_tr": "9790c2c6d7f56711",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Unknown field: unknown field 'bogus'.",
+   "first_message_tr": "Bilinmeyen alan: 'bogus'."
+  },
+  "bad_bool": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "e993cd0bacb0a990",
+   "research_view_sha256_tr": "e993cd0bacb0a990",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Invalid value for Water repellency: 'yes' is not allowed: only true or 'No preference' is allowed.",
+   "first_message_tr": "Su iticilik için geçersiz değer: 'yes' kabul edilmiyor: yalnızca evet ya da 'Tercih yok' seçilebilir."
+  },
+  "bad_colour": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "152b7fff0b51ae21",
+   "research_view_sha256_tr": "152b7fff0b51ae21",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Invalid value for Colour: colour must be a non-empty string or null.",
+   "first_message_tr": "Renk için geçersiz değer: renk boş olmayan bir metin olmalı ya da boş bırakılmalı."
+  },
+  "bad_forbidden_type": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "5abcf196591d8970",
+   "research_view_sha256_tr": "5abcf196591d8970",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Invalid value for Forbidden materials: must be a list of material names or null.",
+   "first_message_tr": "Yasaklı malzemeler için geçersiz değer: malzeme adlarından oluşan bir liste olmalı ya da boş bırakılmalı."
+  },
+  "multi_error": {
+   "status": "invalid_request",
+   "digest_en": null,
+   "digest_tr": null,
+   "research_view_sha256_en": "b0291d780ed3edab",
+   "research_view_sha256_tr": "b0291d780ed3edab",
+   "identical": true,
+   "candidate_ids": [],
+   "roles": [],
+   "role_titles_en": [],
+   "role_titles_tr": [],
+   "pareto_front": [],
+   "first_message_en": "Invalid value for Stretch: 'medium' is not one of ['none', 'low', 'high']; choose one of these or 'No preference'.",
+   "first_message_tr": "Esneme için geçersiz değer: 'medium' şu seçeneklerden biri değil: 'Esneme yok', 'Düşük', 'Yüksek'; bunlardan birini ya da 'Tercih yok' seçeneğini seçin."
+  },
+  "unavailable_pref": {
+   "status": "ok",
+   "digest_en": "b38747cf1843bdad3bcb12ee",
+   "digest_tr": "b38747cf1843bdad3bcb12ee",
+   "research_view_sha256_en": "d81bce0b8d809ddf",
+   "research_view_sha256_tr": "d81bce0b8d809ddf",
+   "identical": true,
+   "candidate_ids": [
+    "candB_ee07db02aa01491d"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_ee07db02aa01491d"
+   ],
+   "first_message_en": "Stretch is not available for this garment category, so this preference was not used.",
+   "first_message_tr": "Esneme bu giysi kategorisi için kullanılamıyor; bu nedenle bu tercih dikkate alınmadı."
+  },
+  "unavailable_only_pref": {
+   "status": "ok",
+   "digest_en": "b38747cf1843bdad3bcb12ee",
+   "digest_tr": "b38747cf1843bdad3bcb12ee",
+   "research_view_sha256_en": "fa359719569cae32",
+   "research_view_sha256_tr": "fa359719569cae32",
+   "identical": true,
+   "candidate_ids": [
+    "candB_ee07db02aa01491d"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_ee07db02aa01491d"
+   ],
+   "first_message_en": "Stretch is not available for this garment category, so this preference was not used.",
+   "first_message_tr": "Esneme bu giysi kategorisi için kullanılamıyor; bu nedenle bu tercih dikkate alınmadı."
+  },
+  "black_cell": {
+   "status": "ok",
+   "digest_en": "deea972d5ef3704fa0a7e79e",
+   "digest_tr": "deea972d5ef3704fa0a7e79e",
+   "research_view_sha256_en": "de05b4179ef732fb",
+   "research_view_sha256_tr": "de05b4179ef732fb",
+   "identical": true,
+   "candidate_ids": [
+    "candB_86cfd4ebd821f6cf"
+   ],
+   "roles": [
+    [
+     "balanced",
+     "sorting_focused",
+     "intent_focused"
+    ]
+   ],
+   "role_titles_en": [
+    [
+     "Balanced",
+     "Sorting-focused",
+     "Intent-focused"
+    ]
+   ],
+   "role_titles_tr": [
+    [
+     "Dengeli",
+     "Ayıklama Odaklı",
+     "Tercih Odaklı"
+    ]
+   ],
+   "pareto_front": [
+    "candB_86cfd4ebd821f6cf"
+   ],
+   "first_message_en": "No candidate reached zero detected SR1–SR5 violations (lowest: 1). Every candidate with the lowest violation count keeps the SR4 colour flag: the colour is inherited from TRAIN templates and is not changed by CAGO V1.",
+   "first_message_tr": "Hiçbir aday sıfır tespit edilmiş SR1–SR5 ihlaline ulaşamadı (en düşük: 1). En düşük ihlal sayısına sahip tüm adaylarda SR4 renk işareti kalıyor: renk TRAIN şablonlarından devralınır ve CAGO V1 tarafından değiştirilmez."
+  }
+ }
+}

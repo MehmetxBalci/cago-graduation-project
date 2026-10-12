@@ -8,6 +8,12 @@ python -m app.demo_scenarios        # writes docs/v1_demo_evidence.json (full re
 python -m app.browser_smoke         # drives S1, S2, S3, S5 in a real browser (Chromium), writes docs/demo_screenshots/
 ```
 
+V1.1: every scenario can also be shown in Turkish with the **EN / TR** switcher (upper right) without regenerating, or reproduced with
+`python -m app.demo_scenarios --lang tr` (writes `docs/v1_1_demo_evidence_tr.json`; research outputs identical to the English run,
+only the wording differs). `python -m app.browser_smoke_i18n` checks the language switch in a real browser. UI labels below are the
+English ones; in Turkish, e.g. Segment `women` = Hedef grup *Kadın*, `trousers` = *Pantolon*, `linen` = *Keten*, `relaxed` = *Rahat kesim*,
+Breathability `high` = Nefes alabilirlik *Yüksek*.
+
 Two consecutive runs of `app.demo_scenarios` produced byte-identical evidence (apart from the Python version field). The digest is the
 frozen evaluation digest of the result. Observed values below were recorded on 2026-10-09 (Python 3.13, Linux).
 Only S8 uses synthetic input, and it is labelled as such.
