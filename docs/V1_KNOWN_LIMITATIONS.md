@@ -29,6 +29,20 @@
 * Explanations are rewritten into plain language from structured evidence; unusual evidence tokens that have no mapping are shown
   unchanged. The original technical explanation is always shown beside it.
 
+## Localization (V1.1)
+* Two languages: English (default) and Turkish. The wording is presentation-only; research outputs are identical in both (tested).
+* The *Technical evidence* line under each preference is the frozen engine's own English explanation and is shown verbatim in
+  Turkish too. Evidence tokens without a mapping and unknown warning codes (none occur with the frozen engine) would also appear in
+  their original form.
+* Dataset colours are free retail names; parts without a reliable Turkish translation (pattern, licence or character names such as
+  `spider-man`, `mole`) are shown as in the data. Some materials keep their identifier (`elastomultiester`, `lyocell`, polymer
+  abbreviations).
+* Built-in Streamlit texts that the app cannot set (e.g. "No results" inside an empty dropdown search, the "Deploy" / main menu, the
+  "Running..." indicator) stay in English.
+* The real-browser language check of the V1.1 build was run on the SYNTHETIC test fixture because the processed TRAIN data
+  (`garment_representation.parquet`) was not available in that environment; re-run `python -m app.browser_smoke_i18n` and
+  `python -m app.demo_scenarios --lang tr` with the real data before presenting.
+
 ## Platform and environment
 * Verified on Linux with Python 3.12.3 and 3.13 (pandas 2.3.3, pyarrow 25.0.1, Streamlit 1.65.0). Windows and macOS commands are
   documented but were **not executed** in this release check.

@@ -59,8 +59,9 @@ class MissingDataError(RuntimeError):
 class DataLoadError(RuntimeError):
     """A required processed file exists but cannot be used (corrupted, wrong format, missing columns / keys, no TRAIN rows)."""
 
-    def __init__(self, processed_dir: Path, file: str, problem: str):
+    def __init__(self, processed_dir: Path, file: str, problem: str, code: str | None = None, params: dict[str, Any] | None = None):
         self.processed_dir, self.file, self.problem = Path(processed_dir), file, problem
+        self.code, self.params = code, dict(params or {})          # structured problem for the localized UI (V1.1.0)
         super().__init__(f"{file} in {processed_dir}: {problem}")
 
 
@@ -112,19 +113,22 @@ def read_train_representation(processed_dir: Path) -> pd.DataFrame:
     try:
         schema_cols = set(pq.read_schema(path).names)
     except Exception as exc:                          # ArrowInvalid, OSError, ...: not a readable parquet file
-        raise DataLoadError(processed_dir, name, f"not a readable Parquet file ({type(exc).__name__}: {exc})") from exc
+        err = f"{type(exc).__name__}: {exc}"
+        raise DataLoadError(processed_dir, name, f"not a readable Parquet file ({err})", "unreadable_parquet", {"error": err}) from exc
     absent = [c for c in REPRESENTATION_COLUMNS if c not in schema_cols]
     if absent:
-        raise DataLoadError(processed_dir, name, "required column(s) missing: " + ", ".join(absent))
+        raise DataLoadError(processed_dir, name, "required column(s) missing: " + ", ".join(absent), "missing_columns",
+                            {"columns": ", ".join(absent)})
     try:
         rep = pd.read_parquet(path, columns=REPRESENTATION_COLUMNS, filters=[("split", "==", "train")])
     except Exception as exc:
-        raise DataLoadError(processed_dir, name, f"TRAIN rows could not be read ({type(exc).__name__}: {exc})") from exc
+        err = f"{type(exc).__name__}: {exc}"
+        raise DataLoadError(processed_dir, name, f"TRAIN rows could not be read ({err})", "train_rows_unreadable", {"error": err}) from exc
     rep = rep.reset_index(drop=True)
     if set(rep["split"].unique()) - {"train"}:
         raise ValueError("application data must contain TRAIN rows only")
     if rep.empty:
-        raise DataLoadError(processed_dir, name, "the file contains no rows with split == 'train'")
+        raise DataLoadError(processed_dir, name, "the file contains no rows with split == 'train'", "no_train_rows")
     return rep
 
 
@@ -132,14 +136,16 @@ def _read_json(processed_dir: Path, name: str) -> Any:
     try:
         return json.loads((Path(processed_dir) / name).read_text(encoding="utf-8"))
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
-        raise DataLoadError(processed_dir, name, f"not a readable JSON file ({type(exc).__name__}: {exc})") from exc
+        err = f"{type(exc).__name__}: {exc}"
+        raise DataLoadError(processed_dir, name, f"not a readable JSON file ({err})", "unreadable_json", {"error": err}) from exc
 
 
 def read_vocabulary(processed_dir: Path) -> dict[str, Any]:
     vocab = _read_json(processed_dir, "ml_material_vocabulary.json")
     absent = [k for k in VOCAB_KEYS if not isinstance(vocab, dict) or k not in vocab]
     if absent:
-        raise DataLoadError(processed_dir, "ml_material_vocabulary.json", "required key(s) missing: " + ", ".join(absent))
+        raise DataLoadError(processed_dir, "ml_material_vocabulary.json", "required key(s) missing: " + ", ".join(absent), "missing_keys",
+                            {"keys": ", ".join(absent)})
     return vocab
 
 
@@ -148,9 +154,10 @@ def read_capabilities(processed_dir: Path) -> dict[str, Any]:
     try:
         caps = load_capabilities(Path(processed_dir) / name)
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
-        raise DataLoadError(processed_dir, name, f"not a readable JSON file ({type(exc).__name__}: {exc})") from exc
+        err = f"{type(exc).__name__}: {exc}"
+        raise DataLoadError(processed_dir, name, f"not a readable JSON file ({err})", "unreadable_json", {"error": err}) from exc
     if not isinstance(caps, dict) or not isinstance(caps.get("categories"), dict):
-        raise DataLoadError(processed_dir, name, "required key 'categories' missing")
+        raise DataLoadError(processed_dir, name, "required key 'categories' missing", "missing_categories")
     return caps
 
 
@@ -190,6 +197,11 @@ def load_app_data(processed_dir: Path = DEFAULT_PROCESSED_DIR) -> AppData:
 
 
 # ---------------------------------------------------------------- form <-> request
+REASON_INSUFFICIENT = "not enough labelled TRAIN garments for this category"
+REASON_NOT_APPLICABLE = "not applicable to this garment category in CAGO V1"
+REASON_CODES = {REASON_INSUFFICIENT: "insufficient_train_support", REASON_NOT_APPLICABLE: "not_applicable"}   # -> i18n key availability.<code>
+
+
 def field_availability(category: str | None, caps: dict[str, Any]) -> dict[str, dict[str, Any]]:
     """Per UI field: enabled flag + human-readable reason when disabled (from the frozen capability table)."""
     out: dict[str, dict[str, Any]] = {}
@@ -201,8 +213,7 @@ def field_availability(category: str | None, caps: dict[str, Any]) -> dict[str, 
         reason = None
         if not on:
             d = decisions.get(rf)
-            reason = ("not enough labelled TRAIN garments for this category" if d == "disabled_insufficient_train_support"
-                      else "not applicable to this garment category in CAGO V1")
+            reason = REASON_INSUFFICIENT if d == "disabled_insufficient_train_support" else REASON_NOT_APPLICABLE
         out[f] = {"enabled": on, "reason": reason}
     return out
 
