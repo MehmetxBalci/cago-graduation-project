@@ -4,7 +4,7 @@
     python -m app.browser_smoke [--out docs/demo_screenshots]
 
 Starts `streamlit run app/streamlit_app.py` headless on a free port, drives scenarios S1, S2, S3 and S5 of
-docs/V1_DEMO_SCENARIOS.md through the sidebar form, checks the rendered text and saves screenshots. Exit code 0 = all checks passed.
+docs/V1_DEMO_SCENARIOS.md through the sidebar (S3 since V1.2: the empty cell is no longer offered), checks the rendered text and saves screenshots. Exit code 0 = all checks passed.
 """
 from __future__ import annotations
 
@@ -116,14 +116,22 @@ def main() -> int:
                            and "No violations detected under the CAGO SR1–SR5 sorting-screening rules." in body))
             pg.screenshot(path=str(out / "04_single_candidate.png"), full_page=True)
 
-            # S3: baby / skirts
+            # S3: baby / skirts has no eligible TRAIN template. V1.2 no longer offers it in the dropdown (the service still
+            # answers a direct request with the no_templates message, see app/tests/test_category_availability.py)
             fresh()
             choose(pg, "Segment", "baby")
-            choose(pg, "Garment category", "skirts")
-            generate()
-            body = pg.inner_text("body")
-            checks.append(("S3: empty TRAIN pool explained", "no TRAIN garments for this segment and category" in body))
-            pg.screenshot(path=str(out / "03_no_templates.png"), full_page=True)
+            box = pg.locator('input[aria-label="Garment category"]').first
+            offered = []
+            if box.count():
+                box.click()
+                pg.wait_for_timeout(400)
+                offered = [o.inner_text().strip() for o in pg.get_by_role("option").all()]
+                pg.screenshot(path=str(out / "03_no_templates.png"), full_page=True)
+                pg.keyboard.press("Escape")
+            else:
+                pg.screenshot(path=str(out / "03_no_templates.png"), full_page=True)
+            checks.append(("S3: baby / skirts (no eligible TRAIN template) is not offered",
+                           "skirts" not in offered and not any("no TRAIN templates" in o for o in offered)))
 
             # S5: preferred linen is also forbidden; stretch high with elastane forbidden
             fresh()

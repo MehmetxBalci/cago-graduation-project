@@ -29,6 +29,15 @@
 * Explanations are rewritten into plain language from structured evidence; unusual evidence tokens that have no mapping are shown
   unchanged. The original technical explanation is always shown beside it.
 
+## Category availability (V1.2)
+* A category is offered for a segment when at least one TRAIN garment of that exact cell passes the frozen template-eligibility check.
+  One eligible template is enough to be listed; such cells give few and less diverse candidates (the small-pool message explains this),
+  and forbidden materials can still leave no candidate (`no_candidates`).
+* The list follows the processed TRAIN data shipped with the release. Rebuilt data with different TRAIN rows changes the lists.
+* A segment without any available category is handled (message, generation disabled), but the counts of the real data could not be
+  re-checked in the V1.2 build environment because `garment_representation.parquet` was absent there; run
+  `python -m app.browser_smoke_categories` with the real data to record them.
+
 ## Localization (V1.1)
 * Two languages: English (default) and Turkish. The wording is presentation-only; research outputs are identical in both (tested).
 * The *Technical evidence* line under each preference is the frozen engine's own English explanation and is shown verbatim in

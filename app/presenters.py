@@ -327,3 +327,29 @@ def invalid_value_text(detail: str, tr: Translator = EN) -> str:
     """Remove API-only hints ("use null ...") from frozen validation messages shown in the UI (English rendering)."""
     return (detail.replace(" (use null for no preference)", tr.t("error.no_preference_hint"))
             .replace("use true or null", tr.t("error.true_only_hint")))
+
+
+# ---------------------------------------------------------------- request summary (V1.2: identifies which request a result belongs to)
+_SUMMARY_FIELDS = (("target_segment", "segment", "segment"), ("detail_category", "category", "category"),
+                   ("preferred_dominant_material", "preferred_material", "material"), ("forbidden_materials", "forbidden_materials", "material"),
+                   ("colour", "colour", "colour"), ("fit", "fit", "fit"), ("length_cut", "length", "length_cut"),
+                   ("stretch", "stretch", "stretch"), ("thermal_warmth", "thermal_warmth", "thermal_warmth"),
+                   ("breathability", "breathability", "breathability"), ("durability_wear", "durability", "durability_wear"),
+                   ("moisture_wicking", "moisture_wicking", None), ("water_repellent", "water_repellent", None))
+
+
+def request_summary(raw_request: dict[str, Any], tr: Translator = EN) -> str:
+    """Readable one-line summary of a raw request (internal values shown with their display labels)."""
+    parts = []
+    for rf, ui, domain in _SUMMARY_FIELDS:
+        v = raw_request.get(rf)
+        if v is None or v == [] or v is False:
+            continue
+        if v is True:
+            shown = tr.t("value.yes")
+        elif isinstance(v, list):
+            shown = tr.t("request.list_sep").join(tr.label(domain, x) for x in v)
+        else:
+            shown = tr.label(domain, v) if domain else str(v)
+        parts.append(tr.t("request.item", label=tr.field(ui), value=shown))
+    return tr.t("request.sep").join(parts)

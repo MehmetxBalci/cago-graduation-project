@@ -36,10 +36,13 @@ CHROMIUM_FALLBACK = "/opt/pw-browsers/chromium"
 
 
 def write_fixture_data(d: Path) -> Path:
-    from app.tests.app_fixtures import CAPS, REP_ALL, VOCAB_DOC
-    REP_ALL.to_parquet(d / "garment_representation.parquet")
+    """SYNTHETIC processed folder: the V1.2 category fixture (app/tests/category_fixtures.py), a superset of the research test
+    fixture with extra cells for segment-aware category filtering (women/trousers is unchanged)."""
+    from app.tests.app_fixtures import VOCAB_DOC
+    from app.tests.category_fixtures import CAPS_EXT, REP_EXT_ALL
+    REP_EXT_ALL.to_parquet(d / "garment_representation.parquet")
     (d / "ml_material_vocabulary.json").write_text(json.dumps(VOCAB_DOC), encoding="utf-8")
-    (d / "category_capabilities.json").write_text(json.dumps(CAPS), encoding="utf-8")
+    (d / "category_capabilities.json").write_text(json.dumps(CAPS_EXT), encoding="utf-8")
     return d
 
 

@@ -474,14 +474,16 @@ def test_turkish_form_generates_the_same_recommendation(fixture_app):
 
 
 def test_turkish_empty_state_and_disabled_fields(fixture_app):
+    """V1.2: a segment only lists categories with eligible TRAIN templates (men -> shorts in this fixture); the empty
+    TRAIN-pool message is still produced by the service for direct requests."""
     at = fixture_app
     _switch(at, "tr")
     _sb(at)["Hedef grup"].set_value("men")
     at.run()
-    assert any("TRAIN giysisi yok" in w.value for w in at.sidebar.warning)
-    at.sidebar.button[0].click()
-    at.run()
-    assert not at.exception and any("TRAIN giysisi yok" in e.value for e in at.error)
+    assert _sb(at)["Giysi kategorisi"].options == ["Şort"] and _sb(at)["Giysi kategorisi"].value == "shorts"
+    assert not any("TRAIN şablonu yok" in o for o in _sb(at)["Giysi kategorisi"].options)
+    r = run({"target_segment": "men"}, "tr")                                  # men/trousers submitted directly to the service
+    assert r["status"] == STATUS_NO_TEMPLATES and "TRAIN giysisi yok" in r["messages"][-1]["text"]
 
 
 def test_turkish_missing_data_screen(monkeypatch, tmp_path):

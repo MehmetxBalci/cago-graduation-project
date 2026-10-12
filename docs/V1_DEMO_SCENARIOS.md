@@ -61,7 +61,10 @@ Both come from template `g_b0805103496ec5d1` (grey, relaxed).
 
 ## S3 — Empty TRAIN template pool
 
-**UI input:** Segment `baby`, Garment category `skirts` (marked "(no TRAIN templates)" in the list).
+**UI input (V1.0 / V1.1):** Segment `baby`, Garment category `skirts` (marked "(no TRAIN templates)" in the list).
+**V1.2:** the category list of a segment only contains categories with at least one eligible TRAIN template, so `skirts` is no longer
+offered for `baby`; the scenario is reproduced through the service (`python -m app.demo_scenarios`), which still returns `no_templates`
+with the message below. `python -m app.browser_smoke` checks that the option is absent (screenshot `03_no_templates.png`).
 
 **Expected:** sidebar warning before submitting; after submitting an error, no cards, no fabricated fallback.
 

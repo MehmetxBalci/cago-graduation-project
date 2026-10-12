@@ -30,10 +30,10 @@ import streamlit as st  # noqa: E402
 from app.adapters import (DEFAULT_PROCESSED_DIR, REASON_CODES, DataLoadError, MissingDataError, enum_options, field_availability,  # noqa: E402
                           form_to_raw_request, load_app_data)
 from app.i18n import DEFAULT_LANGUAGE, LANGUAGE_BUTTONS, SUPPORTED_LANGUAGES, Translator, get_translator  # noqa: E402
-from app.presenters import disclaimer, materials_text, roles_text, sr_rules  # noqa: E402
+from app.presenters import disclaimer, materials_text, request_summary, roles_text, sr_rules  # noqa: E402
 from app.service import FINAL_TEST_BUDGET, STATUS_OK, AppConfig, generate_recommendations, localize_result  # noqa: E402
-from app.state import (DEFAULT_SEED, GENERATION_COUNT_KEY, LANG_KEY, current_result, record_generation, result_is_stale,  # noqa: E402
-                       store_result)
+from app.state import (DEFAULT_SEED, GENERATION_COUNT_KEY, LANG_KEY, current_result, record_generation, resolve_category,  # noqa: E402
+                       result_is_stale, store_result)
 
 PROCESSED_DIR = Path(os.environ.get("CAGO_PROCESSED_DIR", DEFAULT_PROCESSED_DIR))
 NO_PREF = "No preference"                      # internal sentinel option (displayed via the catalog), never sent to the engine
@@ -43,6 +43,7 @@ BOOL_FIELDS = ("moisture_wicking", "water_repellent")
 UNAVAILABLE_ORDER = ("fit", "length", "stretch", "thermal_warmth", "breathability", "durability", "moisture_wicking", "water_repellent")
 KEYS = {f: f"w_{f}" for f in ("segment", "category", "preferred_material", "forbidden_materials", "colour", *ENUM_FIELDS, *BOOL_FIELDS,
                                "seed", "n_templates", "per_template")}
+SAVED_INPUTS_KEY = "_cago_saved_inputs"          # inputs hidden while a segment has no available category (restored afterwards)
 ENUM_DOMAIN = {"fit": "fit", "length": "length_cut", "stretch": "stretch", "thermal_warmth": "thermal_warmth",
                "breathability": "breathability", "durability": "durability_wear"}
 
@@ -122,20 +123,52 @@ def _fmt(labels: dict, tr: Translator):
     return lambda v: tr.t("form.no_preference") if v == NO_PREF else labels.get(v, str(v))
 
 
+CATEGORY_DEPENDENT = ("preferred_material", "forbidden_materials", "colour", *ENUM_FIELDS, *BOOL_FIELDS, "seed", "n_templates", "per_template")
+
+
+def category_select(data, seg: str, tr: Translator) -> str | None:
+    """Garment-category selector restricted to the categories with at least one eligible TRAIN template in `seg`.
+
+    The stored selection is validated BEFORE the widget is created: a category that is still available is kept, a stale one
+    (from the previous segment, an old session or a direct state edit) is replaced, so an invalid combination can never stay in
+    session state. Returns None when the segment has no available category."""
+    cats = data.available_categories(seg)
+    key = KEYS["category"]
+    current = st.session_state.get(key)
+    if current is None:                                    # coming back from a segment without categories
+        current = (st.session_state.get(SAVED_INPUTS_KEY) or {}).get(key)
+    if not cats and current is not None:
+        st.session_state[SAVED_INPUTS_KEY] = {**(st.session_state.get(SAVED_INPUTS_KEY) or {}), key: current}
+    fixed = resolve_category(cats, current)
+    if st.session_state.get(key) != fixed or key not in st.session_state:
+        st.session_state[key] = fixed
+    if not cats:
+        st.sidebar.warning(tr.t("form.no_categories"))
+        return None
+    labels = tr.option_labels("category", cats)
+    return st.sidebar.selectbox(tr.field("category"), cats, key=key, format_func=lambda c: labels.get(c) or tr.label("category", c),
+                                help=tr.t("form.help.category"))
+
+
 def sidebar(data, tr: Translator):
     sb = st.sidebar
     sb.header(tr.t("form.header"))
     segs = data.segments()
     _default(KEYS["segment"], segs[0])
     seg = sb.selectbox(tr.field("segment"), segs, key=KEYS["segment"], format_func=_fmt(tr.option_labels("segment", segs), tr))
-    all_cats = sorted({c for s in data.cells.values() for c in s})
-    cell_counts = data.cells.get(seg, {})
-    _default(KEYS["category"], "trousers" if "trousers" in all_cats else all_cats[0])
-    cat_labels = tr.option_labels("category", all_cats)
-    cat = sb.selectbox(tr.field("category"), all_cats, key=KEYS["category"],
-                       format_func=lambda c: cat_labels[c] + ("" if cell_counts.get(c) else tr.t("form.no_templates_suffix")))
-    if not cell_counts.get(cat):
-        sb.warning(tr.t("form.no_templates_warning"))
+    cat = category_select(data, seg, tr)
+    if cat is None:
+        # keep the other inputs while they are hidden (Streamlit drops the state of widgets that are not rendered)
+        saved = st.session_state.get(SAVED_INPUTS_KEY) or {}
+        saved.update({KEYS[f]: st.session_state[KEYS[f]] for f in CATEGORY_DEPENDENT if KEYS[f] in st.session_state})
+        st.session_state[SAVED_INPUTS_KEY] = saved
+        sb.button(tr.t("form.generate"), type="primary", width="stretch", key="cago_generate", disabled=True)
+        return {"segment": seg, "category": None}, int(saved.get(KEYS["seed"], DEFAULT_SEED)), AppConfig(
+            n_templates=int(saved.get(KEYS["n_templates"], FINAL_TEST_BUDGET["n_templates"])),
+            candidates_per_template=int(saved.get(KEYS["per_template"], FINAL_TEST_BUDGET["candidates_per_template"]))), False
+    for k, v in (st.session_state.pop(SAVED_INPUTS_KEY, None) or {}).items():
+        if k not in st.session_state and k != KEYS["category"]:
+            st.session_state[k] = v
     avail = field_availability(cat, data.capabilities)
     mats = data.materials_for(cat)
     colours = [c for c, _ in data.colours.get((seg, cat), [])[:40]]
@@ -338,6 +371,9 @@ def main() -> None:
         return
     form, seed, cfg, submitted = sidebar(data, tr)
     raw = form_to_raw_request(form)
+    if submitted and not data.is_available(form.get("segment"), form.get("category")):
+        st.error(tr.t("form.invalid_combination"))             # defensive: the selector never offers such a combination
+        submitted = False
     if submitted:
         bar = st.progress(0.0, text=tr.t("app.progress_start"))
         result = generate_recommendations(form, seed=seed, data=data, app_cfg=cfg, is_form=True, lang=tr.lang,
@@ -347,11 +383,12 @@ def main() -> None:
         record_generation(st.session_state)
     result = current_result(st.session_state)
     if result is None:
-        st.info(tr.t("app.start_hint"))
+        st.info(tr.t("form.no_categories") if form.get("category") is None else tr.t("app.start_hint"))
         return
     view = localized_view(result, tr)
     if result_is_stale(st.session_state, raw, seed, {"n_templates": cfg.n_templates, "candidates_per_template": cfg.candidates_per_template}):
         st.warning(tr.t("app.stale_results"))
+        st.caption(tr.t("app.stale_request", request=request_summary(result["raw_request"], tr)))
     status_line(view, tr)
     show_messages(view)
     if view["status"] != STATUS_OK:

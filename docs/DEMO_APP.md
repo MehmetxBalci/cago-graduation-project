@@ -1,4 +1,4 @@
-# CAGO Demo App V1.1
+# CAGO Demo App V1.2
 
 A local Streamlit application on top of the frozen CAGO research pipeline. A user chooses garment requirements; the app runs the frozen
 Sorting-Aware Generator B3, evaluates every candidate with the frozen Intent Alignment, SR1–SR5 Sorting Compatibility and
@@ -9,6 +9,7 @@ CAGO is a graduation-project prototype. Sorting results refer only to the SR1–
 guarantee recyclability or manufacturability.
 
 V1.1.0 adds a bilingual interface (English default, Turkish). See *Language* below and [LOCALIZATION.md](LOCALIZATION.md).
+V1.2.0 lists only the garment categories that have eligible TRAIN templates in the selected segment (see *Available categories*).
 
 ## Installation and start
 
@@ -83,9 +84,35 @@ Rebuilt files must reproduce the hashes recorded in `configs/final_test_evaluati
 * In Turkish, the *Technical evidence* line under each preference shows the frozen engine's original English explanation (by design);
   colour names that have no reliable Turkish equivalent (pattern / character names) are shown as in the dataset.
 
+## Available categories (V1.2)
+
+* **Definition.** For every TRAIN cell (segment, garment category) the app counts the garments that the frozen template selector accepts
+  as templates: `split == "train"`, exact segment and category, and `cago.generation.template_selector.ineligibility_reason(row,
+  template_components(row.components))` is `None` (fully usable composition, no unmapped or OTHER material, every component sums to
+  100 %). These are the frozen functions the generator itself uses, so the count equals the `eligible_templates` value the generator
+  reports for that request (tested for every cell). Forbidden materials and soft preferences only rank templates, so they do not
+  change availability. Computed once at start-up in `app/adapters.py` (`eligible_template_counts`, about 0.5 s for the 33,265 TRAIN
+  garments; cached with the rest of the data).
+* **Why hidden.** A category with zero eligible TRAIN templates in a segment can never produce a recommendation; V1.0/V1.1 listed it
+  with "(no TRAIN templates)". V1.2 removes it from the list instead. Nothing is hard-coded: the lists come only from the TRAIN data,
+  so e.g. a men's category appears exactly when there is a usable men's TRAIN garment of that category. A category's presence in the
+  vocabulary or in `category_capabilities.json`, or TRAIN garments that are not usable as templates, do not make it available.
+  VAL and TEST rows are never read (the parquet is filtered to TRAIN while loading; there is no fallback).
+* **Changing the segment.** A category that is still available stays selected; one that disappears is replaced (by `trousers` if
+  available, otherwise the first available category) before the list is drawn, so an invalid combination can never stay in the
+  session or be submitted. Fit, length, material, colour and functional options refresh for the new cell. Inputs are restored after
+  visiting a segment without categories.
+* **Earlier results.** If inputs change after generating, the results stay visible with a warning that they are outdated and a line
+  naming the request they belong to ("The results below belong to the previous request: Segment: women · Garment category: trousers
+  · …"). Changing only the language never marks results as outdated and never regenerates.
+* **Direct service requests.** `generate_recommendations` does not rely on the dropdown: a segment / category pair without eligible TRAIN
+  templates returns the existing structured status `no_templates` (no candidate is generated); unknown segments or categories return
+  `invalid_request` from the frozen validation.
+
 ## Using the app
 
-1. Sidebar: **Segment** and **Garment category** (categories without TRAIN garments in that segment are marked "(no TRAIN templates)").
+1. Sidebar: **Segment** and **Garment category**. The category list only contains categories with at least one eligible TRAIN template
+   in the selected segment (V1.2; see *Available categories*). If a segment has none, a message says so and generation is disabled.
 2. Materials: preferred dominant material and forbidden materials (hard constraint). Look: colour (TRAIN colours of the cell), fit, length.
    Functional preferences: stretch, thermal warmth, breathability, durability, moisture wicking, water repellency. Fields that the
    category does not support are greyed out with the reason, listed under *Unavailable for this category*, and reset to
@@ -112,8 +139,12 @@ forbidden, possible preference conflicts, no TRAIN templates, no candidate gener
 zero-violation candidate (with the SR4 colour explanation when relevant), and why there is no Intent-focused recommendation
 (no soft preference, preference unavailable, or given but not scorable).
 
-Screenshots (`docs/demo_screenshots/`, produced by `python -m app.browser_smoke`): `01_start.png`, `02_results.png`,
-`02b_explanations.png`, `03_no_templates.png`, `04_single_candidate.png`, `05_conflicts.png`.
+Screenshots (`docs/demo_screenshots/`, produced by `python -m app.browser_smoke` with the V1.0 UI): `01_start.png`, `02_results.png`,
+`02b_explanations.png`, `03_no_templates.png` (V1.0 shows the old "(no TRAIN templates)" entry; re-running the script with V1.2
+replaces it), `04_single_candidate.png`, `05_conflicts.png`.
+Category filtering (`python -m app.browser_smoke_categories`; the files in `docs/demo_screenshots/v1_2_categories_fixture/` were produced
+with `--fixture-data`, i.e. SYNTHETIC data, because the real processed data was not available in the V1.2 build environment):
+`categories_en_men.png`, `categories_tr_men.png`, `categories_en_stale_result.png`, `categories_tr_stale_result.png`.
 Language switch (`python -m app.browser_smoke_i18n`; the files in `docs/demo_screenshots/v1_1_i18n_fixture/` were produced with
 `--fixture-data`, i.e. the SYNTHETIC test fixture, because the real processed data was not available in the V1.1 build environment):
 `i18n_01_en_results.png`, `i18n_02_tr_results.png` (same recommendation in Turkish), `i18n_03_en_after_switch.png`.
@@ -127,13 +158,14 @@ app/
                       render_result / localize_result: wording of a stored result in a language (no re-run)
   i18n/               en.py / tr.py catalogs (stable keys), translator.py (lookup, interpolation, display <-> internal mapping)
   adapters.py         TRAIN-only data loader with file checks, RequirementContext from TRAIN rows, form -> request mapping,
-                      field availability
+                      field availability, eligible TRAIN template counts per (segment, category) (V1.2)
   presenters.py       display-only material merging, SR1–SR5 wording, plain-language preference / change / rule wording
   state.py            session-state helpers (result storage, stale-result detection)
   integrity.py        hash snapshot of frozen research code / results (frozen_research_hashes.json)
   demo_scenarios.py   reproducible V1 demo scenarios -> docs/v1_demo_evidence.json
   browser_smoke.py    optional Playwright browser smoke test (writes docs/demo_screenshots)
   browser_smoke_i18n.py  optional Playwright EN -> TR -> EN test (selections, no regeneration, console errors, screenshots)
+  browser_smoke_categories.py  optional Playwright test of the segment-aware category lists (EN + TR, every segment)
   tests/              application-layer tests (+ headless Streamlit AppTest)
 ```
 
